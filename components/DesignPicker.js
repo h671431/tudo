@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 const options = {
   theme: ["orange", "purple"],
   pattern: ["none", "dots", "checkers", "stripes"],
-  look: ["whiteboard", "sticker", "soft"],
+  look: ["modern", "whiteboard", "sticker", "soft"],
 };
 const labels = { theme: "Colour", pattern: "Pattern", look: "Look" };
 
@@ -15,7 +15,7 @@ export default function DesignPicker() {
   const [design, setDesign] = useState({
     theme: "orange",
     pattern: "none",
-    look: "whiteboard",
+    look: "modern",
     closed: true,
   });
 
@@ -23,7 +23,7 @@ export default function DesignPicker() {
   useEffect(() => {
     let saved = {};
     try {
-      saved = JSON.parse(localStorage.getItem("design-v3")) || {};
+      saved = JSON.parse(localStorage.getItem("design-v4")) || {};
     } catch (e) {}
     setDesign((d) => ({ ...d, ...saved, closed: saved.closed ?? window.innerWidth < 700 }));
   }, []);
@@ -33,7 +33,7 @@ export default function DesignPicker() {
     const root = document.documentElement;
     for (const key in options) root.dataset[key] = design[key];
     try {
-      localStorage.setItem("design-v3", JSON.stringify(design));
+      localStorage.setItem("design-v4", JSON.stringify(design));
     } catch (e) {}
   }, [design]);
 

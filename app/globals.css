@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Oswald:wght@500;600;700&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Caveat:wght@600;700&family=Oswald:wght@500;600;700&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&family=Patrick+Hand&display=swap');
 
 /* Fargepalett 1: oransje (standard) */
 :root {
@@ -753,6 +753,267 @@ footer a { color: var(--accent); }
 .write-anim .hero .btn,
 .write-anim .hero .note { animation-delay: 4.2s; }
 @keyframes fade-in { from { opacity: 0; transform: translateY(6px); } }
+
+/* Uttrykk «Modern»: rolig og redaksjonelt, myk gradient, hvite paneler og pilleknapper */
+:root[data-look="modern"] {
+  --text: #2B1B47;
+  --page: #F4EFF8;
+  --tint: #F1EAF8;
+  --logo-fill: #FFF8EE;
+  --radius-xl: 32px;
+}
+[data-look="modern"] body {
+  background: var(--page);
+  font-family: 'Manrope', system-ui, sans-serif;
+}
+[data-look="modern"][data-pattern] body,
+[data-look="modern"][data-pattern] .hero { background-image: none; }
+[data-look="modern"] h1,
+[data-look="modern"] h2,
+[data-look="modern"] h3 {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+[data-look="modern"] h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); }
+[data-look="modern"] h2 { font-size: clamp(1.9rem, 4vw, 3rem); }
+[data-look="modern"] h3 { font-weight: 600; letter-spacing: -0.01em; }
+[data-look="modern"] a { color: var(--support); }
+
+/* Svevende menylinje i glass */
+[data-look="modern"] .site-header {
+  top: 12px;
+  margin: 12px;
+  padding: 8px 10px 8px 22px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(43, 27, 71, 0.06);
+  box-shadow: 0 10px 30px rgba(43, 27, 71, 0.08);
+}
+[data-look="modern"] .logo img { height: 38px; }
+[data-look="modern"] .site-header nav { align-items: center; }
+[data-look="modern"] .site-header nav a {
+  color: var(--text);
+  font-weight: 500;
+  font-size: 0.92rem;
+}
+[data-look="modern"] .site-header nav a:hover { background: var(--tint); }
+[data-look="modern"] .site-header nav a[aria-current="page"] { background: var(--tint); color: var(--text); }
+.header-cta { display: none; }
+[data-look="modern"] .header-cta { display: inline-flex; margin: 0 0 0 8px; }
+[data-look="modern"] .site-header nav a.header-cta,
+[data-look="modern"] .site-header nav a.header-cta:hover {
+  background: var(--text);
+  color: #fff;
+  padding: 5px 5px 5px 18px;
+}
+[data-look="modern"] .header-cta::after { width: 30px; height: 30px; }
+
+/* Hero: avrundet flate med myke, svevende fargeflekker */
+[data-look="modern"] .hero {
+  margin: 0 12px;
+  border-radius: var(--radius-xl);
+  background-color: #F8F2FB;
+  min-height: calc(100vh - 110px);
+}
+[data-look="modern"] .hero-small { min-height: 46vh; }
+[data-look="modern"] .blob {
+  border: none;
+  filter: blur(50px);
+  opacity: 0.75;
+}
+[data-look="modern"] .blob.one { background: #FFC9A6; width: 460px; height: 460px; left: -120px; right: auto; top: -80px; }
+[data-look="modern"] .blob.two { background: #FFE08A; width: 360px; height: 360px; right: -60px; bottom: -80px; }
+[data-look="modern"] .blob.three { display: block; border: none; background: #CDB8EA; width: 420px; height: 420px; right: 10%; top: -60px; }
+[data-look="modern"] .hero p.logo-sub { font-family: 'Manrope', sans-serif; font-weight: 600; letter-spacing: 0.4em; font-size: clamp(0.85rem, 2vw, 1.05rem); }
+[data-look="modern"] .hero p.tagline {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  font-size: clamp(1.8rem, 4.2vw, 3.2rem);
+  line-height: 1.1;
+}
+[data-look="modern"] .hero p { font-weight: 500; }
+[data-look="modern"] .hero h1 span { color: var(--support); font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+[data-look="modern"] .hero .note,
+[data-look="modern"] .note {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  border: none;
+  border-radius: 16px;
+  color: var(--text);
+}
+[data-look="modern"] .badge {
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  font-weight: 600;
+  padding: 6px 14px;
+}
+
+/* Pilleknapper med rund pil */
+[data-look="modern"] .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--text);
+  color: #fff;
+  border: none;
+  box-shadow: none;
+  padding: 8px 8px 8px 22px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+[data-look="modern"] .btn::after {
+  content: "→";
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--text);
+  transition: transform 0.2s;
+}
+[data-look="modern"] .btn:hover { transform: none; box-shadow: 0 8px 24px rgba(43, 27, 71, 0.18); }
+[data-look="modern"] .btn:hover::after { transform: translateX(3px); }
+[data-look="modern"] .btn:active { transform: scale(0.98); box-shadow: none; }
+[data-look="modern"] .btn.secondary { background: #fff; color: var(--text); }
+[data-look="modern"] .btn.secondary::after { background: var(--tint); }
+[data-look="modern"] form .btn { justify-self: start; }
+
+/* Hvite, avrundede paneler i stedet for fullbredde-seksjoner */
+[data-look="modern"] .section {
+  background: #fff;
+  margin: 12px;
+  border-radius: var(--radius-xl);
+  padding: 72px 28px;
+}
+[data-look="modern"] main:not(.home main) {
+  background: #fff;
+  border-radius: var(--radius-xl);
+  margin: 12px auto;
+  max-width: calc(var(--wrap) + 80px);
+  padding: 64px 40px;
+}
+[data-look="modern"] .home main { background: none; margin: 0; padding: 0 0 12px; max-width: none; }
+
+[data-look="modern"] .card,
+[data-look="modern"] .phase {
+  background: var(--tint);
+  border: none;
+  border-radius: 24px;
+  box-shadow: none;
+}
+[data-look="modern"] .card:hover { transform: translateY(-4px); }
+[data-look="modern"] .phase { border-top: none; }
+[data-look="modern"] .phase-label { font-family: 'Instrument Serif', serif; font-style: italic; text-transform: none; letter-spacing: 0; font-size: 1.3rem; font-weight: 400; }
+[data-look="modern"] .step-num,
+[data-look="modern"] .card:nth-child(n) .step-num {
+  width: auto;
+  height: auto;
+  display: block;
+  background: none;
+  color: var(--support);
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400;
+  font-size: 3.2rem;
+  line-height: 1;
+}
+
+/* Flisene blir myke gradientkort */
+[data-look="modern"] .tile {
+  border: none;
+  box-shadow: none;
+  border-radius: 28px;
+  color: var(--text);
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  font-size: 1.6rem;
+}
+[data-look="modern"] .tile.main { background: linear-gradient(160deg, #FFEADC, #FFC9A6); }
+[data-look="modern"] .tile.accent { background: linear-gradient(160deg, #FFF6D6, #FFE08A); }
+[data-look="modern"] .tile.support { background: linear-gradient(160deg, #EFE8F8, #CDB8EA); }
+[data-look="modern"] .tile:hover { transform: translateY(-4px); }
+[data-look="modern"] .tile::after {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 1.3rem;
+}
+
+[data-look="modern"] .chip,
+[data-look="modern"] .chip:nth-child(n) {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Fargede paneler */
+[data-look="modern"] .vision-teaser,
+[data-look="modern"] .club {
+  background: linear-gradient(150deg, #7B55B5, #4B2A7B 70%);
+  color: #fff;
+}
+[data-look="modern"] .vision-teaser .btn,
+[data-look="modern"] .club .btn { background: #fff; color: var(--text); }
+[data-look="modern"] .flow-step { background: rgba(255, 255, 255, 0.1); border: none; border-radius: 24px; }
+[data-look="modern"] .flow-icon { border: none; }
+[data-look="modern"] .band { background: linear-gradient(160deg, #FFF6D6, #FFE08A); }
+
+/* Skjema */
+[data-look="modern"] form {
+  background: var(--tint);
+  border: none;
+  border-radius: 28px;
+  box-shadow: none;
+}
+[data-look="modern"] input,
+[data-look="modern"] select,
+[data-look="modern"] textarea {
+  background: #fff;
+  border: 1px solid transparent;
+  border-radius: 14px;
+}
+[data-look="modern"] input:focus,
+[data-look="modern"] select:focus,
+[data-look="modern"] textarea:focus { border-color: var(--support); outline: none; }
+[data-look="modern"] .placeholder-img {
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(160deg, #EFE8F8, #CDB8EA);
+}
+
+/* Footer som mørkt panel */
+[data-look="modern"] footer {
+  margin: 0 12px 12px;
+  border-radius: var(--radius-xl);
+  background: var(--text);
+}
+[data-look="modern"] footer p:first-child {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 2rem;
+  color: #fff;
+}
+[data-look="modern"] footer::before { display: none; }
+[data-look="modern"] footer a { color: var(--accent); }
+
+@media (max-width: 700px) {
+  [data-look="modern"] .site-header { border-radius: 24px; padding: 10px 14px; }
+  [data-look="modern"] .header-cta { display: none; }
+  [data-look="modern"] .section { padding: 56px 20px; }
+  [data-look="modern"] main:not(.home main) { padding: 40px 20px; }
+  [data-look="modern"] .blob.one { width: 280px; height: 280px; }
+  [data-look="modern"] .blob.two { width: 220px; height: 220px; }
+  [data-look="modern"] .blob.three { width: 240px; height: 240px; }
+}
 
 /* Midlertidig designvelger (fjernes når dere har valgt) */
 .design-picker {

@@ -24,9 +24,9 @@ const earlyScript = `
 (function () {
   var d = document.documentElement;
   d.classList.add('js');
-  d.dataset.theme = 'orange'; d.dataset.pattern = 'none'; d.dataset.look = 'whiteboard';
+  d.dataset.theme = 'orange'; d.dataset.pattern = 'none'; d.dataset.look = 'modern';
   try {
-    var s = JSON.parse(localStorage.getItem('design-v3')) || {};
+    var s = JSON.parse(localStorage.getItem('design-v4')) || {};
     ['theme', 'pattern', 'look'].forEach(function (k) { if (s[k]) d.dataset[k] = s[k]; });
   } catch (e) {}
   try {

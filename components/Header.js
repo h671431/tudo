@@ -21,6 +21,9 @@ export default function Header() {
             {item.label}
           </Link>
         ))}
+        <Link className="btn header-cta" href="/ecd">
+          Request a sample
+        </Link>
       </nav>
     </header>
   );
