@@ -1,5 +1,60 @@
 import Link from "next/link";
 
+const tagline = "Make learning fun, accessible and affordable.";
+
+// The letters of "tudo" as single pen strokes, used for the outline, fill and dotted centre line.
+const letters =
+  "M60 50 V126 Q60 140 74 140 M44 90 H80 M104 90 V118 Q104 140 126 140 Q148 140 148 118 V90 V140 " +
+  "M219 40 V140 M219 115 A25 25 0 1 1 169 115 A25 25 0 1 1 219 115 " +
+  "M293 115 A25 25 0 1 1 243 115 A25 25 0 1 1 293 115";
+
+// Large logo on the home page. The "draw", "rule" and "pop" classes are animated in globals.css.
+function LogoMark() {
+  return (
+    <svg viewBox="0 18 340 140" aria-hidden="true">
+      <g strokeWidth="2.5">
+        <line className="rule" x1="4" y1="40" x2="336" y2="40" stroke="#4B2A7B" />
+        <line className="rule" x1="4" y1="90" x2="336" y2="90" stroke="#FFC93C" strokeDasharray="9 7" />
+        <line className="rule" x1="4" y1="140" x2="336" y2="140" stroke="#4B2A7B" />
+      </g>
+      <g fill="none" strokeLinecap="round" strokeLinejoin="round">
+        <path className="draw" pathLength="1" d={letters} stroke="#4B2A7B" strokeWidth="27" />
+        <path className="draw logo-fill" pathLength="1" d={letters} stroke="#FFF8EE" strokeWidth="19" />
+        <path className="pop" d={letters} stroke="#F26B21" strokeWidth="5.5" strokeDasharray="0 10" />
+      </g>
+      <g className="pop" fill="#FFC93C" stroke="#4B2A7B" strokeWidth="2">
+        <circle cx="60" cy="50" r="6" />
+        <circle cx="44" cy="90" r="6" />
+        <circle cx="104" cy="90" r="6" />
+        <circle cx="219" cy="40" r="6" />
+        <circle cx="293" cy="115" r="6" />
+      </g>
+    </svg>
+  );
+}
+
+// Text split into letters so it can appear one letter at a time (see .write-anim in globals.css).
+function WrittenText({ text, className }) {
+  let i = 0;
+  return (
+    <p className={`${className} split`} data-write aria-label={text}>
+      {text.split(/(\s+)/).map((part, n) =>
+        /^\s*$/.test(part) ? (
+          part
+        ) : (
+          <span className="word" key={n} aria-hidden="true">
+            {[...part].map((letter) => (
+              <span className="ch" key={i} style={{ "--i": i++ }}>
+                {letter}
+              </span>
+            ))}
+          </span>
+        )
+      )}
+    </p>
+  );
+}
+
 export default function Home() {
   return (
     <div className="home">
@@ -9,11 +64,13 @@ export default function Home() {
           <div className="blob two"></div>
           <div className="blob three"></div>
 
-          <div className="hero-content">
-            <h1>
-              Play that opens <span>possibilities.</span>
+          <div className="hero-content centered">
+            <h1 className="hero-logo">
+              <span className="sr-only">tudo – Educational playkits</span>
+              <LogoMark />
             </h1>
-            <p>Make learning fun, accessible and affordable.</p>
+            <p className="logo-sub">EDUCATIONAL PLAYKITS</p>
+            <WrittenText className="tagline" text={tagline} />
             <Link className="btn" href="/ecd">
               Request a sample
             </Link>

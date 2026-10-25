@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <header className="site-header">
       <Link className="logo" href="/">
-        Tudo
+        <img src="/logo.svg" alt="tudo" width={112} height={46} />
       </Link>
       <nav>
         {nav.map((item) => (

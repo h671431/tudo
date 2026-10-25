@@ -18,15 +18,23 @@ export const viewport = {
   initialScale: 1,
 };
 
-// Runs before first paint: enables the scroll-reveal styles and restores the saved design choice.
+// Runs before first paint: enables the scroll-reveal styles, restores the saved design choice
+// and turns on the writing animation the first time the home page is opened in a session.
 const earlyScript = `
 (function () {
   var d = document.documentElement;
   d.classList.add('js');
-  d.dataset.theme = 'orange'; d.dataset.pattern = 'dots'; d.dataset.look = 'sticker';
+  d.dataset.theme = 'orange'; d.dataset.pattern = 'none'; d.dataset.look = 'whiteboard';
   try {
-    var s = JSON.parse(localStorage.getItem('design-v2')) || {};
+    var s = JSON.parse(localStorage.getItem('design-v3')) || {};
     ['theme', 'pattern', 'look'].forEach(function (k) { if (s[k]) d.dataset[k] = s[k]; });
+  } catch (e) {}
+  try {
+    if (location.pathname === '/' && !sessionStorage.getItem('written') &&
+        !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      d.classList.add('write-anim');
+      sessionStorage.setItem('written', '1');
+    }
   } catch (e) {}
 })();
 `;

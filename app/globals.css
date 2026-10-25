@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Oswald:wght@500;600;700&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&family=Patrick+Hand&display=swap');
 
 /* Fargepalett 1: oransje (standard) */
 :root {
@@ -64,26 +64,19 @@ select:focus-visible, textarea:focus-visible {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(43, 43, 43, 0.12);
 }
-/* Logo: store bokstaver fylt med vannrette striper */
-.logo {
-  font-family: 'Fredoka', sans-serif;
-  font-weight: 700;
-  font-size: clamp(2.8rem, 7vw, 4rem);
-  line-height: 1;
-  letter-spacing: 0.02em;
-  text-transform: lowercase;
-  text-decoration: none;
-  color: transparent;
-  background: repeating-linear-gradient(
-    to bottom,
-    var(--main) 0 5px,
-    transparent 5px 7px,
-    var(--support) 7px 12px,
-    transparent 12px 14px
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
+/* Logo */
+.logo { display: block; line-height: 0; }
+.logo img { height: 46px; width: auto; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
+
 .site-header nav {
   display: flex;
   flex-wrap: wrap;
@@ -141,6 +134,38 @@ main {
 .hero p { font-size: 1.25rem; font-weight: 600; max-width: 32ch; }
 .hero-content { position: relative; z-index: 1; max-width: var(--wrap); width: 100%; margin: 0 auto; }
 .hero-small { min-height: 50vh; }
+
+/* Stor logo og beskrivelse på forsiden */
+.hero h1.hero-logo { max-width: none; margin: 0 0 8px; }
+.hero-logo svg { display: block; width: min(560px, 100%); height: auto; }
+.logo-fill { stroke: var(--logo-fill, #FFF8EE); }
+.hero p.tagline {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+  line-height: 1.15;
+  max-width: 22ch;
+  margin: 0 0 16px;
+}
+
+/* Stablet, sentrert logo: merke, navn og håndskrevet slagord */
+.hero-content.centered { text-align: center; }
+.centered .hero-logo svg { width: min(440px, 90%); margin: 0 auto; }
+.hero p.logo-sub {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1rem, 2.6vw, 1.35rem);
+  letter-spacing: 0.35em;
+  margin: 4px 0 6px;
+  max-width: none;
+  color: var(--text);
+}
+.centered p.tagline {
+  font-size: clamp(1.6rem, 3.8vw, 2.3rem);
+  max-width: none;
+  margin: 0 auto 20px;
+}
+.centered .note { margin-left: auto; margin-right: auto; text-align: left; }
 .hero .badge { margin-bottom: 16px; }
 
 /* Fargerike former i bakgrunnen */
@@ -527,6 +552,208 @@ footer a { color: var(--accent); }
 [data-look="soft"] textarea { border: 2px solid transparent; }
 [data-look="soft"] footer::before { border-bottom: none; }
 
+/* Uttrykk «Whiteboard»: tusj på hvit tavle, håndskrift og lapper */
+:root[data-look="whiteboard"] {
+  --text: #3A2A6B;              /* tusjblekk */
+  --board: #FDFDFB;
+  --logo-fill: #FDFDFB;
+  --wobbly: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --wobbly-sm: 40px 12px 36px 14px / 14px 36px 12px 40px;
+}
+[data-look="whiteboard"] body {
+  background: var(--board);
+  font-family: 'Patrick Hand', 'Nunito', sans-serif;
+  font-size: 1.15rem;
+}
+[data-look="whiteboard"][data-pattern] body,
+[data-look="whiteboard"][data-pattern] .band,
+[data-look="whiteboard"][data-pattern] .club,
+[data-look="whiteboard"][data-pattern] .vision-teaser { background-image: none; }
+[data-look="whiteboard"] h1 { font-family: 'Caveat', cursive; }
+[data-look="whiteboard"] h2,
+[data-look="whiteboard"] h3 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+[data-look="whiteboard"] h2 {
+  text-decoration: underline wavy var(--main) 2px;
+  text-underline-offset: 10px;
+}
+
+[data-look="whiteboard"] .site-header {
+  background: rgba(253, 253, 251, 0.95);
+  border-bottom: 3px dotted var(--text);
+}
+[data-look="whiteboard"] .site-header nav a { font-size: 1.1rem; font-weight: 400; }
+[data-look="whiteboard"] .site-header nav a[aria-current="page"] {
+  background: linear-gradient(transparent 55%, var(--accent) 55% 90%, transparent 90%);
+  color: var(--text);
+  border-radius: 0;
+}
+
+/* Hero: hvit tavle med små tegninger */
+:root[data-look="whiteboard"] .hero {
+  background-color: var(--board);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400' fill='none' stroke='%233A2A6B' stroke-opacity='.45' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M420 90q0-30 30-30q10-25 40-20q25-10 40 15q30 0 30 30q0 20-25 20h-95q-20 0-20-15z'/%3E%3Cpath d='M520 220q5 25 25 30q-20 5-25 30q-5-25-25-30q20-5 25-30z'/%3E%3Cpath d='M380 300q3 14 14 17q-11 3-14 17q-3-14-14-17q11-3 14-17z'/%3E%3Cpath d='M300 60l8 16 18 3-13 12 3 18-16-9-16 9 3-18-13-12 18-3z'/%3E%3Cpath d='M560 330q-10-12-20 0q-10 15 20 30q30-15 20-30q-10-12-20 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4% top 30px;
+  background-size: min(600px, 70%) auto;
+}
+[data-look="whiteboard"] .blob { display: none; }
+
+/* Gul lapp */
+[data-look="whiteboard"] .note,
+[data-look="whiteboard"] .hero .note {
+  background: #FFF1A8;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.12);
+  transform: rotate(-1.5deg);
+  color: var(--text);
+}
+
+[data-look="whiteboard"] .btn {
+  border: 2.5px solid var(--text);
+  border-radius: var(--wobbly-sm);
+  box-shadow: none;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+[data-look="whiteboard"] .btn:hover { transform: rotate(-2deg); box-shadow: none; }
+[data-look="whiteboard"] .btn.secondary { background: transparent; }
+
+/* Håndtegnede bokser */
+[data-look="whiteboard"] .card,
+[data-look="whiteboard"] .phase,
+[data-look="whiteboard"] form {
+  background: transparent;
+  border: 2.5px solid var(--text);
+  border-radius: var(--wobbly);
+  box-shadow: none;
+}
+[data-look="whiteboard"] .phase { border-top: 2.5px solid var(--text); }
+[data-look="whiteboard"] .step-num {
+  background: transparent;
+  color: var(--main);
+  border: 2.5px solid var(--main);
+  border-radius: 50%;
+}
+[data-look="whiteboard"] .card:nth-child(n) .step-num { background: transparent; color: var(--main); }
+
+/* Flisene blir post-it-lapper */
+[data-look="whiteboard"] .tile {
+  border: none;
+  border-radius: 2px;
+  box-shadow: 2px 6px 12px rgba(0, 0, 0, 0.12);
+  color: var(--text);
+  font-family: 'Patrick Hand', sans-serif;
+  font-weight: 400;
+  font-size: 1.7rem;
+}
+[data-look="whiteboard"] .tile.main { background: #FFD3B8; transform: rotate(-2deg); }
+[data-look="whiteboard"] .tile.accent { background: #FFF1A8; transform: rotate(1.5deg); }
+[data-look="whiteboard"] .tile.support { background: #DCD0F2; transform: rotate(-1deg); }
+[data-look="whiteboard"] .tile:hover { transform: rotate(0) scale(1.03); }
+[data-look="whiteboard"] .tile::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 80px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transform: translateX(-50%) rotate(-3deg);
+}
+
+[data-look="whiteboard"] .chip,
+[data-look="whiteboard"] .chip:nth-child(n) {
+  background: transparent;
+  border: 2px solid var(--text);
+  border-radius: var(--wobbly-sm);
+  font-weight: 400;
+}
+[data-look="whiteboard"] .badge { border-radius: var(--wobbly-sm); }
+
+/* Mørke seksjoner blir lyse tavleflater */
+[data-look="whiteboard"] .club,
+[data-look="whiteboard"] .vision-teaser,
+[data-look="whiteboard"] .band {
+  background-color: var(--board);
+  color: var(--text);
+  border-top: 3px dotted var(--text);
+}
+[data-look="whiteboard"] .club h2,
+[data-look="whiteboard"] .club h3,
+[data-look="whiteboard"] .vision-teaser h2 { color: var(--text); }
+[data-look="whiteboard"] .flow-step {
+  background: transparent;
+  border: 2.5px dashed var(--text);
+  border-radius: var(--wobbly);
+}
+[data-look="whiteboard"] .flow-icon { border-width: 2.5px; }
+
+[data-look="whiteboard"] input,
+[data-look="whiteboard"] select,
+[data-look="whiteboard"] textarea {
+  background: transparent;
+  border: 2px solid var(--text);
+  border-radius: var(--wobbly-sm);
+}
+[data-look="whiteboard"] .placeholder-img {
+  background: transparent;
+  border: 2.5px dashed var(--text);
+  border-radius: var(--wobbly);
+}
+[data-look="whiteboard"] main ul { list-style: none; padding-left: 0; }
+[data-look="whiteboard"] main ul li::before { content: "☐  "; color: var(--main); }
+
+/* Footer som tavlehylle */
+[data-look="whiteboard"] footer {
+  background: #E6E6E2;
+  color: var(--text);
+  border-top: 8px solid #CFCFCA;
+}
+[data-look="whiteboard"] footer p:first-child { font-family: 'Caveat', cursive; font-size: 1.9rem; color: var(--main); }
+[data-look="whiteboard"] footer a { color: var(--main); }
+[data-look="whiteboard"] footer::before { display: none; }
+
+/* Skrive-animasjon på forsiden (klassen write-anim settes i index.html) */
+.write-anim [data-write]:not(.split) { opacity: 0; }
+.write-anim .word { display: inline-block; white-space: nowrap; }
+.write-anim .ch {
+  display: inline-block;
+  opacity: 0;
+  animation: write-char 0.2s ease-out forwards;
+  animation-delay: calc(var(--i) * 40ms + 2400ms);
+}
+@keyframes write-char {
+  from { opacity: 0; transform: translateY(4px) scale(0.85); }
+  to { opacity: 1; transform: none; }
+}
+.write-anim .hero-logo .rule {
+  transform-box: fill-box;
+  transform-origin: left;
+  animation: draw-rule 0.6s ease-out both;
+}
+@keyframes draw-rule { from { transform: scaleX(0); } }
+.write-anim .hero-logo .draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw-line 1.6s ease-in-out 0.4s forwards;
+}
+@keyframes draw-line { to { stroke-dashoffset: 0; } }
+.write-anim .hero-logo .pop,
+.write-anim .hero .btn,
+.write-anim .hero .note { animation: fade-in 0.5s ease-out both; }
+.write-anim .hero-logo .pop { animation-delay: 1.9s; }
+.write-anim .hero .logo-sub { animation: fade-in 0.5s ease-out 2s both; }
+.write-anim .hero .btn,
+.write-anim .hero .note { animation-delay: 4.2s; }
+@keyframes fade-in { from { opacity: 0; transform: translateY(6px); } }
+
 /* Midlertidig designvelger (fjernes når dere har valgt) */
 .design-picker {
   position: fixed;
@@ -580,6 +807,7 @@ footer a { color: var(--accent); }
   .blob.one { width: 200px; height: 200px; right: -120px; top: 6%; }
   .blob.two { width: 150px; height: 150px; right: -40px; bottom: -70px; }
   .blob.three { display: none; }
+  :root[data-look="whiteboard"] .hero { background-image: none; }
 }
 
 /* Mindre bevegelse for de som ønsker det */

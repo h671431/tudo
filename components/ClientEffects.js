@@ -23,5 +23,12 @@ export default function ClientEffects() {
     return () => observer.disconnect();
   }, [pathname]);
 
+  // Turn the home page writing animation off once it has played, so it doesn't
+  // replay when navigating back to the home page.
+  useEffect(() => {
+    const t = setTimeout(() => document.documentElement.classList.remove("write-anim"), 6000);
+    return () => clearTimeout(t);
+  }, []);
+
   return null;
 }
