@@ -1,0 +1,58 @@
+import DemoForm from "../../components/DemoForm";
+
+export const metadata = { title: "For ECDs" };
+
+export default function Ecd() {
+  return (
+    <main>
+      <h1>For ECD centres</h1>
+      <p>
+        Practical learning resources for your classroom. Prices and product
+        specs are confirmed per order.
+      </p>
+
+      <h2>Before you buy – a quick checklist</h2>
+      <ul>
+        <li>How many children and which age groups?</li>
+        <li>Which learning goals do you want to support?</li>
+        <li>Where will the kits be stored and cleaned?</li>
+        <li>What is your budget and when do you need them?</li>
+      </ul>
+
+      <h2>5-minute enquiry</h2>
+      <DemoForm>
+        <label>
+          Centre name <input type="text" required />
+        </label>
+        <label>
+          Region <input type="text" required />
+        </label>
+        <label>
+          Your role <input type="text" />
+        </label>
+        <label>
+          Email <input type="email" required />
+        </label>
+        <label>
+          Age group
+          <select required defaultValue="">
+            <option value="">Choose…</option>
+            <option>0–2 years</option>
+            <option>3–4 years</option>
+            <option>5–6 years</option>
+          </select>
+        </label>
+        <label>
+          Estimated quantity <input type="number" min="1" />
+        </label>
+        <label className="checkbox">
+          <input type="checkbox" required /> I agree that my details may be
+          stored to answer this enquiry.
+        </label>
+        <button className="btn" type="submit">
+          Send enquiry
+        </button>
+      </DemoForm>
+    </main>
+  );
+}
