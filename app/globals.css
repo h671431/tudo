@@ -2,6 +2,7 @@
 
 /* Fargepalett 1: oransje (standard) */
 :root {
+  --wrap: 1100px;          /* bredde på innholdet */
   --main: #F26B21;
   --accent: #FFC93C;
   --support: #4B2A7B;
@@ -105,7 +106,7 @@ select:focus-visible, textarea:focus-visible {
 
 /* Innhold på undersidene */
 main {
-  max-width: 1000px;
+  max-width: var(--wrap);
   margin: 0 auto;
   padding: 48px 20px;
 }
@@ -119,7 +120,7 @@ main {
   padding: 80px 20px;
 }
 .section > * {
-  max-width: 1000px;
+  max-width: var(--wrap);
   margin-left: auto;
   margin-right: auto;
 }
@@ -138,7 +139,7 @@ main {
 .hero h1 { margin: 0 0 16px; max-width: 12ch; }
 .hero h1 span { color: var(--highlight); }
 .hero p { font-size: 1.25rem; font-weight: 600; max-width: 32ch; }
-.hero-content { position: relative; z-index: 1; max-width: 1000px; width: 100%; margin: 0 auto; }
+.hero-content { position: relative; z-index: 1; max-width: var(--wrap); width: 100%; margin: 0 auto; }
 .hero-small { min-height: 50vh; }
 .hero .badge { margin-bottom: 16px; }
 
@@ -588,3 +589,21 @@ footer a { color: var(--accent); }
 
 /* Gjør at hidden-attributtet alltid skjuler elementet (form har display: grid) */
 [hidden] { display: none !important; }
+
+/* Store skjermer: bredere innhold, større tekst og former */
+@media (min-width: 1400px) {
+  :root { --wrap: 1300px; }
+  html { font-size: 18px; }
+  .site-header { padding: 18px 40px; }
+  .blob.one { width: 440px; height: 440px; }
+  .blob.two { width: 240px; height: 240px; }
+  .blob.three { width: 110px; height: 110px; }
+}
+@media (min-width: 1800px) {
+  :root { --wrap: 1500px; }
+  html { font-size: 20px; }
+  .site-header { padding: 20px 56px; }
+  .blob.one { width: 540px; height: 540px; }
+  .blob.two { width: 290px; height: 290px; }
+  .blob.three { width: 130px; height: 130px; }
+}
