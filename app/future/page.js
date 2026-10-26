@@ -1,4 +1,4 @@
-import DemoForm from "../../components/DemoForm";
+import EnquiryForm from "../../components/EnquiryForm";
 
 export const metadata = { title: "Our Vision" };
 
@@ -122,13 +122,13 @@ export default function Future() {
         <section className="section reveal">
           <h2>Want to be first?</h2>
           <div>
-            <DemoForm>
+            <EnquiryForm source="Waitlist">
               <label>
-                Email <input type="email" required />
+                Email <input name="email" type="email" required />
               </label>
               <label>
                 I&apos;m interested in
-                <select required defaultValue="">
+                <select name="interest" required defaultValue="">
                   <option value="">Choose…</option>
                   <option>The Playkit Club</option>
                   <option>Buying in Norway</option>
@@ -136,13 +136,13 @@ export default function Future() {
                 </select>
               </label>
               <label className="checkbox">
-                <input type="checkbox" required /> I agree that my email may be
+                <input name="consent" type="checkbox" required /> I agree that my email may be
                 stored to contact me about this.
               </label>
               <button className="btn" type="submit">
                 Join the waitlist
               </button>
-            </DemoForm>
+            </EnquiryForm>
           </div>
         </section>
       </main>

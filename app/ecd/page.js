@@ -1,4 +1,4 @@
-import DemoForm from "../../components/DemoForm";
+import EnquiryForm from "../../components/EnquiryForm";
 
 export const metadata = { title: "For ECDs" };
 
@@ -20,22 +20,22 @@ export default function Ecd() {
       </ul>
 
       <h2>5-minute enquiry</h2>
-      <DemoForm>
+      <EnquiryForm source="ECD centre">
         <label>
-          Centre name <input type="text" required />
+          Centre name <input name="centre" type="text" required />
         </label>
         <label>
-          Region <input type="text" required />
+          Region <input name="region" type="text" required />
         </label>
         <label>
-          Your role <input type="text" />
+          Your role <input name="role" type="text" />
         </label>
         <label>
-          Email <input type="email" required />
+          Email <input name="email" type="email" required />
         </label>
         <label>
           Age group
-          <select required defaultValue="">
+          <select name="age_group" required defaultValue="">
             <option value="">Choose…</option>
             <option>0–2 years</option>
             <option>3–4 years</option>
@@ -43,16 +43,16 @@ export default function Ecd() {
           </select>
         </label>
         <label>
-          Estimated quantity <input type="number" min="1" />
+          Estimated quantity <input name="quantity" type="number" min="1" />
         </label>
         <label className="checkbox">
-          <input type="checkbox" required /> I agree that my details may be
+          <input name="consent" type="checkbox" required /> I agree that my details may be
           stored to answer this enquiry.
         </label>
         <button className="btn" type="submit">
           Send enquiry
         </button>
-      </DemoForm>
+      </EnquiryForm>
     </main>
   );
 }

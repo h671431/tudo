@@ -49,7 +49,7 @@ const inside = [
 const comingLater = [
   {
     name: "Health & Safety Kit",
-    text: "The items centres need to register and reach the silver level, such as a mattress, a bucket with a tap and a potty.",
+    text: "What centres need to register, like a mattress and a bucket with a tap.",
   },
   {
     name: "Skills Kit",
@@ -58,10 +58,6 @@ const comingLater = [
   {
     name: "Build-your-own Kit",
     text: "Pick the pieces that fit your children, your space and your budget.",
-  },
-  {
-    name: "Hygiene Kit",
-    text: "Toothbrushes, toothpaste and soap, so healthy habits start early.",
   },
   {
     name: "Sports Kit",

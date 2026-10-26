@@ -1,4 +1,4 @@
-import DemoForm from "../../components/DemoForm";
+import EnquiryForm from "../../components/EnquiryForm";
 
 export const metadata = { title: "For NGOs & CSI" };
 
@@ -12,36 +12,36 @@ export default function Ngo() {
       </p>
 
       <h2>Institutional enquiry</h2>
-      <DemoForm>
+      <EnquiryForm source="NGO / CSI">
         <label>
-          Organisation <input type="text" required />
+          Organisation <input name="organisation" type="text" required />
         </label>
         <label>
-          Email <input type="email" required />
+          Email <input name="email" type="email" required />
         </label>
         <label>
-          Region(s) <input type="text" required />
+          Region(s) <input name="regions" type="text" required />
         </label>
         <label>
-          Programme volume (number of kits) <input type="number" min="1" />
+          Programme volume (number of kits) <input name="kits" type="number" min="1" />
         </label>
         <label>
-          Desired delivery date <input type="date" />
+          Desired delivery date <input name="delivery_date" type="date" />
         </label>
         <label>
-          Reporting expectations <textarea rows={3}></textarea>
+          Reporting expectations <textarea name="reporting" rows={3}></textarea>
         </label>
         <label className="checkbox">
-          <input type="checkbox" /> I would like a sample order first.
+          <input name="sample_first" type="checkbox" /> I would like a sample order first.
         </label>
         <label className="checkbox">
-          <input type="checkbox" required /> I agree that my details may be
+          <input name="consent" type="checkbox" required /> I agree that my details may be
           stored to answer this enquiry.
         </label>
         <button className="btn" type="submit">
           Send enquiry
         </button>
-      </DemoForm>
+      </EnquiryForm>
     </main>
   );
 }

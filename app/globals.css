@@ -378,7 +378,7 @@ main {
 }
 .coming-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
   margin-top: 24px;
 }
@@ -390,6 +390,17 @@ main {
 .coming-card h3 { margin: 0 0 6px; }
 .coming-card p { margin: 0; opacity: 0.85; }
 
+/* Svar etter innsending av skjema */
+.form-message {
+  max-width: 560px;
+  padding: 20px 24px;
+  border-radius: 16px;
+  background: var(--accent-soft);
+  color: var(--text);
+  font-weight: 700;
+}
+.form-error { color: #B42318; font-weight: 700; }
+
 /* About us */
 .about-grid {
   display: grid;
@@ -399,6 +410,9 @@ main {
 .about-grid h3 { margin: 0 0 8px; color: var(--main); }
 .about-grid p { margin: 0; }
 
+@media (max-width: 1000px) {
+  .coming-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+}
 @media (max-width: 700px) {
   .kit-feature { grid-template-columns: 1fr; gap: 24px; }
   .coming { padding: 24px 20px; }

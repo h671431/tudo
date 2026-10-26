@@ -18,7 +18,10 @@ npm run dev     # http://localhost:3000
 
 ## Before launch
 
-- The forms are demos: nothing is sent anywhere (`components/DemoForm.js`).
+- The forms send enquiries by email through Formspree (`components/EnquiryForm.js`).
+  Create a free form on formspree.io, then set `NEXT_PUBLIC_FORMSPREE_ID` to its id in
+  `.env.local` (see `.env.example`) and in the Vercel project settings. Without it the
+  forms only show a demo message.
 - Remove the design picker when the team has decided: delete `components/DesignPicker.js`, its use in `app/layout.js` and `.design-picker` in `app/globals.css`.
 - Privacy & Terms text is a placeholder and needs legal review.
 

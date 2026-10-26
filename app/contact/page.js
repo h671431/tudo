@@ -1,4 +1,4 @@
-import DemoForm from "../../components/DemoForm";
+import EnquiryForm from "../../components/EnquiryForm";
 
 export const metadata = { title: "About & Contact" };
 
@@ -56,24 +56,24 @@ export default function Contact() {
       </p>
 
       <h2>Contact</h2>
-      <DemoForm>
+      <EnquiryForm source="Contact">
         <label>
-          Name <input type="text" required />
+          Name <input name="name" type="text" required />
         </label>
         <label>
-          Email <input type="email" required />
+          Email <input name="email" type="email" required />
         </label>
         <label>
-          Message <textarea rows={4} required></textarea>
+          Message <textarea name="message" rows={4} required></textarea>
         </label>
         <label className="checkbox">
-          <input type="checkbox" required /> I agree that my details may be
+          <input name="consent" type="checkbox" required /> I agree that my details may be
           stored to answer this message.
         </label>
         <button className="btn" type="submit">
           Send
         </button>
-      </DemoForm>
+      </EnquiryForm>
     </main>
   );
 }
