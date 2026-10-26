@@ -78,13 +78,7 @@ export default function Playkits() {
       </p>
 
       <section className="kit-feature">
-        <figure className="photo">
-          <img
-            src="/kit-contents.jpg"
-            alt="Items from the playkit: a tennis ball, painted wooden blocks, a shape sorter, lacing shapes, a paint set, a doll, wooden cars and wooden pieces"
-          />
-          <figcaption>A selection of items from the Complete Playkit.</figcaption>
-        </figure>
+        <div className="placeholder-img kit-placeholder">Photo coming soon</div>
 
         <div>
           <span className="badge">Available now</span>

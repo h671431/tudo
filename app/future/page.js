@@ -24,6 +24,26 @@ const icons = {
   ),
 };
 
+// Who the kits are for, now and later.
+const audiences = [
+  {
+    name: "ECD centres",
+    text: "Learning materials for the classroom, with new pieces as the children grow.",
+  },
+  {
+    name: "NGOs & CSI funders",
+    text: "Kits for the centres you support, with youth jobs behind every order.",
+  },
+  {
+    name: "Parents & families",
+    text: "A kit at home, and a subscription that keeps up with your child.",
+  },
+  {
+    name: "Schools",
+    text: "Hands-on materials for Grade R and the first school years.",
+  },
+];
+
 function FlowIcon({ name }) {
   return (
     <div className="flow-icon">
@@ -103,11 +123,13 @@ export default function Future() {
 
         <section className="section reveal">
           <h2>Who it&apos;s for</h2>
-          <div className="chips">
-            <span className="chip">ECD centres</span>
-            <span className="chip">NGOs &amp; CSI</span>
-            <span className="chip">Parents &amp; families</span>
-            <span className="chip">Schools</span>
+          <div className="cards audience">
+            {audiences.map((a) => (
+              <div className="card" key={a.name}>
+                <h3>{a.name}</h3>
+                <p>{a.text}</p>
+              </div>
+            ))}
           </div>
         </section>
 

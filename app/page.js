@@ -2,13 +2,13 @@ import Link from "next/link";
 
 const tagline = "Make learning fun, accessible and affordable.";
 
-// The letters of "tudo" as single pen strokes, used for the outline, fill and dotted centre line.
+// The letters of "tudo" as single pen strokes, drawn as one solid stroke.
 const letters =
   "M60 50 V126 Q60 140 74 140 M44 90 H80 M104 90 V118 Q104 140 126 140 Q148 140 148 118 V90 V140 " +
   "M219 40 V140 M219 115 A25 25 0 1 1 169 115 A25 25 0 1 1 219 115 " +
   "M293 115 A25 25 0 1 1 243 115 A25 25 0 1 1 293 115";
 
-// Large logo on the home page. The "draw", "rule" and "pop" classes are animated in globals.css.
+// Large logo on the home page. The "draw" and "rule" classes are animated in globals.css.
 function LogoMark() {
   return (
     <svg viewBox="0 18 340 140" aria-hidden="true">
@@ -19,15 +19,6 @@ function LogoMark() {
       </g>
       <g fill="none" strokeLinecap="round" strokeLinejoin="round">
         <path className="draw" pathLength="1" d={letters} stroke="#4B2A7B" strokeWidth="27" />
-        <path className="draw logo-fill" pathLength="1" d={letters} stroke="#FFF8EE" strokeWidth="19" />
-        <path className="pop" d={letters} stroke="#F26B21" strokeWidth="5.5" strokeDasharray="0 10" />
-      </g>
-      <g className="pop" fill="#FFC93C" stroke="#4B2A7B" strokeWidth="2">
-        <circle cx="60" cy="50" r="6" />
-        <circle cx="44" cy="90" r="6" />
-        <circle cx="104" cy="90" r="6" />
-        <circle cx="219" cy="40" r="6" />
-        <circle cx="293" cy="115" r="6" />
       </g>
     </svg>
   );
@@ -77,23 +68,18 @@ export default function Home() {
             <Link className="btn secondary" href="/ngo">
               Institutional supply
             </Link>
-            <p className="note">
-              A working venture concept. Product details, pricing and
-              partnerships are subject to confirmation.
-            </p>
+            <div className="hero-why">
+              <p>
+                Many children in South Africa get no early learning before
+                school. They start behind, and many never catch up: too many
+                can&apos;t read for meaning by age 10.
+              </p>
+              <p className="why-answer">
+                We get playkits to the early learning centres that need them
+                most, made by local young people who earn a living doing it.
+              </p>
+            </div>
           </div>
-        </section>
-
-        <section className="section why reveal">
-          <p>
-            Many children in South Africa get no early learning before school.
-            They start behind, and many never catch up: too many can&apos;t
-            read for meaning by age 10.
-          </p>
-          <p className="why-answer">
-            We get playkits to the early learning centres that need them most,
-            made by local young people who earn a living doing it.
-          </p>
         </section>
 
         <section className="section reveal">

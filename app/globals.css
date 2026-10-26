@@ -65,8 +65,23 @@ select:focus-visible, textarea:focus-visible {
   border-bottom: 1px solid rgba(43, 43, 43, 0.12);
 }
 /* Logo */
-.logo { display: block; line-height: 0; }
-.logo img { height: 46px; width: auto; }
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  line-height: 1;
+  text-decoration: none;
+}
+.logo img { height: 56px; width: auto; }
+.logo-tag {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--text);
+  white-space: nowrap;
+}
 
 .sr-only {
   position: absolute;
@@ -118,16 +133,16 @@ main {
   margin-right: auto;
 }
 
-/* Problem og løsning på forsiden */
-.section.why { padding-top: 56px; padding-bottom: 24px; text-align: center; }
-.why p {
-  max-width: 46ch;
-  margin-top: 0;
-  margin-bottom: 16px;
-  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+/* Problem og løsning i hero på forsiden */
+.hero .hero-why p {
+  max-width: 50ch;
+  margin: 0 auto 10px;
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  font-weight: 500;
   line-height: 1.5;
 }
-.why .why-answer { font-weight: 700; color: var(--main); }
+.hero .hero-why { margin-top: 28px; }
+.hero .hero-why .why-answer { font-weight: 700; color: var(--main); }
 
 /* Hero */
 .hero {
@@ -355,7 +370,7 @@ main {
   align-items: center;
   margin-top: 32px;
 }
-.kit-feature .photo img { aspect-ratio: auto; }
+.kit-placeholder { aspect-ratio: 1 / 1; margin: 0; font-size: 1.3rem; }
 .kit-feature h2 { margin: 12px 0 8px; }
 .facts { list-style: none; padding: 0; margin: 20px 0 28px; }
 .facts li { padding: 8px 0; border-bottom: 1px solid color-mix(in srgb, var(--text) 15%, transparent); }
@@ -411,6 +426,15 @@ main {
   font-weight: 700;
 }
 .form-error { color: #B42318; font-weight: 700; }
+
+/* Privacy & Terms */
+.legal p { max-width: 68ch; }
+main.legal h2 { font-size: 1.4rem; margin: 36px 0 8px; }
+
+/* Visjonssiden: hvem kitene er for */
+.cards.audience { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+.audience .card h3 { margin-top: 0; }
+.audience .card p { margin-bottom: 0; }
 
 /* About us */
 .about-grid {
@@ -938,7 +962,7 @@ footer a { color: var(--accent); }
   border: 1px solid rgba(43, 27, 71, 0.06);
   box-shadow: 0 10px 30px rgba(43, 27, 71, 0.08);
 }
-[data-look="modern"] .logo img { height: 38px; }
+[data-look="modern"] .logo img { height: 52px; }
 [data-look="modern"] .site-header nav { align-items: center; }
 [data-look="modern"] .site-header nav a {
   color: var(--text);

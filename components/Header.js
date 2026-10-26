@@ -9,7 +9,8 @@ export default function Header() {
   return (
     <header className="site-header">
       <Link className="logo" href="/">
-        <img src="/logo.svg" alt="tudo" width={112} height={46} />
+        <img src="/logo.svg" alt="tudo" width={136} height={56} />
+        <span className="logo-tag">EDUCATIONAL PLAYKITS</span>
       </Link>
       <nav>
         {nav.map((item) => (

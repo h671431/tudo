@@ -6,14 +6,5 @@
   </g>
   <g fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path id="letters" d="M60 50 V126 Q60 140 74 140 M44 90 H80 M104 90 V118 Q104 140 126 140 Q148 140 148 118 V90 V140 M219 40 V140 M219 115 A25 25 0 1 1 169 115 A25 25 0 1 1 219 115 M293 115 A25 25 0 1 1 243 115 A25 25 0 1 1 293 115" stroke="#4B2A7B" stroke-width="27"/>
-    <use href="#letters" stroke="#FFF8EE" stroke-width="19"/>
-    <use href="#letters" stroke="#F26B21" stroke-width="5.5" stroke-dasharray="0 10"/>
-  </g>
-  <g fill="#FFC93C" stroke="#4B2A7B" stroke-width="2">
-    <circle cx="60" cy="50" r="6"/>
-    <circle cx="44" cy="90" r="6"/>
-    <circle cx="104" cy="90" r="6"/>
-    <circle cx="219" cy="40" r="6"/>
-    <circle cx="293" cy="115" r="6"/>
   </g>
 </svg>
