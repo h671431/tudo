@@ -14,21 +14,31 @@ const skills = [
 export default function Makers() {
   return (
     <main className="makers">
-      <h1>Meet the Makers</h1>
-      <p className="lead">
-        Our kits are made by young people in Keiskammahoek, Eastern Cape,
-        through a youth-led social enterprise run by Siyakholwa Development
-        Foundation.
-      </p>
-
-      <div className="photos">
-        <figure className="photo wide">
+      <div className="makers-intro">
+        <div>
+          <h1>Meet the Makers</h1>
+          <p className="lead">
+            Our kits are made by young people in Keiskammahoek, Eastern Cape,
+            through a youth-led social enterprise run by Siyakholwa Development
+            Foundation.
+          </p>
+          <p>
+            In the workshop, the makers cut, sand and assemble wooden cars and
+            building blocks, and sew puppets and cloth dolls. Each maker
+            specialises in one task, and every piece is checked before it goes
+            into a kit.
+          </p>
+        </div>
+        <figure className="photo">
           <img
             src="/makers/workshop.jpg"
             alt="A young maker in safety glasses and overalls holds a wooden toy car, with rows of wooden cars and blocks on the table in front"
           />
           <figcaption>Wooden cars and building blocks ready for the kits.</figcaption>
         </figure>
+      </div>
+
+      <div className="photos">
         <figure className="photo">
           <img
             src="/makers/toy-cars.jpg"

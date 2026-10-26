@@ -310,7 +310,14 @@ main {
   margin: 32px 0 56px;
 }
 .photo { margin: 0; }
-.photo.wide { grid-column: 1 / -1; }
+.makers-intro {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.makers-intro h1 { margin-top: 0; }
+.makers-intro .photo img { aspect-ratio: 3 / 4; max-height: 520px; }
 .photo img {
   display: block;
   width: 100%;
@@ -319,10 +326,10 @@ main {
   border: 2px solid var(--text);
   border-radius: 16px;
 }
-.photo.wide img { aspect-ratio: 16 / 9; object-position: center 40%; }
 .photo figcaption { font-size: 0.9rem; margin-top: 8px; opacity: 0.8; }
-@media (max-width: 600px) {
-  .photos { grid-template-columns: 1fr; }
+@media (max-width: 700px) {
+  .photos, .makers-intro { grid-template-columns: 1fr; }
+  .makers-intro { gap: 24px; }
 }
 
 .makers section { margin-bottom: 56px; }
