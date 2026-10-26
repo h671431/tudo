@@ -118,6 +118,17 @@ main {
   margin-right: auto;
 }
 
+/* Problem og løsning på forsiden */
+.section.why { padding-top: 56px; padding-bottom: 24px; text-align: center; }
+.why p {
+  max-width: 46ch;
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  line-height: 1.5;
+}
+.why .why-answer { font-weight: 700; color: var(--main); }
+
 /* Hero */
 .hero {
   position: relative;

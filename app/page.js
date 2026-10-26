@@ -84,6 +84,18 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="section why reveal">
+          <p>
+            Many children in South Africa get no early learning before school.
+            They start behind, and many never catch up: too many can&apos;t
+            read for meaning by age 10.
+          </p>
+          <p className="why-answer">
+            We get playkits to the early learning centres that need them most,
+            made by local young people who earn a living doing it.
+          </p>
+        </section>
+
         <section className="section reveal">
           <h2>How it works</h2>
           <div className="cards">
