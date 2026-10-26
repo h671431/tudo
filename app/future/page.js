@@ -1,3 +1,4 @@
+import Link from "next/link";
 import EnquiryForm from "../../components/EnquiryForm";
 
 export const metadata = { title: "Our Vision" };
@@ -139,6 +140,23 @@ export default function Future() {
             We keep making the kit better, with small upgrades based on feedback
             from teachers and children.
           </p>
+        </section>
+
+        <section className="section reveal">
+          <div className="team">
+            <div>
+              <h2>The team behind Tudo</h2>
+              <p>
+                We are a student team in the MakersForge programme at the
+                University of Cape Town, building Tudo together with Siyakholwa
+                Development Foundation and the youth makers in Keiskammahoek.
+              </p>
+              <p>
+                <Link href="/contact">Get in touch with us</Link>
+              </p>
+            </div>
+            <div className="placeholder-img team-photo">Team photo coming soon</div>
+          </div>
         </section>
 
         <section className="section reveal">

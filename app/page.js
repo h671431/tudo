@@ -2,13 +2,13 @@ import Link from "next/link";
 
 const tagline = "Make learning fun, accessible and affordable.";
 
-// The letters of "tudo" as single pen strokes, drawn as one solid stroke.
+// The letters of "tudo" as single pen strokes, used for the solid letters and the dotted centre line.
 const letters =
   "M60 50 V126 Q60 140 74 140 M44 90 H80 M104 90 V118 Q104 140 126 140 Q148 140 148 118 V90 V140 " +
   "M219 40 V140 M219 115 A25 25 0 1 1 169 115 A25 25 0 1 1 219 115 " +
   "M293 115 A25 25 0 1 1 243 115 A25 25 0 1 1 293 115";
 
-// Large logo on the home page. The "draw" and "rule" classes are animated in globals.css.
+// Large logo on the home page. The "draw", "rule" and "pop" classes are animated in globals.css.
 function LogoMark() {
   return (
     <svg viewBox="0 18 340 140" aria-hidden="true">
@@ -19,6 +19,7 @@ function LogoMark() {
       </g>
       <g fill="none" strokeLinecap="round" strokeLinejoin="round">
         <path className="draw" pathLength="1" d={letters} stroke="#4B2A7B" strokeWidth="27" />
+        <path className="pop" d={letters} stroke="#F26B21" strokeWidth="5.5" strokeDasharray="0 10" />
       </g>
     </svg>
   );

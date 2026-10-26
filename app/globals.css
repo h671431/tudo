@@ -141,7 +141,14 @@ main {
   font-weight: 500;
   line-height: 1.5;
 }
-.hero .hero-why { margin-top: 28px; }
+.hero .hero-why {
+  max-width: 640px;
+  margin: 32px auto 0;
+  padding: 22px 28px 14px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 30px rgba(75, 42, 123, 0.08);
+}
 .hero .hero-why .why-answer { font-weight: 700; color: var(--main); }
 
 /* Hero */
@@ -427,6 +434,20 @@ main {
 }
 .form-error { color: #B42318; font-weight: 700; }
 
+/* Visjonssiden: teamet */
+.team {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.team h2 { margin-top: 0; }
+.team p { max-width: 44ch; }
+.team-photo { aspect-ratio: 4 / 3; margin: 0; font-size: 1.1rem; }
+@media (max-width: 700px) {
+  .team { grid-template-columns: 1fr; gap: 24px; }
+}
+
 /* Privacy & Terms */
 .legal p { max-width: 68ch; }
 main.legal h2 { font-size: 1.4rem; margin: 36px 0 8px; }
@@ -439,11 +460,26 @@ main.legal h2 { font-size: 1.4rem; margin: 36px 0 8px; }
 /* About us */
 .about-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 24px;
 }
 .about-grid h3 { margin: 0 0 8px; color: var(--main); }
 .about-grid p { margin: 0; }
+.about-intro {
+  max-width: 720px;
+  margin: 0 0 32px;
+  padding: 24px 28px;
+  border-radius: 24px;
+  border-left: 6px solid var(--main);
+  background: var(--main-soft);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 600;
+}
+.about-card {
+  padding: 22px 24px;
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--support) 7%, transparent);
+}
 
 @media (max-width: 1000px) {
   .coming-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
