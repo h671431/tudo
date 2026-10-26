@@ -126,7 +126,7 @@ export default function Home() {
             <span className="chip">Families at home</span>
             <span className="chip">The Playkit Club</span>
             <span className="chip">South Africa → Norway</span>
-            <span className="chip">New products every year</span>
+            <span className="chip">New pieces as children grow</span>
           </div>
           <p>
             <Link className="btn" href="/future">

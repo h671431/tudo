@@ -2,6 +2,38 @@ import DemoForm from "../../components/DemoForm";
 
 export const metadata = { title: "Our Vision" };
 
+// Line icons for the Playkit Club steps: a box, a calendar and a sprout.
+const icons = {
+  kit: (
+    <>
+      <path d="M21 8l-9-5-9 5v8l9 5 9-5z" />
+      <path d="M3 8l9 5 9-5M12 13v8" />
+    </>
+  ),
+  monthly: (
+    <>
+      <rect x="3" y="5" width="18" height="16" rx="2" />
+      <path d="M3 10h18M8 3v4M16 3v4" />
+    </>
+  ),
+  grow: (
+    <>
+      <path d="M12 21v-9" />
+      <path d="M12 12C12 8 9 5 4 5c0 4 3 7 8 7zM12 14c0-3 2.5-6 7-6 0 3.5-2.5 6-7 6z" />
+    </>
+  ),
+};
+
+function FlowIcon({ name }) {
+  return (
+    <div className="flow-icon">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        {icons[name]}
+      </svg>
+    </div>
+  );
+}
+
 export default function Future() {
   return (
     <div className="home">
@@ -45,23 +77,23 @@ export default function Future() {
         <section className="section club reveal">
           <h2>The Playkit Club</h2>
           <p className="lead">
-            Buy the kit once. Stay in the club. Get something new every year.
+            Buy the kit once. Join for a small monthly fee. Get new pieces as the children grow.
           </p>
           <div className="flow">
             <div className="flow-step">
-              <div className="flow-icon">📦</div>
+              <FlowIcon name="kit" />
               <h3>Buy the kit</h3>
               <p>One-time purchase.</p>
             </div>
             <div className="flow-step">
-              <div className="flow-icon">🔁</div>
+              <FlowIcon name="monthly" />
               <h3>Join monthly</h3>
-              <p>A small monthly fee.</p>
+              <p>A small monthly fee keeps you in the club.</p>
             </div>
             <div className="flow-step">
-              <div className="flow-icon">🎁</div>
-              <h3>New every year</h3>
-              <p>A new, innovative piece sent home automatically.</p>
+              <FlowIcon name="grow" />
+              <h3>New as they grow</h3>
+              <p>New pieces matched to the next stage of development, so there is always something to look forward to.</p>
             </div>
           </div>
           <p className="small">
