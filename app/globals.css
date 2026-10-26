@@ -302,6 +302,41 @@ main {
   font-weight: 700;
 }
 
+/* Bilder på Meet the Makers */
+.photos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 32px 0 56px;
+}
+.photo { margin: 0; }
+.photo.wide { grid-column: 1 / -1; }
+.photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 2px solid var(--text);
+  border-radius: 16px;
+}
+.photo.wide img { aspect-ratio: 16 / 9; object-position: center 40%; }
+.photo figcaption { font-size: 0.9rem; margin-top: 8px; opacity: 0.8; }
+@media (max-width: 600px) {
+  .photos { grid-template-columns: 1fr; }
+}
+
+.makers section { margin-bottom: 56px; }
+.makers .step-num { width: auto; min-width: 56px; padding: 0 12px; }
+
+.quote {
+  margin: 32px 0 0;
+  padding: 8px 0 8px 24px;
+  border-left: 6px solid var(--main);
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 600;
+}
+
 .placeholder-img {
   background: linear-gradient(135deg, var(--accent-soft), var(--main-soft));
   border: 2px solid var(--text);
