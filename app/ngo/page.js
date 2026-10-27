@@ -7,8 +7,8 @@ export default function Ngo() {
     <main>
       <h1>For NGOs &amp; CSI programmes</h1>
       <p>
-        Supply playkits to the centres you support, made by youth makers in
-        South Africa.
+        Supply affordable learning kits to the centres you support, each with
+        an online guide for teachers.
       </p>
 
       <h2>Institutional enquiry</h2>

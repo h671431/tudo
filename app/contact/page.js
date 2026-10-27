@@ -7,32 +7,31 @@ export default function Contact() {
     <main className="about">
       <h1>About us</h1>
       <p className="about-intro">
-        Tudo is a young startup that gets quality playkits to early childhood
-        development (ECD) centres in South Africa, with toys made by young
-        people in the Eastern Cape.
+        Tudo is a young company that builds affordable learning kits for early
+        childhood development (ECD) centres in South Africa, from the best
+        products different brands make.
       </p>
 
       <section className="about-grid">
         <div className="about-card">
           <h3>Who we are</h3>
           <p>
-            Students in UCT&apos;s MakersForge programme, working with
-            Siyakholwa Development Foundation, an Eastern Cape non-profit since
-            2001.
+            A student startup in UCT&apos;s MakersForge programme, building
+            Tudo as a business.
           </p>
         </div>
         <div className="about-card">
           <h3>Why we exist</h3>
           <p>
-            Many ECD centres lack learning materials, and many young people
-            lack work. We tackle both.
+            Many children start school behind. Good learning materials are
+            often too expensive for the centres that need them most.
           </p>
         </div>
         <div className="about-card">
           <h3>What we do</h3>
           <p>
-            We sell playkits to NGOs, CSI funders and ECD programmes, and
-            handle ordering and delivery.
+            We choose and test products, build them into kits with an online
+            guide, and deliver to centres, NGOs and CSI funders.
           </p>
         </div>
         <div className="about-card">
@@ -45,8 +44,8 @@ export default function Contact() {
       </section>
 
       <p className="note">
-        We are at an early stage. The agreement with Siyakholwa, prices and
-        terms are still being finalised.
+        We are at an early stage. Products, prices and terms are still being
+        finalised.
       </p>
 
       <h2>Contact</h2>

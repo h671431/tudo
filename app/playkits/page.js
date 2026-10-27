@@ -2,46 +2,24 @@ import Link from "next/link";
 
 export const metadata = { title: "The Playkits" };
 
-// Contents of the Complete Playkit, grouped as in Siyakholwa's catalogue.
+// What the Complete Playkit covers, grouped by the skill each piece builds.
+// The exact products depend on which brands we partner with.
 const inside = [
   {
-    title: "Wooden & sewn",
-    items: [
-      "Wooden jigsaw puzzles (12 and 20 pieces)",
-      "Wooden blocks in a tub",
-      "Wooden cars",
-      "Board pieces: dice, shapes, animals, play money",
-      "Hand and finger puppets",
-      "Dolls in pairs",
-    ],
+    title: "Language & stories",
+    items: ["Picture books", "Puppets for storytelling", "Picture and word cards"],
   },
   {
-    title: "Art & stationery",
-    items: [
-      "Colour pencils and jumbo crayons",
-      "Scissors (right- and left-handed)",
-      "Tempera paint set and brushes",
-      "Glue, markers and Prestik",
-      "Craft sticks and a ream of paper",
-    ],
+    title: "Early maths",
+    items: ["Counting cubes", "Shape sorter", "Puzzles of different sizes"],
   },
   {
-    title: "Play & motor skills",
-    items: [
-      "Shape sorter and stacking cups",
-      "Plastic bricks and counting cubes",
-      "Lacing shapes with tweezers",
-      "Balls and skipping ropes",
-      "Animal set, pegs and cookie cutters",
-    ],
+    title: "Motor skills",
+    items: ["Building blocks", "Lacing and threading", "Balls and skipping ropes"],
   },
   {
-    title: "For the classroom",
-    items: [
-      "Sturdy storage container",
-      "Basic first aid kit",
-      "Daily routine line",
-    ],
+    title: "Creative & social play",
+    items: ["Crayons, paint and paper", "Role-play toys", "Games to play together"],
   },
 ];
 
@@ -74,37 +52,38 @@ export default function Playkits() {
     <main className="playkits">
       <h1>The Playkits</h1>
       <p className="lead">
-        One complete kit today, with more on the way.
+        Learning kits built from the best products we can find, chosen for
+        the skill each piece builds.
       </p>
 
       <section className="kit-feature">
         <div className="placeholder-img kit-placeholder">Photo coming soon</div>
 
         <div>
-          <span className="badge">Available now</span>
+          <span className="badge">In development</span>
           <h2>Complete Playkit</h2>
           <p>
-            Everything an early learning programme needs to get started: about
-            50–60 items for creative, physical and early maths play. The wooden
-            toys, puppets and cloth items are made by the youth makers in
-            Keiskammahoek, and the rest is carefully sourced.
+            Everything an early learning centre needs to get started. We pick
+            products from different brands, test them with teachers and pack
+            them into one kit, with an online guide that shows how to use every
+            piece.
           </p>
           <ul className="facts">
             <li>
-              <strong>Items:</strong> about 50–60
+              <strong>Built around:</strong> language, maths, motor skills and play
             </li>
             <li>
-              <strong>Packed in:</strong> a sturdy storage container
+              <strong>Comes with:</strong> an online activity guide
             </li>
             <li>
               <strong>For:</strong> ECD centres and early learning programmes
             </li>
             <li>
-              <strong>Price:</strong> on request
+              <strong>Price:</strong> made for low-income centres, confirmed soon
             </li>
           </ul>
           <Link className="btn" href="/ecd">
-            Request a quote
+            Register interest
           </Link>
         </div>
       </section>
@@ -124,16 +103,16 @@ export default function Playkits() {
           ))}
         </div>
         <p className="note">
-          Contents can vary slightly between kits. Age guidance per item is
-          still being reviewed.
+          Examples of what a kit can include. The final contents depend on the
+          products and brands we choose.
         </p>
       </section>
 
       <section className="teacher-link">
         <h2>More than toys</h2>
         <p>
-          We are building activity guides and workshops to help teachers get
-          the most out of every kit.{" "}
+          Every kit comes with an online guide, and we are building more
+          support to help teachers get the most out of it.{" "}
           <Link href="/teachers">See our teacher support</Link>
         </p>
       </section>

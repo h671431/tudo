@@ -5,7 +5,7 @@ export default function Footer() {
     <footer>
       <p>Play that opens possibilities.</p>
       <p>
-        A working venture concept. Details subject to confirmation. ·{" "}
+        An early-stage startup. Details subject to confirmation. ·{" "}
         <Link href="/privacy">Privacy &amp; Terms</Link>
       </p>
     </footer>

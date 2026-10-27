@@ -5,9 +5,9 @@ export const metadata = { title: "For Teachers" };
 // Teacher support we are building. Status tells visitors how far along each part is.
 const support = [
   {
-    name: "Activity guide with every kit",
+    name: "Online guide with every kit",
     status: "In development",
-    text: "Simple activities for each item in the kit, sorted by age group and the skill it builds.",
+    text: "Simple activities for every piece in the kit, sorted by age group and the skill it builds.",
   },
   {
     name: "Monthly activity ideas",

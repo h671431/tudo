@@ -70,7 +70,7 @@ export default function Home() {
             <p className="logo-sub">EDUCATIONAL PLAYKITS</p>
             <WrittenText className="tagline" text={tagline} />
             <Link className="btn" href="/ecd">
-              Request a sample
+              Register interest
             </Link>
             <Link className="btn secondary" href="/ngo">
               Institutional supply
@@ -82,8 +82,9 @@ export default function Home() {
                 can&apos;t read for meaning by age 10.
               </p>
               <p className="why-answer">
-                We get playkits to the early learning centres that need them
-                most, made by local young people who earn a living doing it.
+                We put together affordable learning kits for centres in
+                low-income communities, with a simple guide that shows teachers
+                how to use every piece.
               </p>
             </div>
           </div>
@@ -94,18 +95,18 @@ export default function Home() {
           <div className="cards">
             <div className="card">
               <div className="step-num">1</div>
-              <h3>Inspect</h3>
-              <p>Try a sample kit.</p>
+              <h3>We choose</h3>
+              <p>The best learning products from different brands.</p>
             </div>
             <div className="card">
               <div className="step-num">2</div>
-              <h3>Order</h3>
-              <p>Specs and price confirmed per order.</p>
+              <h3>We build</h3>
+              <p>One complete kit, with an online activity guide.</p>
             </div>
             <div className="card">
               <div className="step-num">3</div>
-              <h3>Deliver</h3>
-              <p>Assembled locally, delivered to you.</p>
+              <h3>We deliver</h3>
+              <p>To your centre, with new pieces as children grow.</p>
             </div>
           </div>
         </section>
@@ -141,11 +142,11 @@ export default function Home() {
         </section>
 
         <section className="section band reveal">
-          <h2>Made by youth makers</h2>
-          <p>Kits are produced through a youth-led local programme.</p>
+          <h2>Make learning products?</h2>
+          <p>We work with brands that want their products in children&apos;s hands.</p>
           <p>
-            <Link className="btn secondary" href="/makers">
-              Meet the makers
+            <Link className="btn secondary" href="/brands">
+              Partner with us
             </Link>
           </p>
         </section>

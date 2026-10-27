@@ -23,7 +23,7 @@ export default function Header() {
           </Link>
         ))}
         <Link className="btn header-cta" href="/ecd">
-          Request a sample
+          Register interest
         </Link>
       </nav>
     </header>

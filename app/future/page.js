@@ -33,7 +33,7 @@ const audiences = [
   },
   {
     name: "NGOs & CSI funders",
-    text: "Kits for the centres you support, with youth jobs behind every order.",
+    text: "Kits for the centres you support, with a guide that helps them get used well.",
   },
   {
     name: "Parents & families",
@@ -78,7 +78,7 @@ export default function Future() {
             <div className="phase">
               <span className="phase-label">Now</span>
               <h3>Start in South Africa</h3>
-              <p>Pilot kits for ECD centres, made by youth makers.</p>
+              <p>Pilot kits for ECD centres, built from partner brands&apos; products.</p>
             </div>
             <div className="phase">
               <span className="phase-label">Next</span>
@@ -89,7 +89,7 @@ export default function Future() {
               <span className="phase-label">Later</span>
               <h3>Scale internationally</h3>
               <p>
-                Selling in Norway and beyond, with production that can grow.
+                Selling in Norway and beyond, with more brands and kits.
               </p>
             </div>
           </div>
@@ -148,8 +148,8 @@ export default function Future() {
               <h2>The team behind Tudo</h2>
               <p>
                 We are a student team in the MakersForge programme at the
-                University of Cape Town, building Tudo together with Siyakholwa
-                Development Foundation and the youth makers in Keiskammahoek.
+                University of Cape Town, building Tudo into a company that makes
+                good learning affordable.
               </p>
               <p>
                 <Link href="/contact">Get in touch with us</Link>
@@ -172,7 +172,7 @@ export default function Future() {
                   <option value="">Choose…</option>
                   <option>The Playkit Club</option>
                   <option>Buying in Norway</option>
-                  <option>Partnering with you</option>
+                  <option>Partnering as a brand</option>
                 </select>
               </label>
               <label className="checkbox">

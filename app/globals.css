@@ -336,36 +336,8 @@ main {
 }
 
 /* Bilder på Meet the Makers */
-.photos {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  margin: 32px 0 56px;
-}
-.photo { margin: 0; }
-.makers-intro {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 48px;
-  align-items: center;
-}
-.makers-intro h1 { margin-top: 0; }
-.makers-placeholder { aspect-ratio: 4 / 3; margin: 0; font-size: 1.1rem; }
-.photo img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border: 2px solid var(--text);
-  border-radius: 16px;
-}
-.photo figcaption { font-size: 0.9rem; margin-top: 8px; opacity: 0.8; }
-@media (max-width: 700px) {
-  .photos, .makers-intro { grid-template-columns: 1fr; }
-  .makers-intro { gap: 24px; }
-}
 
-.makers section,
+.brands section,
 .playkits section,
 .about section { margin-bottom: 56px; }
 
@@ -502,7 +474,6 @@ main.legal h2 { font-size: 1.4rem; margin: 36px 0 8px; }
   .kit-feature { grid-template-columns: 1fr; gap: 24px; }
   .coming { padding: 24px 20px; }
 }
-.makers .step-num { width: auto; min-width: 56px; padding: 0 12px; }
 
 .quote {
   margin: 32px 0 0;
@@ -1317,3 +1288,6 @@ footer a { color: var(--accent); }
   .blob.two { width: 290px; height: 290px; }
   .blob.three { width: 130px; height: 130px; }
 }
+
+/* For Brands: four steps in one row */
+.brands .cards { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
