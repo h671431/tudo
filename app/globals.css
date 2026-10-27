@@ -1291,3 +1291,51 @@ footer a { color: var(--accent); }
 
 /* For Brands: four steps in one row */
 .brands .cards { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+
+/* Meet the Team */
+.team-page section { margin-bottom: 56px; }
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 24px;
+}
+.team-card .placeholder-img,
+.team-card img {
+  aspect-ratio: 1;
+  margin: 0 0 14px;
+  font-size: 0.95rem;
+}
+.team-card img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  border: 2px solid var(--text);
+  border-radius: 16px;
+}
+.team-card h3 { margin: 0 0 6px; color: var(--main); }
+.team-card p { margin: 10px 0 0; }
+
+/* Stat cards with wide numbers */
+.stats .step-num,
+.stats .card:nth-child(n) .step-num { width: auto; min-width: 56px; padding: 0 14px; }
+
+/* The Playkits: drawn kit box and sample products */
+.kit-box { display: block; width: 100%; height: auto; background: #F5ECDF; border-radius: 20px; }
+.sample-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 24px 0 16px;
+}
+@media (max-width: 800px) { .sample-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .sample-grid { grid-template-columns: 1fr; } }
+.sample-art {
+  background: #F5ECDF;
+  border-radius: 16px;
+  padding: 18px 24px;
+  margin-bottom: 14px;
+}
+.sample-art svg { display: block; width: 100%; height: auto; }
+.sample-meta { display: flex; justify-content: space-between; gap: 8px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--main); }
+.sample-card h3 { margin: 6px 0 6px; }
+.sample-card p { margin: 0; }

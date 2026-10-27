@@ -1,27 +1,7 @@
 import Link from "next/link";
+import { KitBox, SampleGrid } from "../../components/KitPreview";
 
 export const metadata = { title: "The Playkits" };
-
-// What the Complete Playkit covers, grouped by the skill each piece builds.
-// The exact products depend on which brands we partner with.
-const inside = [
-  {
-    title: "Language & stories",
-    items: ["Picture books", "Puppets for storytelling", "Picture and word cards"],
-  },
-  {
-    title: "Early maths",
-    items: ["Counting cubes", "Shape sorter", "Puzzles of different sizes"],
-  },
-  {
-    title: "Motor skills",
-    items: ["Building blocks", "Lacing and threading", "Balls and skipping ropes"],
-  },
-  {
-    title: "Creative & social play",
-    items: ["Crayons, paint and paper", "Role-play toys", "Games to play together"],
-  },
-];
 
 // Kits we are exploring. None of these are for sale yet.
 const comingLater = [
@@ -57,16 +37,16 @@ export default function Playkits() {
       </p>
 
       <section className="kit-feature">
-        <div className="placeholder-img kit-placeholder">Photo coming soon</div>
+        <KitBox />
 
         <div>
           <span className="badge">In development</span>
           <h2>Complete Playkit</h2>
           <p>
             Everything an early learning centre needs to get started. We pick
-            products from different brands, test them with teachers and pack
-            them into one kit, with an online guide that shows how to use every
-            piece.
+            products from different brands using early childhood and health
+            research, test them with teachers and pack them into one kit, with
+            an online guide that shows how to use every piece.
           </p>
           <ul className="facts">
             <li>
@@ -79,7 +59,11 @@ export default function Playkits() {
               <strong>For:</strong> ECD centres and early learning programmes
             </li>
             <li>
-              <strong>Price:</strong> made for low-income centres, confirmed soon
+              <strong>Price:</strong> the lowest we can offer, made for
+              low-income centres. Confirmed soon.
+            </li>
+            <li>
+              <strong>Delivery:</strong> free to your centre
             </li>
           </ul>
           <Link className="btn" href="/ecd">
@@ -89,22 +73,15 @@ export default function Playkits() {
       </section>
 
       <section>
-        <h2>What&apos;s inside</h2>
-        <div className="inside">
-          {inside.map((group) => (
-            <div key={group.title}>
-              <h3>{group.title}</h3>
-              <ul>
-                {group.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+        <h2>Inside the sample kit</h2>
+        <p className="teachers-text">
+          The first products we are testing for the kit. Each one is chosen for
+          a skill children need before school.
+        </p>
+        <SampleGrid />
         <p className="note">
-          Examples of what a kit can include. The final contents depend on the
-          products and brands we choose.
+          Drawings of sample products, not photos. The final contents depend on
+          the brands we partner with.
         </p>
       </section>
 

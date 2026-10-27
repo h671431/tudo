@@ -77,14 +77,15 @@ export default function Home() {
             </Link>
             <div className="hero-why">
               <p>
-                Many children in South Africa get no early learning before
-                school. They start behind, and many never catch up: too many
-                can&apos;t read for meaning by age 10.
+                In low-income communities, many early learning centres
+                can&apos;t afford good learning materials. Children start school
+                behind, and many never catch up: too many can&apos;t read for
+                meaning by age 10.
               </p>
               <p className="why-answer">
-                We put together affordable learning kits for centres in
-                low-income communities, with a simple guide that shows teachers
-                how to use every piece.
+                Tudo builds learning kits for the centres that can&apos;t afford
+                them, at the best price we can offer, with a simple guide that
+                shows teachers how to use every piece.
               </p>
             </div>
           </div>
@@ -106,7 +107,7 @@ export default function Home() {
             <div className="card">
               <div className="step-num">3</div>
               <h3>We deliver</h3>
-              <p>To your centre, with new pieces as children grow.</p>
+              <p>Free delivery to your centre, with new pieces as children grow.</p>
             </div>
           </div>
         </section>

@@ -10,6 +10,11 @@ const support = [
     text: "Simple activities for every piece in the kit, sorted by age group and the skill it builds.",
   },
   {
+    name: "Online training",
+    status: "Planned",
+    text: "Short videos that show how to use the kit and plan play-based lessons.",
+  },
+  {
     name: "Monthly activity ideas",
     status: "Planned",
     text: "New activities every month, including ideas that only need everyday materials.",
@@ -80,8 +85,9 @@ export default function Teachers() {
             <select name="interest" required defaultValue="">
               <option value="">Choose…</option>
               <option>Activity guides</option>
+              <option>Online training</option>
               <option>Teacher workshops</option>
-              <option>Both</option>
+              <option>All of these</option>
             </select>
           </label>
           <label className="checkbox">

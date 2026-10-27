@@ -1,3 +1,4 @@
+import Link from "next/link";
 import EnquiryForm from "../../components/EnquiryForm";
 
 export const metadata = { title: "About & Contact" };
@@ -7,45 +8,46 @@ export default function Contact() {
     <main className="about">
       <h1>About us</h1>
       <p className="about-intro">
-        Tudo is a young company that builds affordable learning kits for early
-        childhood development (ECD) centres in South Africa, from the best
-        products different brands make.
+        Tudo is a young company with big ambitions. We build learning kits for
+        early childhood development (ECD) centres in low-income communities,
+        and we aim to beat everyone else on price.
       </p>
 
       <section className="about-grid">
         <div className="about-card">
-          <h3>Who we are</h3>
+          <h3>The problem</h3>
           <p>
-            A student startup in UCT&apos;s MakersForge programme, building
-            Tudo as a business.
+            Centres in low-income communities can&apos;t afford good learning
+            materials, so the children who need them most go without.
           </p>
         </div>
         <div className="about-card">
-          <h3>Why we exist</h3>
+          <h3>Our solution</h3>
           <p>
-            Many children start school behind. Good learning materials are
-            often too expensive for the centres that need them most.
+            We curate the best learning products into one kit at the lowest
+            price we can, chosen using early childhood and child health
+            research, with an online guide for teachers.
           </p>
         </div>
         <div className="about-card">
-          <h3>What we do</h3>
+          <h3>Business model</h3>
           <p>
-            We choose and test products, build them into kits with an online
-            guide, and deliver to centres, NGOs and CSI funders.
+            Centres, NGOs and CSI funders buy a kit, then subscribe for new
+            pieces. Brands get their products to the children who need them.
           </p>
         </div>
         <div className="about-card">
           <h3>Where we&apos;re going</h3>
           <p>
-            A monthly subscription, new kits, and every child with good things
-            to learn and play with.
+            From South Africa to low-income communities around the world, and
+            to Norway.
           </p>
         </div>
       </section>
 
       <p className="note">
         We are at an early stage. Products, prices and terms are still being
-        finalised.
+        finalised. <Link href="/team">Meet the team</Link>
       </p>
 
       <h2>Contact</h2>

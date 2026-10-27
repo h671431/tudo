@@ -68,7 +68,7 @@ export default function Future() {
             <h1>
               Bigger than <span>one kit.</span>
             </h1>
-            <p>Where we&apos;re heading. Plans, not promises.</p>
+            <p>We aim high: good learning for every centre that can&apos;t afford it, in South Africa and around the world.</p>
           </div>
         </section>
 
@@ -89,10 +89,36 @@ export default function Future() {
               <span className="phase-label">Later</span>
               <h3>Scale internationally</h3>
               <p>
-                Selling in Norway and beyond, with more brands and kits.
+                Low-income communities around the world, and Norway, with more
+                brands and kits.
               </p>
             </div>
           </div>
+        </section>
+
+        <section className="section reveal">
+          <h2>The need</h2>
+          <div className="cards stats">
+            <div className="card">
+              <div className="step-num">42,420</div>
+              <h3>Early learning programmes</h3>
+              <p>In South Africa, many of them in low-income communities.</p>
+            </div>
+            <div className="card">
+              <div className="step-num">1.66M</div>
+              <h3>Children enrolled</h3>
+              <p>In those programmes across South Africa.</p>
+            </div>
+            <div className="card">
+              <div className="step-num">175M</div>
+              <h3>Children worldwide</h3>
+              <p>Not enrolled in pre-primary education, most in lower-income countries.</p>
+            </div>
+          </div>
+          <p className="small">
+            Sources: ECD Census 2021 (Department of Basic Education); UNICEF,
+            A World Ready to Learn (2019).
+          </p>
         </section>
 
         <section className="section club reveal">
@@ -152,7 +178,7 @@ export default function Future() {
                 good learning affordable.
               </p>
               <p>
-                <Link href="/contact">Get in touch with us</Link>
+                <Link href="/team">Meet the team</Link>
               </p>
             </div>
             <div className="placeholder-img team-photo">Team photo coming soon</div>
