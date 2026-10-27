@@ -434,6 +434,20 @@ main {
 }
 .form-error { color: #B42318; font-weight: 700; }
 
+/* For Teachers */
+.teachers section { margin-bottom: 56px; }
+.teachers-text { max-width: 60ch; }
+.teachers .about-card h3 { margin-top: 12px; }
+
+/* Lenke fra Playkits til lærerstøtte */
+.teacher-link {
+  padding: 24px 28px;
+  border-radius: 24px;
+  background: var(--accent-soft);
+}
+.teacher-link h2 { margin: 0 0 8px; font-size: 1.5rem; }
+.teacher-link p { margin: 0; max-width: 60ch; }
+
 /* Visjonssiden: teamet */
 .team {
   display: grid;

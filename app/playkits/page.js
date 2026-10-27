@@ -129,6 +129,15 @@ export default function Playkits() {
         </p>
       </section>
 
+      <section className="teacher-link">
+        <h2>More than toys</h2>
+        <p>
+          We are building activity guides and workshops to help teachers get
+          the most out of every kit.{" "}
+          <Link href="/teachers">See our teacher support</Link>
+        </p>
+      </section>
+
       <section className="coming">
         <p className="coming-label">Coming later</p>
         <h2>Kits we are working on</h2>
