@@ -29,30 +29,7 @@ export default function Makers() {
             into a kit.
           </p>
         </div>
-        <figure className="photo">
-          <img
-            src="/makers/workshop.jpg"
-            alt="A young maker in safety glasses and overalls holds a wooden toy car, with rows of wooden cars and blocks on the table in front"
-          />
-          <figcaption>Wooden cars and building blocks ready for the kits.</figcaption>
-        </figure>
-      </div>
-
-      <div className="photos">
-        <figure className="photo">
-          <img
-            src="/makers/toy-cars.jpg"
-            alt="Unpainted wooden toy cars with bolted wheels on a workbench next to a drill"
-          />
-          <figcaption>Cut, sanded and bolted by hand.</figcaption>
-        </figure>
-        <figure className="photo">
-          <img
-            src="/makers/painting.jpg"
-            alt="A maker in Siyakholwa overalls fits a wheel on a green painted wooden car"
-          />
-          <figcaption>Finishing a painted car.</figcaption>
-        </figure>
+        <div className="placeholder-img makers-placeholder">Photos coming soon</div>
       </div>
 
       <section>
