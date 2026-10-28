@@ -46,8 +46,8 @@ export default function Ecd() {
           Kit you are interested in
           <select name="kit" defaultValue="">
             <option value="">Not sure yet</option>
-            <option>TUDO Essentials (R1,999)</option>
-            <option>TUDO Discovery (R4,999)</option>
+            <option>TUDO Essentials</option>
+            <option>TUDO Discovery</option>
           </select>
         </label>
         <label>

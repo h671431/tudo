@@ -2,13 +2,12 @@ import Link from "next/link";
 
 export const metadata = { title: "The Playkits" };
 
-// Kits and add-ons from the TUDO Business & Product Plan (October 2026).
-// Prices are planned price points; contents are the target specification.
+// Kits from the TUDO Business & Product Plan (October 2026). Contents are the
+// target specification. Prices are not set yet, so none are shown.
 const classroomKits = [
   {
     name: "TUDO Essentials",
     tag: "Entry classroom kit",
-    price: "R1,999",
     areas: "Five learning areas",
     items: [
       "Maths & sorting: number shapes, counters and linking cubes",
@@ -23,7 +22,6 @@ const classroomKits = [
   {
     name: "TUDO Discovery",
     tag: "Full classroom kit",
-    price: "R4,999",
     areas: "Seven activity stations",
     items: [
       "Number Explorers, Shapes & Patterns, Letters & Sounds",
@@ -37,7 +35,6 @@ const classroomKits = [
   {
     name: "TUDO Home Explorer",
     tag: "For families",
-    price: "R699",
     areas: "Maths, language, patterns and stories",
     items: [
       "Counters, number cards and picture/word cards",
@@ -49,22 +46,11 @@ const classroomKits = [
   },
 ];
 
-const addOns = [
-  {
-    name: "Refresh Pack",
-    price: "R299",
-    text: "12 new activity cards and six replacement or extension pieces for your kit.",
-  },
-  {
-    name: "Classroom Care",
-    price: "R149 / month",
-    text: "Monthly printable activities, a group Q&A with our ECD lead and replacement discounts. Cancel anytime.",
-  },
-  {
-    name: "Educator workshop",
-    price: "R1,500 / session",
-    text: "A practical half-day workshop for up to 12 educators. Can be sponsored by NGOs.",
-  },
+// What the monthly subscription adds on top of the kit.
+const subscription = [
+  { name: "New toys", text: "Fresh pieces and materials as the children grow." },
+  { name: "Guides for teachers", text: "New activities and teaching ideas every month." },
+  { name: "A community", text: "Share what works with other educators and parents." },
 ];
 
 export default function Playkits() {
@@ -85,7 +71,7 @@ export default function Playkits() {
               <div className="placeholder-img kit-photo">Photo coming soon</div>
               <span className="badge">{kit.tag}</span>
               <h3>{kit.name}</h3>
-              <p className="kit-price">{kit.price}</p>
+              <p className="kit-price">One-time purchase</p>
               <p className="kit-areas">{kit.areas}</p>
               <ul>
                 {kit.items.map((item) => (
@@ -104,30 +90,42 @@ export default function Playkits() {
       </section>
 
       <section>
-        <h2>Add-ons and support</h2>
+        <h2>Keep growing with a subscription</h2>
+        <p className="teachers-text">
+          Buy your kit once. Then choose a monthly subscription if you want
+          more.
+        </p>
         <div className="about-grid">
-          {addOns.map((item) => (
+          {subscription.map((item) => (
             <div className="about-card" key={item.name}>
               <h3>{item.name}</h3>
-              <p className="kit-price small-price">{item.price}</p>
               <p>{item.text}</p>
             </div>
           ))}
         </div>
       </section>
 
+      <section>
+        <h2>Refills and more brands</h2>
+        <p className="teachers-text">
+          Refills and replacement pieces keep your kit complete. And as more
+          brands join us, new kits and products will be added.{" "}
+          <Link href="/brands">Are you a brand?</Link>
+        </p>
+      </section>
+
       <section className="teacher-link">
         <h2>Paying for your kit</h2>
         <p>
           For now, register your interest and we will send you a quote and an
-          invoice. Online card payments with Paystack are coming soon. Centres
-          own their kit: Classroom Care is optional, not a rental.
+          invoice. Online card payments with Paystack are coming soon. You own
+          your kit, and the subscription is optional.
         </p>
       </section>
 
       <p className="note">
-        Planned prices. Final contents and prices are confirmed in your quote.
-        All kits are for supervised use by children aged 3 and up.
+        Prices are not set yet. Final contents and prices are confirmed in your
+        quote. All kits are for supervised use by children aged 3 and up.
       </p>
     </main>
   );

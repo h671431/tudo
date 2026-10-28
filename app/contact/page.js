@@ -32,8 +32,8 @@ export default function Contact() {
         <div className="about-card">
           <h3>Business model</h3>
           <p>
-            Centres, families and NGOs buy a kit they own. We also sell refills,
-            optional Classroom Care support and educator workshops.
+            Centres and families buy a kit once. A monthly subscription adds new
+            toys, teacher guides and a community, and brands partner with us.
           </p>
         </div>
         <div className="about-card">
