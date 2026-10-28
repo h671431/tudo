@@ -1320,7 +1320,7 @@ footer a { color: var(--accent); }
 .stats .card:nth-child(n) .step-num { width: auto; min-width: 56px; padding: 0 14px; }
 
 /* The Playkits: drawn kit box and sample products */
-.kit-box { display: block; width: 100%; height: auto; background: #F5ECDF; border-radius: 20px; }
+.kit-box { display: block; width: 100%; height: auto; border-radius: 20px; }
 .sample-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

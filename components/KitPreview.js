@@ -2,8 +2,6 @@
 // sample products. Used on The Playkits until we have real photos.
 
 const ink = "#4B2A7B";
-const kraft = "#D6B58A";
-const kraftDark = "#B98F5E";
 
 // Simple flat drawings of each sample product, in the same 120 x 100 frame.
 const drawings = {
@@ -138,39 +136,118 @@ export const samples = [
   },
 ];
 
-// Skill icons printed on the box: maths, language, motor skills and play.
+// Skill icons printed on the box label: maths, language, motor skills and play.
 function BoxIcons({ x, y }) {
   return (
-    <g transform={`translate(${x} ${y})`} fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round">
-      <circle cx="12" cy="12" r="11" />
-      <path d="M7 12h10M12 7v10" />
-      <circle cx="40" cy="12" r="11" />
-      <text x="40" y="17" textAnchor="middle" fontSize="13" fontWeight="700" fill="#fff" stroke="none">A</text>
-      <circle cx="68" cy="12" r="11" />
-      <path d="M63 15c2-6 8-6 10 0" />
-      <circle cx="96" cy="12" r="11" />
-      <circle cx="96" cy="12" r="4" />
+    <g transform={`translate(${x} ${y})`} fill="none" stroke="#fff" strokeWidth="1.6" strokeLinecap="round">
+      <circle cx="9" cy="9" r="8" />
+      <path d="M5.5 9h7M9 5.5v7" />
+      <circle cx="29" cy="9" r="8" />
+      <text x="29" y="12.5" textAnchor="middle" fontSize="9.5" fontWeight="700" fill="#fff" stroke="none">A</text>
+      <circle cx="49" cy="9" r="8" />
+      <path d="M45 11c1.5-4.5 6.5-4.5 8 0" />
+      <circle cx="69" cy="9" r="8" />
+      <circle cx="69" cy="9" r="3" />
     </g>
   );
 }
 
-// The kraft box with rope handle, like the box a centre would receive.
+// One product drawing placed in the box scene.
+function Product({ name, x, y, w, rotate = 0 }) {
+  const h = (w * 100) / 120;
+  return (
+    <g transform={`rotate(${rotate} ${x + w / 2} ${y + h / 2})`} filter="url(#lift)">
+      <svg x={x} y={y} width={w} height={h} viewBox="0 0 120 100">
+        {drawings[name]}
+      </svg>
+    </g>
+  );
+}
+
+// A kraft box in three-quarter view with the products laid out around it,
+// styled like a product photo. Shown until we have a real one.
 export function KitBox() {
   return (
-    <svg className="kit-box" viewBox="0 0 400 360" role="img" aria-label="Tudo learning box, ages 2 to 5, with six sample products">
-      <ellipse cx="200" cy="338" rx="160" ry="12" fill="#000" opacity="0.08" />
-      <path d="M150 92c0-46 100-46 100 0" fill="none" stroke="#C9B79C" strokeWidth="7" strokeLinecap="round" />
-      <path d="M70 100l40-28h180l40 28z" fill={kraftDark} />
-      <rect x="70" y="100" width="260" height="236" rx="6" fill={kraft} />
-      <path d="M330 100l0 236" stroke={kraftDark} strokeWidth="3" />
-      <image href="/logo.svg" x="96" y="124" width="150" height="62" />
-      <text x="98" y="210" fontSize="26" fontWeight="700" fill={ink}>Learning Box</text>
-      <text x="98" y="236" fontSize="15" fill={ink} opacity="0.8">Play that opens possibilities</text>
-      <rect x="236" y="250" width="78" height="66" rx="10" fill={ink} />
-      <text x="275" y="276" textAnchor="middle" fontSize="13" fontWeight="700" fill="#fff">AGES</text>
-      <text x="275" y="302" textAnchor="middle" fontSize="22" fontWeight="700" fill="#FFC93C">2–5</text>
-      <rect x="86" y="268" width="138" height="48" rx="10" fill={ink} />
-      <BoxIcons x={93} y={280} />
+    <svg className="kit-box" viewBox="0 0 520 470" role="img" aria-label="Tudo learning box, ages 2 to 5, with the six sample products around it">
+      <defs>
+        <linearGradient id="front" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#DCBC90" />
+          <stop offset="1" stopColor="#C9A274" />
+        </linearGradient>
+        <linearGradient id="side" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stopColor="#B88E5D" />
+          <stop offset="1" stopColor="#A47B4C" />
+        </linearGradient>
+        <linearGradient id="top" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0" stopColor="#E6CBA3" />
+          <stop offset="1" stopColor="#D8B887" />
+        </linearGradient>
+        <radialGradient id="floor" cx="0.5" cy="0.45" r="0.7">
+          <stop offset="0" stopColor="#FBF6EE" />
+          <stop offset="1" stopColor="#EFE4D3" />
+        </radialGradient>
+        <pattern id="fibre" width="6" height="6" patternUnits="userSpaceOnUse">
+          <circle cx="1" cy="1" r="0.6" fill="#7A5530" opacity="0.18" />
+          <circle cx="4" cy="4" r="0.5" fill="#fff" opacity="0.2" />
+        </pattern>
+        <filter id="lift" x="-20%" y="-20%" width="140%" height="150%">
+          <feDropShadow dx="0" dy="6" stdDeviation="5" floodColor="#5A3D1E" floodOpacity="0.22" />
+        </filter>
+        <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="12" />
+        </filter>
+      </defs>
+
+      <rect width="520" height="470" fill="url(#floor)" />
+
+      {/* Box shadow on the floor */}
+      <ellipse cx="275" cy="338" rx="180" ry="22" fill="#5A3D1E" opacity="0.22" filter="url(#soft)" />
+
+      {/* Rope handle, behind the front edge of the lid */}
+      <path d="M228 112C226 40 312 40 310 104" fill="none" stroke="#E9DFCC" strokeWidth="8" strokeLinecap="round" />
+      <path d="M228 112C226 40 312 40 310 104" fill="none" stroke="#CFC2A8" strokeWidth="8" strokeLinecap="round" strokeDasharray="2 5" />
+
+      {/* Top, side and front of the box */}
+      <path d="M130 120L195 88H425L360 120Z" fill="url(#top)" />
+      <path d="M130 120L195 88H425L360 120Z" fill="url(#fibre)" />
+      <ellipse cx="228" cy="110" rx="6" ry="3" fill="#6E4C28" />
+      <ellipse cx="310" cy="104" rx="6" ry="3" fill="#6E4C28" />
+      <path d="M360 120L425 88V305L360 338Z" fill="url(#side)" />
+      <path d="M360 120L425 88V305L360 338Z" fill="url(#fibre)" />
+      <rect x="130" y="120" width="230" height="218" fill="url(#front)" />
+      <rect x="130" y="120" width="230" height="218" fill="url(#fibre)" />
+      <path d="M130 120H360L425 88" fill="none" stroke="#F1DDBD" strokeWidth="1.5" />
+
+      {/* Front label */}
+      <image href="/logo.svg" x="146" y="134" width="124" height="51" />
+      <text x="150" y="208" fontSize="8.5" fontWeight="700" letterSpacing="2.4" fill="#4B2A7B" opacity="0.75">EDUCATIONAL PLAYKIT</text>
+      <text x="149" y="234" fontSize="23" fontWeight="800" fill="#4B2A7B">Learning Box</text>
+      <rect x="274" y="134" width="72" height="62" rx="6" fill="#4B2A7B" />
+      <text x="310" y="152" textAnchor="middle" fontSize="7.5" fontWeight="700" letterSpacing="1.2" fill="#fff">AGES</text>
+      <text x="310" y="176" textAnchor="middle" fontSize="20" fontWeight="800" fill="#FFC93C">2–5</text>
+      <text x="310" y="189" textAnchor="middle" fontSize="7" fontWeight="700" fill="#fff" opacity="0.85">6 PRODUCTS</text>
+      <rect x="252" y="244" width="94" height="28" rx="14" fill="#4B2A7B" />
+      <BoxIcons x={260} y={249} />
+
+      {/* Side print */}
+      <text transform="translate(398 300) rotate(-90) skewX(-26)" fontSize="15" fontWeight="800" letterSpacing="3" fill="#4B2A7B" opacity="0.55">tudo · learning box</text>
+
+      {/* Activity guide card leaning on the box */}
+      <g transform="rotate(-8 205 300)" filter="url(#lift)">
+        <rect x="160" y="250" width="92" height="112" rx="5" fill="#4B2A7B" />
+        <text x="170" y="272" fontSize="8" fontWeight="700" letterSpacing="1" fill="#FFC93C">ACTIVITY GUIDE</text>
+        <text x="170" y="288" fontSize="11" fontWeight="800" fill="#fff">Play &amp; learn</text>
+        <rect x="186" y="300" width="40" height="40" rx="3" fill="#fff" />
+        <path d="M191 305h10v10h-10zM211 305h10v10h-10zM191 325h10v10h-10zM206 320h5v5h-5zM214 328h7v7h-7zM206 330h4v5h-4z" fill="#4B2A7B" />
+      </g>
+
+      {/* Products around the box */}
+      <Product name="abacus" x={10} y={190} w={150} rotate={-4} />
+      <Product name="blocks" x={392} y={238} w={118} rotate={3} />
+      <Product name="pegs" x={20} y={330} w={150} rotate={-3} />
+      <Product name="pizza" x={190} y={350} w={130} />
+      <Product name="fishing" x={340} y={344} w={150} rotate={2} />
+      <Product name="chunky" x={262} y={276} w={104} rotate={-2} />
     </svg>
   );
 }
