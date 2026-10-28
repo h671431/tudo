@@ -1319,23 +1319,28 @@ footer a { color: var(--accent); }
 .stats .step-num,
 .stats .card:nth-child(n) .step-num { width: auto; min-width: 56px; padding: 0 14px; }
 
-/* The Playkits: drawn kit box and sample products */
-.kit-box { display: block; width: 100%; height: auto; border-radius: 20px; }
-.sample-grid {
+/* The Playkits: kit tiers */
+.kit-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  margin: 24px 0 16px;
 }
-@media (max-width: 800px) { .sample-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 520px) { .sample-grid { grid-template-columns: 1fr; } }
-.sample-art {
-  background: #F5ECDF;
-  border-radius: 16px;
-  padding: 18px 24px;
-  margin-bottom: 14px;
+.kit-card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
 }
-.sample-art svg { display: block; width: 100%; height: auto; }
-.sample-meta { display: flex; justify-content: space-between; gap: 8px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--main); }
-.sample-card h3 { margin: 6px 0 6px; }
-.sample-card p { margin: 0; }
+.kit-photo { aspect-ratio: 4 / 3; margin: 0 0 16px; font-size: 1rem; }
+.kit-card .badge { align-self: flex-start; }
+.kit-card h3 { margin: 12px 0 4px; }
+.kit-price { margin: 0; font-size: 1.6rem; font-weight: 800; color: var(--main); }
+.small-price { font-size: 1.2rem; margin-bottom: 8px; }
+.kit-areas { margin: 4px 0 8px; font-weight: 700; }
+.kit-card ul { margin: 0 0 20px; padding-left: 18px; flex: 1; }
+.kit-card li { margin-bottom: 4px; }
+.kit-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.pay-soon { font-size: 0.85rem; opacity: 0.75; }
+@media (max-width: 900px) { .kit-grid { grid-template-columns: 1fr; } }

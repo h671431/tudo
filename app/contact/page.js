@@ -32,8 +32,8 @@ export default function Contact() {
         <div className="about-card">
           <h3>Business model</h3>
           <p>
-            Centres, NGOs and CSI funders buy a kit, then subscribe for new
-            pieces. Brands get their products to the children who need them.
+            Centres, families and NGOs buy a kit they own. We also sell refills,
+            optional Classroom Care support and educator workshops.
           </p>
         </div>
         <div className="about-card">

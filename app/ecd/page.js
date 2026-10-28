@@ -43,6 +43,14 @@ export default function Ecd() {
           </select>
         </label>
         <label>
+          Kit you are interested in
+          <select name="kit" defaultValue="">
+            <option value="">Not sure yet</option>
+            <option>TUDO Essentials (R1,999)</option>
+            <option>TUDO Discovery (R4,999)</option>
+          </select>
+        </label>
+        <label>
           Estimated quantity <input name="quantity" type="number" min="1" />
         </label>
         <label className="checkbox">

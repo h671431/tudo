@@ -1,29 +1,69 @@
 import Link from "next/link";
-import { KitBox, SampleGrid } from "../../components/KitPreview";
 
 export const metadata = { title: "The Playkits" };
 
-// Kits we are exploring. None of these are for sale yet.
-const comingLater = [
+// Kits and add-ons from the TUDO Business & Product Plan (October 2026).
+// Prices are planned price points; contents are the target specification.
+const classroomKits = [
   {
-    name: "Health & Safety Kit",
-    text: "What centres need to register, like a mattress and a bucket with a tap.",
+    name: "TUDO Essentials",
+    tag: "Entry classroom kit",
+    price: "R1,999",
+    areas: "Five learning areas",
+    items: [
+      "Maths & sorting: number shapes, counters and linking cubes",
+      "Letters & stories: alphabet, picture and feelings cards",
+      "Small hands: lacing board and a chunky animal puzzle",
+      "Movement: shape beanbags and challenge cards",
+      "Creative expression: crayons, chalks and templates",
+      "18 activity cards and a 4-week teaching guide",
+    ],
+    href: "/ecd",
   },
   {
-    name: "Skills Kit",
-    text: "Focused on fine motor skills, counting and early problem-solving.",
+    name: "TUDO Discovery",
+    tag: "Full classroom kit",
+    price: "R4,999",
+    areas: "Seven activity stations",
+    items: [
+      "Number Explorers, Shapes & Patterns, Letters & Sounds",
+      "Little Hands & Senses, Move & Coordinate",
+      "Create & Pretend, Speak & Explore",
+      "36 activity cards and a 12-week rotation plan",
+      "Labelled station pouches and QR video demonstrations",
+    ],
+    href: "/ecd",
   },
   {
-    name: "Build-your-own Kit",
-    text: "Pick the pieces that fit your children, your space and your budget.",
+    name: "TUDO Home Explorer",
+    tag: "For families",
+    price: "R699",
+    areas: "Maths, language, patterns and stories",
+    items: [
+      "Counters, number cards and picture/word cards",
+      "Pattern pieces in a reusable pouch",
+      "12 family activity cards",
+      "A 6-week parent guide",
+    ],
+    href: "/contact",
+  },
+];
+
+const addOns = [
+  {
+    name: "Refresh Pack",
+    price: "R299",
+    text: "12 new activity cards and six replacement or extension pieces for your kit.",
   },
   {
-    name: "Sports Kit",
-    text: "Balls, ropes and outdoor games for active play.",
+    name: "Classroom Care",
+    price: "R149 / month",
+    text: "Monthly printable activities, a group Q&A with our ECD lead and replacement discounts. Cancel anytime.",
   },
   {
-    name: "Story Kit",
-    text: "Books and dolls that look like the children who play with them.",
+    name: "Educator workshop",
+    price: "R1,500 / session",
+    text: "A practical half-day workshop for up to 12 educators. Can be sponsored by NGOs.",
   },
 ];
 
@@ -32,84 +72,63 @@ export default function Playkits() {
     <main className="playkits">
       <h1>The Playkits</h1>
       <p className="lead">
-        Learning kits built from the best products we can find, chosen for
-        the skill each piece builds.
+        An early-learning system, not a random box of toys. Every kit comes
+        with activity cards and a guide, so teachers and parents know exactly
+        how to use each piece.
       </p>
 
-      <section className="kit-feature">
-        <KitBox />
-
-        <div>
-          <span className="badge">In development</span>
-          <h2>Complete Playkit</h2>
-          <p>
-            Everything an early learning centre needs to get started. We pick
-            products from different brands using early childhood and health
-            research, test them with teachers and pack them into one kit, with
-            an online guide that shows how to use every piece.
-          </p>
-          <ul className="facts">
-            <li>
-              <strong>Built around:</strong> language, maths, motor skills and play
-            </li>
-            <li>
-              <strong>Comes with:</strong> an online activity guide
-            </li>
-            <li>
-              <strong>For:</strong> ECD centres and early learning programmes
-            </li>
-            <li>
-              <strong>Price:</strong> the lowest we can offer, made for
-              low-income centres. Confirmed soon.
-            </li>
-            <li>
-              <strong>Delivery:</strong> free to your centre
-            </li>
-          </ul>
-          <Link className="btn" href="/ecd">
-            Register interest
-          </Link>
-        </div>
-      </section>
-
       <section>
-        <h2>Inside the sample kit</h2>
-        <p className="teachers-text">
-          The first products we are testing for the kit. Each one is chosen for
-          a skill children need before school.
-        </p>
-        <SampleGrid />
-        <p className="note">
-          Drawings of sample products, not photos. The final contents depend on
-          the brands we partner with.
-        </p>
-      </section>
-
-      <section className="teacher-link">
-        <h2>More than toys</h2>
-        <p>
-          Every kit comes with an online guide, and we are building more
-          support to help teachers get the most out of it.{" "}
-          <Link href="/teachers">See our teacher support</Link>
-        </p>
-      </section>
-
-      <section className="coming">
-        <p className="coming-label">Coming later</p>
-        <h2>Kits we are working on</h2>
-        <p>
-          Ideas in development, shaped by what centres tell us they need. Not
-          available yet.
-        </p>
-        <div className="coming-grid">
-          {comingLater.map((kit) => (
-            <div className="coming-card" key={kit.name}>
+        <h2>Our kits</h2>
+        <div className="kit-grid">
+          {classroomKits.map((kit) => (
+            <div className="kit-card" key={kit.name}>
+              <div className="placeholder-img kit-photo">Photo coming soon</div>
+              <span className="badge">{kit.tag}</span>
               <h3>{kit.name}</h3>
-              <p>{kit.text}</p>
+              <p className="kit-price">{kit.price}</p>
+              <p className="kit-areas">{kit.areas}</p>
+              <ul>
+                {kit.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <div className="kit-actions">
+                <Link className="btn" href={kit.href}>
+                  Register interest
+                </Link>
+                <span className="pay-soon">Pay online with Paystack · coming soon</span>
+              </div>
             </div>
           ))}
         </div>
       </section>
+
+      <section>
+        <h2>Add-ons and support</h2>
+        <div className="about-grid">
+          {addOns.map((item) => (
+            <div className="about-card" key={item.name}>
+              <h3>{item.name}</h3>
+              <p className="kit-price small-price">{item.price}</p>
+              <p>{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="teacher-link">
+        <h2>Paying for your kit</h2>
+        <p>
+          For now, register your interest and we will send you a quote and an
+          invoice. Online card payments with Paystack are coming soon. Centres
+          own their kit: Classroom Care is optional, not a rental.
+        </p>
+      </section>
+
+      <p className="note">
+        Planned prices. Final contents and prices are confirmed in your quote.
+        All kits are for supervised use by children aged 3 and up.
+      </p>
     </main>
   );
 }

@@ -106,7 +106,7 @@ export default function Home() {
             <div className="card">
               <div className="step-num">3</div>
               <h3>We deliver</h3>
-              <p>Free delivery to your centre, with new pieces as children grow.</p>
+              <p>To your centre or home, with refills and new activities as children grow.</p>
             </div>
           </div>
         </section>

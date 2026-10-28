@@ -25,7 +25,7 @@ const team = [
   {
     name: "Hannah",
     role: "Finance & Tech",
-    background: "Studies IT at HVL, Western Norway University of Applied Sciences.",
+    background: "Studies Software Engineering at HVL, Western Norway University of Applied Sciences.",
     goal: "Wants Tudo to be a business that can grow, and to bring it to Norway one day.",
   },
   {
