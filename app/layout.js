@@ -19,13 +19,14 @@ export const viewport = {
 };
 
 // Runs before first paint: enables the scroll-reveal styles, restores the saved design choice
+// (only while the design chooser is shown)
 // and turns on the writing animation the first time the home page is opened in a session.
 const earlyScript = `
 (function () {
   var d = document.documentElement;
   d.classList.add('js');
   d.dataset.theme = 'orange'; d.dataset.pattern = 'none'; d.dataset.look = 'modern';
-  try {
+  if (${site.showDesignPicker}) try {
     var s = JSON.parse(localStorage.getItem('design-v4')) || {};
     ['theme', 'pattern', 'look'].forEach(function (k) { if (s[k]) d.dataset[k] = s[k]; });
   } catch (e) {}
@@ -50,7 +51,7 @@ export default function RootLayout({ children }) {
         {children}
         <Footer />
         <ClientEffects />
-        <DesignPicker />
+        {site.showDesignPicker && <DesignPicker />}
       </body>
     </html>
   );

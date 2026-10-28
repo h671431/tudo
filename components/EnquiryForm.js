@@ -3,10 +3,17 @@
 import { useState } from "react";
 import { site } from "../lib/site";
 
-// Sends the form to FormSubmit, which emails it to site.formEmail.
-// The very first submission makes FormSubmit send an activation email to that
-// address; nothing is delivered until the link in it has been clicked.
-const endpoint = `https://formsubmit.co/ajax/${site.formEmail}`;
+// Sends the form by email to site.formEmail.
+// With site.web3formsKey set, it goes through Web3Forms (get a free key at
+// web3forms.com with that email address). Without a key it falls back to
+// FormSubmit, which needs a one-time activation from the inbox.
+const useWeb3Forms = Boolean(site.web3formsKey);
+const endpoint = useWeb3Forms
+  ? "https://api.web3forms.com/submit"
+  : `https://formsubmit.co/ajax/${site.formEmail}`;
+
+// Give up after this long, so the form never hangs on "Sending…".
+const timeoutMs = 15000;
 
 // `source` tells the team which page the enquiry came from.
 export default function EnquiryForm({ source, children }) {
@@ -17,20 +24,31 @@ export default function EnquiryForm({ source, children }) {
     setStatus("sending");
 
     const data = Object.fromEntries(new FormData(e.currentTarget));
-    data._subject = `New ${source} enquiry – Tudo`;
-    data._template = "table";
     data.source = source;
+    if (useWeb3Forms) {
+      data.access_key = site.web3formsKey;
+      data.subject = `New ${source} enquiry – Tudo`;
+      data.from_name = "Tudo website";
+    } else {
+      data._subject = `New ${source} enquiry – Tudo`;
+      data._template = "table";
+    }
 
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
       const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(data),
+        signal: controller.signal,
       });
       const result = await res.json().catch(() => ({}));
       setStatus(res.ok && String(result.success) === "true" ? "sent" : "error");
     } catch {
       setStatus("error");
+    } finally {
+      clearTimeout(timer);
     }
   }
 
@@ -48,7 +66,8 @@ export default function EnquiryForm({ source, children }) {
       {status === "sending" && <p className="note">Sending…</p>}
       {status === "error" && (
         <p className="form-error" role="alert">
-          Something went wrong and your message was not sent. Please try again.
+          Something went wrong and your message was not sent. Please try again
+          in a little while.
         </p>
       )}
     </form>
