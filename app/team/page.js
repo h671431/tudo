@@ -13,7 +13,7 @@ const team = [
   {
     name: "Rhonda",
     role: "Sales",
-    background: "Studies Marketing.",
+    background: "Studies Statistics.",
     goal: "Wants to get Tudo kits into centres, NGOs and CSI programmes across South Africa.",
   },
   {

@@ -35,7 +35,7 @@ export default function Privacy() {
 
       <h2>Services we use</h2>
       <p>
-        Our forms are delivered to our email through Formspree, and the website
+        Our forms are delivered to our email through FormSubmit, and the website
         is hosted by Vercel. These services process data on our behalf so the
         website and forms can work.
       </p>

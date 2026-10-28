@@ -100,25 +100,22 @@ export default function Future() {
           <h2>The need</h2>
           <div className="cards stats">
             <div className="card">
-              <div className="step-num">42,420</div>
-              <h3>Early learning programmes</h3>
-              <p>In South Africa, many of them in low-income communities.</p>
+              <div className="step-num">42%</div>
+              <h3>On track</h3>
+              <p>Of children assessed in key early-learning outcomes.</p>
             </div>
             <div className="card">
-              <div className="step-num">1.66M</div>
-              <h3>Children enrolled</h3>
-              <p>In those programmes across South Africa.</p>
+              <div className="step-num">28%</div>
+              <h3>Falling behind</h3>
+              <p>Not yet where they should be.</p>
             </div>
             <div className="card">
-              <div className="step-num">175M</div>
-              <h3>Children worldwide</h3>
-              <p>Not enrolled in pre-primary education, most in lower-income countries.</p>
+              <div className="step-num">30%</div>
+              <h3>Falling far behind</h3>
+              <p>The children who need support the most.</p>
             </div>
           </div>
-          <p className="small">
-            Sources: ECD Census 2021 (Department of Basic Education); UNICEF,
-            A World Ready to Learn (2019).
-          </p>
+          <p className="small">Source: Thrive by Five Index 2024, South Africa.</p>
         </section>
 
         <section className="section club reveal">

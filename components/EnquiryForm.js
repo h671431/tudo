@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { site } from "../lib/site";
 
-// Sends the form to Formspree, which emails it to the team.
-// Set NEXT_PUBLIC_FORMSPREE_ID (the id in https://formspree.io/f/<id>) in
-// .env.local and in Vercel. Without it, the form only shows a demo message.
-const formId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
+// Sends the form to FormSubmit, which emails it to site.formEmail.
+// The very first submission makes FormSubmit send an activation email to that
+// address; nothing is delivered until the link in it has been clicked.
+const endpoint = `https://formsubmit.co/ajax/${site.formEmail}`;
 
 // `source` tells the team which page the enquiry came from.
 export default function EnquiryForm({ source, children }) {
@@ -13,34 +14,30 @@ export default function EnquiryForm({ source, children }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (!formId) {
-      setStatus("demo");
-      return;
-    }
-
     setStatus("sending");
-    const data = new FormData(e.currentTarget);
-    data.append("_subject", `New ${source} enquiry – Tudo`);
-    data.append("source", source);
+
+    const data = Object.fromEntries(new FormData(e.currentTarget));
+    data._subject = `New ${source} enquiry – Tudo`;
+    data._template = "table";
+    data.source = source;
 
     try {
-      const res = await fetch(`https://formspree.io/f/${formId}`, {
+      const res = await fetch(endpoint, {
         method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(data),
       });
-      setStatus(res.ok ? "sent" : "error");
+      const result = await res.json().catch(() => ({}));
+      setStatus(res.ok && String(result.success) === "true" ? "sent" : "error");
     } catch {
       setStatus("error");
     }
   }
 
-  if (status === "sent" || status === "demo") {
+  if (status === "sent") {
     return (
       <p className="form-message" role="status">
-        {status === "sent"
-          ? "Thank you! We have received your message and will get back to you soon."
-          : "Thank you! This is a demo – nothing has been sent yet."}
+        Thank you! We have received your message and will get back to you soon.
       </p>
     );
   }

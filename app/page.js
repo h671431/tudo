@@ -78,9 +78,8 @@ export default function Home() {
             <div className="hero-why">
               <p>
                 In low-income communities, many early learning centres
-                can&apos;t afford good learning materials. Children start school
-                behind, and many never catch up: too many can&apos;t read for
-                meaning by age 10.
+                can&apos;t afford good learning materials, and teachers get little
+                practical support to help children learn through play.
               </p>
               <p className="why-answer">
                 Tudo builds learning kits for the centres that can&apos;t afford
