@@ -24,6 +24,7 @@ const team = [
   },
   {
     name: "Israel",
+    photo: "/team/israel.jpg",
     study: "Computer Science",
   },
 ];
