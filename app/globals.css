@@ -1616,7 +1616,9 @@ button.partner-card {
 .team-cards {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 18px;
+  gap: 26px;
+  max-width: 980px;
+  margin: 0 auto;
   padding: 0 0 90px;
 }
 .flip-card {
@@ -1626,8 +1628,9 @@ button.partner-card {
   transition: opacity 0.3s, transform 0.3s;
 }
 .member { transition: opacity 0.3s; }
-.member:nth-child(even) { transform: translateY(22px); }
-.team-cards:hover .member:not(:hover) { opacity: 0.45; }
+.member:nth-child(even) { transform: translateY(44px); }
+/* Dim the others only while a card itself is hovered, not the gaps between */
+.team-cards:has(.member:hover) .member:not(:hover) { opacity: 0.45; }
 .flip-inner {
   position: relative;
   height: 100%;
