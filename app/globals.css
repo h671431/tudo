@@ -1526,3 +1526,56 @@ footer a { color: var(--accent); }
   .cycle, .year { grid-template-columns: 1fr; }
 }
 .kit-grid.two .kit-photo { aspect-ratio: 16 / 7; }
+
+/* ---------- Moving colour background behind every page ---------- */
+.bg-orbs {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.bg-orbs span {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.75;
+  animation: drift 28s ease-in-out infinite alternate;
+}
+.bg-orbs span:nth-child(1) { width: 55vw; height: 55vw; left: -15vw; top: -15vw; background: var(--blob-1); }
+.bg-orbs span:nth-child(2) { width: 45vw; height: 45vw; right: -10vw; top: 10vh; background: var(--blob-3); animation-duration: 34s; animation-delay: -8s; }
+.bg-orbs span:nth-child(3) { width: 40vw; height: 40vw; left: 20vw; bottom: -15vw; background: var(--blob-2); animation-duration: 30s; animation-delay: -15s; }
+.bg-orbs span:nth-child(4) { width: 30vw; height: 30vw; right: 15vw; bottom: 5vh; background: var(--panel-a); opacity: 0.35; animation-duration: 38s; animation-delay: -4s; }
+@keyframes drift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(10vw, 8vh) scale(1.15); }
+  100% { transform: translate(-8vw, -6vh) scale(0.9); }
+}
+@media (max-width: 700px) {
+  .bg-orbs span { filter: blur(60px); }
+  .bg-orbs span:nth-child(1) { width: 90vw; height: 90vw; }
+  .bg-orbs span:nth-child(2) { width: 80vw; height: 80vw; }
+  .bg-orbs span:nth-child(3) { width: 80vw; height: 80vw; }
+}
+
+/* Content floats on top: see-through panels with room between them */
+[data-look="modern"] .home-hero { background-color: transparent; }
+.home-hero .blob { display: none; }
+[data-look="modern"] .section,
+[data-look="modern"] main:not(.home main) {
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 40px rgba(43, 27, 71, 0.06);
+}
+[data-look="modern"] .home .section {
+  max-width: 1080px;
+  margin: 18vh auto;
+}
+[data-look="modern"] .home .section:last-child { margin-bottom: 12vh; }
+.cycle li, .story-give { background: rgba(255, 255, 255, 0.55) !important; }
+[data-look="modern"] footer { margin-top: 12vh; }
+@media (max-width: 700px) {
+  [data-look="modern"] .home .section { margin: 10vh 12px; }
+}

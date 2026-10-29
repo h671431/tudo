@@ -20,7 +20,7 @@ export const viewport = {
 
 // Runs before first paint: enables the scroll-reveal styles, restores the saved colour palette
 // (only while the palette chooser is shown)
-// and turns on the writing animation the first time the home page is opened in a session.
+// and turns on the writing animation each time the home page is loaded.
 const earlyScript = `
 (function () {
   var d = document.documentElement;
@@ -31,10 +31,8 @@ const earlyScript = `
     if (t) d.dataset.theme = t;
   } catch (e) {}
   try {
-    if (location.pathname === '/' && !sessionStorage.getItem('written') &&
-        !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (location.pathname === '/' && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
       d.classList.add('write-anim');
-      sessionStorage.setItem('written', '1');
     }
   } catch (e) {}
 })();
@@ -47,6 +45,13 @@ export default function RootLayout({ children }) {
         <script dangerouslySetInnerHTML={{ __html: earlyScript }} />
       </head>
       <body>
+        {/* Slowly moving colour background behind every page */}
+        <div className="bg-orbs" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <Header />
         {children}
         <Footer />
