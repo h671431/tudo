@@ -28,9 +28,23 @@ export default function Home() {
             </h1>
             <p className="logo-sub">PLAY WITH PURPOSE</p>
             <p className="tagline">{tagline}</p>
-            <a className="btn" href="#waitlist">
-              Join waiting list
-            </a>
+            <EnquiryForm
+              source="Waitlist"
+              className="hero-waitlist"
+              sentText="You're on the list! We'll tell you when TUDO launches."
+            >
+              <input
+                name="email"
+                type="email"
+                placeholder="Your email"
+                aria-label="Your email"
+                required
+              />
+              <button className="btn btn-cta" type="submit">
+                Join waiting list
+              </button>
+            </EnquiryForm>
+            <p className="hero-waitlist-note">Be one of the first families to get TUDO.</p>
           </div>
         </section>
 
@@ -107,7 +121,10 @@ export default function Home() {
           <p className="story-text">
             Join the waiting list and we&apos;ll tell you when we launch.
           </p>
-          <EnquiryForm source="Waitlist">
+          <EnquiryForm
+            source="Waitlist"
+            sentText="You're on the list! We'll tell you when TUDO launches."
+          >
             <label>
               Name <input name="name" type="text" required />
             </label>
@@ -118,7 +135,7 @@ export default function Home() {
               <input name="consent" type="checkbox" required /> I agree that my
               details may be stored to contact me about TUDO.
             </label>
-            <button className="btn" type="submit">
+            <button className="btn btn-cta" type="submit">
               Join waiting list
             </button>
           </EnquiryForm>

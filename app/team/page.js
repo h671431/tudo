@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export const metadata = { title: "Meet the Team" };
 
-// The team behind Tudo and what each of us studies. Add a photo to
-// public/team/ and set `photo` to show it. `bio` is shown on the back of the
-// card when it flips; leave it out until the person has written their own.
+// The team behind Tudo. The front of each card shows the photo and name; the
+// back shows what we study and a short bio. Add a photo to public/team/ and set
+// `photo` to show it. Leave `bio` out until the person has written their own.
 const team = [
   {
     name: "Zweli",
@@ -22,7 +22,7 @@ const team = [
     name: "Hannah",
     photo: "/team/hannah.jpg",
     study: "Software Engineering",
-    bio: "From Norway. I bring a master's degree in computer technology, and I want to build that tech know-how into TUDO.",
+    bio: "From Norway. Can't wait to build TUDO's tech and online community.",
   },
   {
     name: "Israel",
@@ -57,7 +57,6 @@ export default function Team() {
                 )}
                 <p className="name-pill">
                   <span>{person.name}</span>
-                  {person.study}
                 </p>
               </div>
               <div className="flip-back">

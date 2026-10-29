@@ -15,8 +15,9 @@ const endpoint = useWeb3Forms
 // Give up after this long, so the form never hangs on "Sending…".
 const timeoutMs = 15000;
 
-// `source` tells the team which page the enquiry came from.
-export default function EnquiryForm({ source, children }) {
+// `source` tells the team which page the enquiry came from; `sentText` replaces
+// the default thank-you message.
+export default function EnquiryForm({ source, className, sentText, children }) {
   const [status, setStatus] = useState("idle");
 
   async function handleSubmit(e) {
@@ -54,14 +55,14 @@ export default function EnquiryForm({ source, children }) {
 
   if (status === "sent") {
     return (
-      <p className="form-message" role="status">
-        Thank you! We have received your message and will get back to you soon.
+      <p className={`form-message ${className ? className + "-done" : ""}`} role="status">
+        {sentText || "Thank you! We have received your message and will get back to you soon."}
       </p>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={className} onSubmit={handleSubmit}>
       {children}
       {status === "sending" && <p className="note">Sending…</p>}
       {status === "error" && (
