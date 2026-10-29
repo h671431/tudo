@@ -19,7 +19,7 @@ const team = [
   {
     name: "Anele",
     study: "Social Work",
-    bio: "A mom who can't wait for launch, and to bring social work into our workshops.",
+    bio: "Bringing social work into our workshops, so every family and teacher feels supported.",
   },
   {
     name: "Hannah",
