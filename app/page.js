@@ -4,28 +4,6 @@ import EnquiryForm from "../components/EnquiryForm";
 
 const tagline = "Make learning fun, accessible and affordable.";
 
-// Text split into letters so it can appear one letter at a time (see .write-anim in globals.css).
-function WrittenText({ text, className }) {
-  let i = 0;
-  return (
-    <p className={`${className} split`} data-write aria-label={text}>
-      {text.split(/(\s+)/).map((part, n) =>
-        /^\s*$/.test(part) ? (
-          part
-        ) : (
-          <span className="word" key={n} aria-hidden="true">
-            {[...part].map((letter) => (
-              <span className="ch" key={i} style={{ "--i": i++ }}>
-                {letter}
-              </span>
-            ))}
-          </span>
-        )
-      )}
-    </p>
-  );
-}
-
 // The circular model: a kit for each age, the old one goes on to an ECD centre.
 const cycle = [
   { icon: "♡", title: "Join", text: "Parents subscribe and get the first kit straight away." },
@@ -49,7 +27,7 @@ export default function Home() {
               <Logo />
             </h1>
             <p className="logo-sub">PLAY WITH PURPOSE</p>
-            <WrittenText className="tagline" text={tagline} />
+            <p className="tagline">{tagline}</p>
             <a className="btn" href="#waitlist">
               Join waiting list
             </a>

@@ -33,17 +33,19 @@ export default function Team() {
   return (
     <main className="team-page">
       <h1>Meet the Team</h1>
-      <p className="about-intro">
-        Five students from five different fields, because real problems need
-        different perspectives. Parents should be able to focus on their
-        child, not on researching what their child needs. And no child should
-        start school behind because their family couldn&apos;t afford the right
-        start.
+      <p className="team-lead">
+        Five students from five different fields, because real problems need{" "}
+        <em>different perspectives.</em>
+      </p>
+      <p className="team-why">
+        Parents should be able to focus on their child, not on researching what
+        their child needs. And no child should start school behind because
+        their family couldn&apos;t afford the right start.
       </p>
 
       <section className="team-grid">
         {team.map((person) => (
-          <div className="team-card" key={person.name}>
+          <div className="team-card polaroid" key={person.name}>
             {person.photo ? (
               <img src={person.photo} alt={person.name} />
             ) : (
