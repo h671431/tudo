@@ -1603,14 +1603,14 @@ button.partner-card {
 /* ---------- Meet the Team: statement intro and scattered photo cards ---------- */
 .team-lead {
   max-width: 24ch;
-  margin: 0 0 16px;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  margin: 0 0 12px;
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
 .team-lead em { font-family: 'Instrument Serif', serif; font-weight: 400; color: var(--support); }
-.team-why { max-width: 56ch; margin: 0 0 56px; font-size: 1.1rem; opacity: 0.85; }
+.team-why { max-width: 56ch; margin: 0 0 8px; font-size: 1.05rem; opacity: 0.85; }
 
 /* Tall staggered cards that flip over to show a short bio */
 .team-cards {
@@ -1620,13 +1620,13 @@ button.partner-card {
   padding: 0 0 90px;
 }
 .flip-card {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
   perspective: 1200px;
   outline: none;
   transition: opacity 0.3s, transform 0.3s;
 }
 .member { transition: opacity 0.3s; }
-.member:nth-child(even) { transform: translateY(70px); }
+.member:nth-child(even) { transform: translateY(22px); }
 .team-cards:hover .member:not(:hover) { opacity: 0.45; }
 .flip-inner {
   position: relative;
@@ -1745,7 +1745,7 @@ button.partner-card {
   font-weight: 700;
   letter-spacing: -0.01em;
 }
-.team-wrap { position: relative; padding-top: 72px; }
+.team-wrap { position: relative; padding-top: 64px; }
 .hover-hint {
   position: absolute;
   top: -10px;
@@ -1771,3 +1771,13 @@ button.partner-card {
   stroke-linejoin: round;
 }
 @media (hover: none) { .hover-hint span { font-size: 0; } .hover-hint span::after { content: "Tap us!"; font-size: 1.6rem; } }
+
+/* Links to /#waitlist land with the whole form in view, below the menu */
+#waitlist { scroll-margin-top: 110px; }
+/* Team page: keep the intro compact so every card and name fits on screen */
+[data-look="modern"] main.team-page { padding-top: 40px; }
+.team-page h1 { margin: 0 0 8px; }
+.team-page .team-lead { max-width: 34ch; }
+.team-page .team-why { max-width: 80ch; }
+.team-page .team-wrap { padding-top: 40px; }
+.team-page .hover-hint { top: -22px; }

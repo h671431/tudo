@@ -115,7 +115,7 @@ export default function Home() {
           </p>
         </section>
 
-        <section className="section waitlist reveal" id="waitlist">
+        <section className="section waitlist" id="waitlist">
           <h2>Be the first to get TUDO</h2>
           <p className="story-text">
             Join the waiting list and we&apos;ll tell you when we launch.
