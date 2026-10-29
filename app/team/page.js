@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export const metadata = { title: "Meet the Team" };
 
-// The team behind Tudo. The front of each card shows the photo and name; the
-// back shows what we study and a short bio. Add a photo to public/team/ and set
+// The team behind Tudo. The front of each card shows the photo, with the name
+// underneath; the back shows what we study and a short bio. Add a photo to public/team/ and set
 // `photo` to show it. Leave `bio` out until the person has written their own.
 const team = [
   {
@@ -49,29 +49,39 @@ export default function Team() {
         their family couldn&apos;t afford the right start.
       </p>
 
-      <section className="team-cards">
-        {team.map((person) => (
-          <div className="flip-card" tabIndex={0} key={person.name}>
-            <div className="flip-inner">
-              <div className="flip-front">
-                {person.photo ? (
-                  <img src={person.photo} alt={person.name} />
-                ) : (
-                  <div className="flip-placeholder">Photo coming soon</div>
-                )}
-                <p className="name-pill">
-                  <span>{person.name}</span>
-                </p>
+      <div className="team-wrap">
+        <p className="hover-hint" aria-hidden="true">
+          <span>Hover over us!</span>
+          <svg viewBox="0 0 120 90">
+            <path d="M6 18 C 50 -4, 104 10, 92 80" />
+            <path d="M78 68 L92 82 L104 64" />
+          </svg>
+        </p>
+
+        <section className="team-cards">
+          {team.map((person) => (
+            <div className="member" key={person.name}>
+              <div className="flip-card" tabIndex={0}>
+                <div className="flip-inner">
+                  <div className="flip-front">
+                    {person.photo ? (
+                      <img src={person.photo} alt={person.name} />
+                    ) : (
+                      <div className="flip-placeholder">Photo coming soon</div>
+                    )}
+                  </div>
+                  <div className="flip-back">
+                    <h3>{person.name}</h3>
+                    <p className="flip-study">{person.study}</p>
+                    <p>{person.bio || `More about ${person.name} coming soon.`}</p>
+                  </div>
+                </div>
               </div>
-              <div className="flip-back">
-                <h3>{person.name}</h3>
-                <p className="flip-study">{person.study}</p>
-                <p>{person.bio || `More about ${person.name} coming soon.`}</p>
-              </div>
+              <p className="member-name">{person.name}</p>
             </div>
-          </div>
-        ))}
-      </section>
+          ))}
+        </section>
+      </div>
 
       <p>
         <Link className="btn" href="/contact">

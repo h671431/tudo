@@ -1625,8 +1625,9 @@ button.partner-card {
   outline: none;
   transition: opacity 0.3s, transform 0.3s;
 }
-.flip-card:nth-child(even) { transform: translateY(70px); }
-.team-cards:hover .flip-card:not(:hover) { opacity: 0.45; }
+.member { transition: opacity 0.3s; }
+.member:nth-child(even) { transform: translateY(70px); }
+.team-cards:hover .member:not(:hover) { opacity: 0.45; }
 .flip-inner {
   position: relative;
   height: 100%;
@@ -1689,7 +1690,7 @@ button.partner-card {
 .flip-back p { margin: 0; font-size: 0.95rem; line-height: 1.45; }
 @media (max-width: 900px) {
   .team-cards { grid-template-columns: repeat(3, 1fr); }
-  .flip-card:nth-child(even) { transform: translateY(40px); }
+  .member:nth-child(even) { transform: translateY(40px); }
 }
 @media (max-width: 560px) {
   .team-cards { grid-template-columns: repeat(2, 1fr); padding-bottom: 50px; }
@@ -1736,3 +1737,37 @@ button.partner-card {
   [data-look="modern"] form.hero-waitlist { border-radius: 28px; }
   .hero-waitlist .btn { width: 100%; justify-content: center; }
 }
+
+/* Team: names under the photos and a hand-drawn hint */
+.member-name {
+  margin: 12px 0 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.team-wrap { position: relative; padding-top: 72px; }
+.hover-hint {
+  position: absolute;
+  top: -10px;
+  right: 2%;
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  margin: 0;
+  font-family: 'Caveat', cursive;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--support);
+  transform: rotate(-4deg);
+}
+.hover-hint svg {
+  width: 84px;
+  height: 72px;
+  margin-top: 12px;
+  fill: none;
+  stroke: var(--support);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@media (hover: none) { .hover-hint span { font-size: 0; } .hover-hint span::after { content: "Tap us!"; font-size: 1.6rem; } }
