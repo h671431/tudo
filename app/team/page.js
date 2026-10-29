@@ -19,6 +19,7 @@ const team = [
   },
   {
     name: "Hannah",
+    photo: "/team/hannah.jpg",
     study: "Software Engineering",
   },
   {
