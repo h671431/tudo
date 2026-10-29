@@ -1579,3 +1579,14 @@ footer a { color: var(--accent); }
 @media (max-width: 700px) {
   [data-look="modern"] .home .section { margin: 10vh 12px; }
 }
+
+/* Contact: choice cards are buttons that open their own form */
+button.partner-card {
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+}
+.partner-card.active { outline: 2px solid var(--support); outline-offset: 2px; }
+.contact-form { scroll-margin-top: 110px; animation: rise 0.4s ease-out both; }
