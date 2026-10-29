@@ -35,7 +35,7 @@ export default function OrderButton({ kit }) {
               waiting list and you&apos;ll be the first to order.
             </p>
             <div className="modal-actions">
-              <a className="btn btn-cta" href="/#waitlist">
+              <a className="btn" href="/#waitlist">
                 Join waiting list
               </a>
               <button className="modal-close" type="button" onClick={() => setOpen(false)}>

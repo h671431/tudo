@@ -23,7 +23,7 @@ export default function Header() {
             {item.label}
           </Link>
         ))}
-        <Link className="btn header-cta btn-cta" href="/#waitlist">
+        <Link className="btn header-cta" href="/#waitlist">
           Join waiting list
         </Link>
       </nav>

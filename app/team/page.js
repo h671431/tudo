@@ -25,13 +25,13 @@ const team = [
     name: "Hannah",
     photo: "/team/hannah.jpg",
     study: "Software Engineering",
-    bio: "From Norway. Can't wait to build TUDO's tech and online community.",
+    bio: "From Norway. Excited to build TUDO's tech and online community.",
   },
   {
     name: "Israel",
     photo: "/team/israel.jpg",
     study: "Computer Science",
-    bio: "Can't wait to use AI to build the TUDO Family community.",
+    bio: "Looking forward to using AI to build the TUDO Family community.",
   },
 ];
 

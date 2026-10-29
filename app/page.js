@@ -40,11 +40,10 @@ export default function Home() {
                 aria-label="Your email"
                 required
               />
-              <button className="btn btn-cta" type="submit">
+              <button className="btn" type="submit">
                 Join waiting list
               </button>
             </EnquiryForm>
-            <p className="hero-waitlist-note">Be one of the first families to get TUDO.</p>
           </div>
         </section>
 
@@ -135,7 +134,7 @@ export default function Home() {
               <input name="consent" type="checkbox" required /> I agree that my
               details may be stored to contact me about TUDO.
             </label>
-            <button className="btn btn-cta" type="submit">
+            <button className="btn" type="submit">
               Join waiting list
             </button>
           </EnquiryForm>

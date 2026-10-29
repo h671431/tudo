@@ -951,8 +951,7 @@ footer a { color: var(--accent); }
 .write-anim .hero .tagline { animation: fade-in 0.4s ease-out 1.8s both; }
 .write-anim .hero .btn,
 .write-anim .hero .note { animation-delay: 1.9s; animation-duration: 0.4s; }
-.write-anim .hero .hero-waitlist,
-.write-anim .hero .hero-waitlist-note { animation: fade-in 0.4s ease-out 1.9s both; }
+.write-anim .hero .hero-waitlist { animation: fade-in 0.4s ease-out 1.9s both; }
 @keyframes fade-in { from { opacity: 0; transform: translateY(6px); } }
 
 /* Uttrykk «Modern»: rolig og redaksjonelt, myk gradient, hvite paneler og pilleknapper */
@@ -1696,38 +1695,25 @@ button.partner-card {
   .team-cards { grid-template-columns: repeat(2, 1fr); padding-bottom: 50px; }
 }
 
-/* ---------- Waiting list: accent buttons and the hero email form ---------- */
-[data-look="modern"] .btn.btn-cta,
-[data-look="modern"] .site-header nav a.header-cta.btn-cta,
-[data-look="modern"] .site-header nav a.header-cta.btn-cta:hover {
-  background: var(--main);
-  color: var(--text);
-  font-weight: 700;
-  box-shadow: 0 8px 24px color-mix(in srgb, var(--main) 45%, transparent);
-}
-[data-look="modern"] .btn.btn-cta::after,
-[data-look="modern"] .header-cta.btn-cta::after { background: #fff; color: var(--text); }
-[data-look="modern"] .btn.btn-cta:hover { box-shadow: 0 12px 32px color-mix(in srgb, var(--main) 60%, transparent); }
-
+/* ---------- Waiting list: the hero email form ---------- */
 [data-look="modern"] form.hero-waitlist {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 6px;
-  max-width: 520px;
+  max-width: 440px;
   margin: 0 auto;
-  padding: 6px;
+  padding: 5px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 14px 40px rgba(43, 27, 71, 0.16), 0 0 0 6px color-mix(in srgb, var(--main) 18%, transparent);
-  animation: cta-glow 3s ease-in-out 2.4s infinite;
+  box-shadow: 0 10px 30px rgba(43, 27, 71, 0.12);
 }
 .hero-waitlist input {
   flex: 1 1 180px;
   min-width: 0;
-  padding: 12px 18px;
+  padding: 10px 16px;
   border: none !important;
   background: transparent !important;
   font: inherit;
@@ -1735,14 +1721,9 @@ button.partner-card {
   color: var(--text);
 }
 .hero-waitlist input:focus { outline: none; }
-.hero-waitlist .btn { padding-top: 10px; padding-bottom: 10px; font-size: 1rem; }
+.hero-waitlist .btn { padding-top: 6px; padding-bottom: 6px; }
 .hero-waitlist .note,
 .hero-waitlist .form-error { flex-basis: 100%; margin: 6px 12px; font-size: 0.85rem; }
-@keyframes cta-glow {
-  0%, 100% { box-shadow: 0 14px 40px rgba(43, 27, 71, 0.16), 0 0 0 6px color-mix(in srgb, var(--main) 18%, transparent); }
-  50% { box-shadow: 0 14px 40px rgba(43, 27, 71, 0.16), 0 0 0 12px color-mix(in srgb, var(--main) 8%, transparent); }
-}
-.hero p.hero-waitlist-note { margin: 14px auto 0; font-size: 0.95rem; font-weight: 600; opacity: 0.75; max-width: none; }
 .form-message.hero-waitlist-done {
   display: inline-block;
   margin: 0 auto;
