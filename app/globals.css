@@ -1628,7 +1628,7 @@ button.partner-card {
   transition: opacity 0.3s, transform 0.3s;
 }
 .member { transition: opacity 0.3s; }
-.member:nth-child(even) { transform: translateY(44px); }
+.member:nth-child(even) { transform: translateY(40px); }
 /* Dim the others only while a card itself is hovered, not the gaps between */
 .team-cards:has(.member:hover) .member:not(:hover) { opacity: 0.45; }
 .flip-inner {
@@ -1743,10 +1743,37 @@ button.partner-card {
 
 /* Team: names under the photos and a hand-drawn hint */
 .member-name {
-  margin: 12px 0 0;
-  font-size: 1.05rem;
+  position: relative;
+  display: inline-block;
+  margin: 14px 0 0;
+  font-size: 1.45rem;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+/* An accent line grows under the name when the card is hovered */
+.member-name::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--main);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.member:hover .member-name::after { transform: scaleX(1); }
+.member-study {
+  margin: 6px 0 0;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.6;
 }
 .team-wrap { position: relative; padding-top: 64px; }
 .hover-hint {
@@ -1782,7 +1809,7 @@ button.partner-card {
 .team-page h1 { margin: 0 0 8px; }
 .team-page .team-lead { max-width: 34ch; }
 .team-page .team-why { max-width: 80ch; }
-.team-page .team-wrap { padding-top: 40px; }
+.team-page .team-wrap { padding-top: 34px; }
 .team-page .hover-hint { top: -22px; }
 /* The hero waiting list stays one line while sending */
 .hero-waitlist .note { display: none; }

@@ -78,6 +78,7 @@ export default function Team() {
                 </div>
               </div>
               <p className="member-name">{person.name}</p>
+              <p className="member-study">{person.study}</p>
             </div>
           ))}
         </section>
