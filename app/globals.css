@@ -1571,13 +1571,13 @@ footer a { color: var(--accent); }
 }
 [data-look="modern"] .home .section {
   max-width: 1080px;
-  margin: 18vh auto;
+  margin: 7vh auto;
 }
-[data-look="modern"] .home .section:last-child { margin-bottom: 12vh; }
+[data-look="modern"] .home .section:last-child { margin-bottom: 6vh; }
 .cycle li, .story-give { background: rgba(255, 255, 255, 0.55) !important; }
-[data-look="modern"] footer { margin-top: 12vh; }
+[data-look="modern"] footer { margin-top: 6vh; }
 @media (max-width: 700px) {
-  [data-look="modern"] .home .section { margin: 10vh 12px; }
+  [data-look="modern"] .home .section { margin: 5vh 12px; }
 }
 
 /* Contact: choice cards are buttons that open their own form */
