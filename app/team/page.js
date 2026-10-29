@@ -6,29 +6,24 @@ export const metadata = { title: "Meet the Team" };
 // public/team/ and set `photo` to show it.
 const team = [
   {
-    name: "Zwelihle",
+    name: "Zweli",
     study: "Medicine",
-    goal: "Wants Tudo to reach every ECD centre that is still missing good learning materials.",
   },
   {
     name: "Rhonda",
     study: "Statistics",
-    goal: "Wants to get Tudo kits into centres, NGOs and CSI programmes across South Africa.",
   },
   {
     name: "Anele",
     study: "Social Work",
-    goal: "Wants teachers, partners and brands to understand why play matters for learning.",
   },
   {
     name: "Hannah",
     study: "Software Engineering",
-    goal: "Wants Tudo to be a business that can grow, and to bring it to Norway one day.",
   },
   {
     name: "Israel",
     study: "Computer Science",
-    goal: "Wants to show investors and partners what Tudo can become.",
   },
 ];
 
@@ -38,9 +33,10 @@ export default function Team() {
       <h1>Meet the Team</h1>
       <p className="about-intro">
         Five students from five different fields, because real problems need
-        different perspectives. We believe every child deserves good learning:
-        parents shouldn&apos;t have to stress about what their child needs, and
-        families and ECD centres with less should get the same strong start.
+        different perspectives. Parents should be able to focus on their
+        child, not on researching what their child needs. And no child should
+        start school behind because their family couldn&apos;t afford the right
+        start.
       </p>
 
       <section className="team-grid">
@@ -53,7 +49,6 @@ export default function Team() {
             )}
             <h3>{person.name}</h3>
             <span className="badge">{person.study}</span>
-            <p>{person.goal}</p>
           </div>
         ))}
       </section>
