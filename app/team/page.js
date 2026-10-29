@@ -9,14 +9,17 @@ const team = [
   {
     name: "Zweli",
     study: "Medicine",
+    bio: "Bringing medicine into TUDO, so every kit supports how a young child's brain develops.",
   },
   {
     name: "Rhonda",
     study: "Statistics",
+    bio: "Here to help turn the statistics around, and to help NPOs get the support ECD needs.",
   },
   {
     name: "Anele",
     study: "Social Work",
+    bio: "A mom who can't wait for launch, and to bring social work into our workshops.",
   },
   {
     name: "Hannah",
@@ -28,6 +31,7 @@ const team = [
     name: "Israel",
     photo: "/team/israel.jpg",
     study: "Computer Science",
+    bio: "Can't wait to use AI to build the TUDO Family community.",
   },
 ];
 
