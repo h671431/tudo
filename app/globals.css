@@ -1784,3 +1784,5 @@ button.partner-card {
 .team-page .team-why { max-width: 80ch; }
 .team-page .team-wrap { padding-top: 40px; }
 .team-page .hover-hint { top: -22px; }
+/* The hero waiting list stays one line while sending */
+.hero-waitlist .note { display: none; }
