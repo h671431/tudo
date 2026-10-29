@@ -3,14 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { nav } from "../lib/site";
+import Logo from "./Logo";
 
 export default function Header() {
   const pathname = usePathname();
   return (
     <header className="site-header">
-      <Link className="logo" href="/">
-        <img src="/logo.svg" alt="tudo" width={136} height={56} />
-        <span className="logo-tag">EDUCATIONAL PLAYKITS</span>
+      <Link className="logo" href="/" aria-label="tudo – home">
+        <Logo />
       </Link>
       <nav>
         {nav.map((item) => (
@@ -22,8 +22,8 @@ export default function Header() {
             {item.label}
           </Link>
         ))}
-        <Link className="btn header-cta" href="/ecd">
-          Register interest
+        <Link className="btn header-cta" href="/#waitlist">
+          Join waiting list
         </Link>
       </nav>
     </header>

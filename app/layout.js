@@ -7,7 +7,7 @@ import DesignPicker from "../components/DesignPicker";
 
 export const metadata = {
   title: {
-    default: `${site.name} – Play that opens possibilities`,
+    default: `${site.name} – ${site.tagline}`,
     template: `%s – ${site.name}`,
   },
   description: site.description,
@@ -18,17 +18,17 @@ export const viewport = {
   initialScale: 1,
 };
 
-// Runs before first paint: enables the scroll-reveal styles, restores the saved design choice
-// (only while the design chooser is shown)
+// Runs before first paint: enables the scroll-reveal styles, restores the saved colour palette
+// (only while the palette chooser is shown)
 // and turns on the writing animation the first time the home page is opened in a session.
 const earlyScript = `
 (function () {
   var d = document.documentElement;
   d.classList.add('js');
-  d.dataset.theme = 'orange'; d.dataset.pattern = 'none'; d.dataset.look = 'modern';
+  d.dataset.theme = 'classic'; d.dataset.pattern = 'none'; d.dataset.look = 'modern';
   if (${site.showDesignPicker}) try {
-    var s = JSON.parse(localStorage.getItem('design-v4')) || {};
-    ['theme', 'pattern', 'look'].forEach(function (k) { if (s[k]) d.dataset[k] = s[k]; });
+    var t = localStorage.getItem('tudo-palette');
+    if (t) d.dataset.theme = t;
   } catch (e) {}
   try {
     if (location.pathname === '/' && !sessionStorage.getItem('written') &&

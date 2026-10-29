@@ -1,35 +1,8 @@
 import Link from "next/link";
+import Logo from "../components/Logo";
+import EnquiryForm from "../components/EnquiryForm";
 
 const tagline = "Make learning fun, accessible and affordable.";
-
-// The letters of "tudo" as single pen strokes. Yellow dots mark where each stroke starts.
-const letters =
-  "M60 50 V126 Q60 140 74 140 M44 90 H80 M104 90 V118 Q104 140 126 140 Q148 140 148 118 V90 V140 " +
-  "M219 40 V140 M219 115 A25 25 0 1 1 169 115 A25 25 0 1 1 219 115 " +
-  "M293 115 A25 25 0 1 1 243 115 A25 25 0 1 1 293 115";
-
-// Large logo on the home page. The "draw", "rule" and "pop" classes are animated in globals.css.
-function LogoMark() {
-  return (
-    <svg viewBox="0 18 340 140" aria-hidden="true">
-      <g strokeWidth="2.5">
-        <line className="rule" x1="4" y1="40" x2="336" y2="40" stroke="#4B2A7B" />
-        <line className="rule" x1="4" y1="90" x2="336" y2="90" stroke="#FFC93C" strokeDasharray="9 7" />
-        <line className="rule" x1="4" y1="140" x2="336" y2="140" stroke="#4B2A7B" />
-      </g>
-      <g fill="none" strokeLinecap="round" strokeLinejoin="round">
-        <path className="draw" pathLength="1" d={letters} stroke="#4B2A7B" strokeWidth="27" />
-      </g>
-      <g className="pop" fill="#FFC93C" stroke="#4B2A7B" strokeWidth="2">
-        <circle cx="60" cy="50" r="6" />
-        <circle cx="44" cy="90" r="6" />
-        <circle cx="104" cy="90" r="6" />
-        <circle cx="219" cy="40" r="6" />
-        <circle cx="293" cy="115" r="6" />
-      </g>
-    </svg>
-  );
-}
 
 // Text split into letters so it can appear one letter at a time (see .write-anim in globals.css).
 function WrittenText({ text, className }) {
@@ -53,102 +26,124 @@ function WrittenText({ text, className }) {
   );
 }
 
+// The circular model: a kit for each age, the old one goes on to an ECD centre.
+const cycle = [
+  { icon: "♡", title: "Join", text: "Parents subscribe and get the first kit straight away." },
+  { icon: "✦", title: "Play & learn", text: "New activities every month, and a surprise halfway." },
+  { icon: "★", title: "Grow", text: "On the birthday, the next kit arrives." },
+  { icon: "↺", title: "Give back", text: "The old kit is returned and goes to an ECD centre." },
+];
+
 export default function Home() {
   return (
     <div className="home">
       <main>
-        <section className="hero">
+        <section className="hero home-hero">
           <div className="blob one"></div>
           <div className="blob two"></div>
           <div className="blob three"></div>
 
           <div className="hero-content centered">
             <h1 className="hero-logo">
-              <span className="sr-only">tudo – Educational playkits</span>
-              <LogoMark />
+              <span className="sr-only">tudo – Play With Purpose</span>
+              <Logo />
             </h1>
-            <p className="logo-sub">EDUCATIONAL PLAYKITS</p>
+            <p className="logo-sub">PLAY WITH PURPOSE</p>
             <WrittenText className="tagline" text={tagline} />
-            <Link className="btn" href="/ecd">
-              Register interest
-            </Link>
-            <Link className="btn secondary" href="/ngo">
-              Institutional supply
-            </Link>
-            <div className="hero-why">
-              <p>
-                In low-income communities, many early learning centres
-                can&apos;t afford good learning materials, and teachers get little
-                practical support to help children learn through play.
-              </p>
-              <p className="why-answer">
-                Tudo builds learning kits for the centres that can&apos;t afford
-                them, at the best price we can offer, with a simple guide that
-                shows teachers how to use every piece.
-              </p>
-            </div>
+            <a className="btn" href="#waitlist">
+              Join waiting list
+            </a>
           </div>
         </section>
 
-        <section className="section reveal">
-          <h2>How it works</h2>
-          <div className="cards">
-            <div className="card">
-              <div className="step-num">1</div>
-              <h3>We choose</h3>
-              <p>The best learning products from different brands.</p>
-            </div>
-            <div className="card">
-              <div className="step-num">2</div>
-              <h3>We build</h3>
-              <p>One complete kit, with an online activity guide.</p>
-            </div>
-            <div className="card">
-              <div className="step-num">3</div>
-              <h3>We deliver</h3>
-              <p>To your centre or home, with refills and new activities as children grow.</p>
-            </div>
-          </div>
+        <section className="section story-problem reveal">
+          <p className="eyebrow">The problem</p>
+          <h2>
+            8 out of 10 South African children can&apos;t read for meaning by
+            Grade 4.
+          </h2>
+          <p className="story-text">
+            In low-income communities, parents and ECD centres can&apos;t afford
+            the right learning materials for each age, or know how to use them.
+            Children lose their most important learning years.
+          </p>
+          <p className="source">Source: PIRLS 2021</p>
         </section>
 
-        <section className="section reveal" style={{ paddingTop: 0 }}>
-          <h2>Who are you?</h2>
-          <div className="tiles">
-            <Link className="tile main" href="/ecd">
-              I run an ECD centre
-            </Link>
-            <Link className="tile accent" href="/ngo">
-              I&apos;m an NGO or CSI funder
-            </Link>
-            <Link className="tile support" href="/playkits">
-              Show me the kits
-            </Link>
-          </div>
-        </section>
-
-        <section className="section vision-teaser reveal">
-          <h2>This is just the beginning</h2>
-          <div className="chips">
-            <span className="chip">Families at home</span>
-            <span className="chip">The Playkit Club</span>
-            <span className="chip">South Africa → Norway</span>
-            <span className="chip">New pieces as children grow</span>
-          </div>
-          <p>
-            <Link className="btn" href="/future">
-              See our vision
-            </Link>
+        <section className="section story-promise reveal">
+          <p className="eyebrow">Educational playkits</p>
+          <h2>
+            You don&apos;t have to figure out what your child needs.{" "}
+            <span>We&apos;ve already done it.</span>
+          </h2>
+          <p className="story-text">
+            The right toys for every stage, with simple guides, activities and
+            videos, so every play moment builds a skill.
           </p>
         </section>
 
-        <section className="section band reveal">
-          <h2>Make learning products?</h2>
-          <p>We work with brands that want their products in children&apos;s hands.</p>
-          <p>
-            <Link className="btn secondary" href="/brands">
-              Partner with us
+        <section className="section story-cycle reveal">
+          <p className="eyebrow">How it works</p>
+          <h2>A kit that grows with your child</h2>
+          <ol className="cycle">
+            {cycle.map((step, n) => (
+              <li key={step.title} style={{ "--n": n }}>
+                <span className="cycle-icon" aria-hidden="true">
+                  {step.icon}
+                </span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section className="section story-price reveal">
+          <div>
+            <p className="eyebrow">Two kits at launch</p>
+            <h2>TUDO 2–3 and TUDO 3–4</h2>
+            <p className="story-text">
+              Learning, movement, creativity, health and feelings in one box.
+            </p>
+            <Link className="btn secondary" href="/playkits">
+              See the playkits
             </Link>
+          </div>
+          <div className="price-card">
+            <p className="price-big">R299</p>
+            <p>first month</p>
+            <p className="price-then">then R149 / month</p>
+          </div>
+        </section>
+
+        <section className="section story-give reveal">
+          <h2>Every returned kit helps an ECD centre.</h2>
+          <p className="story-text">
+            Sponsors fund refreshed kits for centres that can&apos;t afford them.{" "}
+            <Link href="/contact">Become a sponsor</Link>
           </p>
+        </section>
+
+        <section className="section waitlist reveal" id="waitlist">
+          <h2>Be the first to get TUDO</h2>
+          <p className="story-text">
+            Join the waiting list and we&apos;ll tell you when we launch.
+          </p>
+          <EnquiryForm source="Waitlist">
+            <label>
+              Name <input name="name" type="text" required />
+            </label>
+            <label>
+              Email <input name="email" type="email" required />
+            </label>
+            <label className="checkbox">
+              <input name="consent" type="checkbox" required /> I agree that my
+              details may be stored to contact me about TUDO.
+            </label>
+            <button className="btn" type="submit">
+              Join waiting list
+            </button>
+          </EnquiryForm>
         </section>
       </main>
     </div>

@@ -1,131 +1,118 @@
 import Link from "next/link";
+import OrderButton from "../../components/OrderButton";
 
-export const metadata = { title: "The Playkits" };
+export const metadata = { title: "Playkits" };
 
-// Kits from the TUDO Business & Product Plan (October 2026). Contents are the
-// target specification. Prices are not set yet, so none are shown.
-const classroomKits = [
+// The two launch kits. Each has one item for each learning area, plus the guide.
+const kits = [
   {
-    name: "TUDO Essentials",
-    tag: "Entry classroom kit",
-    areas: "Five learning areas",
+    name: "TUDO 2–3",
+    age: "For 2 to 3 years",
     items: [
-      "Maths & sorting: number shapes, counters and linking cubes",
-      "Letters & stories: alphabet, picture and feelings cards",
-      "Small hands: lacing board and a chunky animal puzzle",
-      "Movement: shape beanbags and challenge cards",
-      "Creative expression: crayons, chalks and templates",
-      "18 activity cards and a 4-week teaching guide",
+      ["Learning", "A chunky puzzle with shapes and animals"],
+      ["Movement", "Stacking cups to grip, stack and sort"],
+      ["Creativity", "Big crayons and a first drawing book"],
+      ["Health", "Play set for brushing teeth and washing hands"],
+      ["Feelings", "A picture book about feelings"],
     ],
-    href: "/ecd",
   },
   {
-    name: "TUDO Discovery",
-    tag: "Full classroom kit",
-    areas: "Seven activity stations",
+    name: "TUDO 3–4",
+    age: "For 3 to 4 years",
     items: [
-      "Number Explorers, Shapes & Patterns, Letters & Sounds",
-      "Little Hands & Senses, Move & Coordinate",
-      "Create & Pretend, Speak & Explore",
-      "36 activity cards and a 12-week rotation plan",
-      "Labelled station pouches and QR video demonstrations",
+      ["Learning", "Counting and matching game"],
+      ["Movement", "Lacing shapes for small hands"],
+      ["Creativity", "Play dough and shape cutters"],
+      ["Health", "Healthy food play set"],
+      ["Feelings", "Feelings cards to name and share"],
     ],
-    href: "/ecd",
-  },
-  {
-    name: "TUDO Home Explorer",
-    tag: "For families",
-    areas: "Maths, language, patterns and stories",
-    items: [
-      "Counters, number cards and picture/word cards",
-      "Pattern pieces in a reusable pouch",
-      "12 family activity cards",
-      "A 6-week parent guide",
-    ],
-    href: "/contact",
   },
 ];
 
-// What the monthly subscription adds on top of the kit.
-const subscription = [
-  { name: "New toys", text: "Fresh pieces and materials as the children grow." },
-  { name: "Guides for teachers", text: "New activities and teaching ideas every month." },
-  { name: "A community", text: "Share what works with other educators and parents." },
+// What a subscriber gets over the year.
+const year = [
+  ["Straight away", "Your first kit, with a guide for every piece"],
+  ["Every month", "New activities with the same kit, and our parent community"],
+  ["Halfway", "A surprise toy your child keeps"],
+  ["On the birthday", "The next kit. The old one goes to an ECD centre."],
 ];
 
 export default function Playkits() {
   return (
     <main className="playkits">
-      <h1>The Playkits</h1>
+      <h1>Playkits</h1>
       <p className="lead">
-        An early-learning system, not a random box of toys. Every kit comes
-        with activity cards and a guide, so teachers and parents know exactly
-        how to use each piece.
+        One box for every stage. We choose the toys, you play and learn
+        together.
       </p>
 
-      <section>
-        <h2>Our kits</h2>
-        <div className="kit-grid">
-          {classroomKits.map((kit) => (
-            <div className="kit-card" key={kit.name}>
-              <div className="placeholder-img kit-photo">Photo coming soon</div>
-              <span className="badge">{kit.tag}</span>
-              <h3>{kit.name}</h3>
-              <p className="kit-price">One-time purchase</p>
-              <p className="kit-areas">{kit.areas}</p>
-              <ul>
-                {kit.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-              <div className="kit-actions">
-                <Link className="btn" href={kit.href}>
-                  Register interest
-                </Link>
-                <span className="pay-soon">Pay online with Paystack · coming soon</span>
-              </div>
+      <section className="kit-grid two">
+        {kits.map((kit) => (
+          <div className="kit-card" key={kit.name}>
+            <div className="placeholder-img kit-photo">Photo coming soon</div>
+            <span className="badge">{kit.age}</span>
+            <h2>{kit.name}</h2>
+            <ul className="kit-items">
+              {kit.items.map(([area, item]) => (
+                <li key={area}>
+                  <strong>{area}</strong>
+                  <span>{item}</span>
+                </li>
+              ))}
+              <li>
+                <strong>Guide</strong>
+                <span>Activity cards, DIY ideas and short videos</span>
+              </li>
+            </ul>
+            <div className="kit-actions">
+              <OrderButton kit={kit.name} />
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
+      </section>
+
+      <section className="pricing">
+        <h2>One simple price</h2>
+        <table className="price-table">
+          <tbody>
+            <tr>
+              <th scope="row">First month</th>
+              <td>R299</td>
+              <td>Your first kit is sent straight away</td>
+            </tr>
+            <tr>
+              <th scope="row">Every month after</th>
+              <td>R149</td>
+              <td>Activities, community, a surprise and your next kit</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <section>
-        <h2>Keep growing with a subscription</h2>
-        <p className="teachers-text">
-          Buy your kit once. Then choose a monthly subscription if you want
-          more.
-        </p>
-        <div className="about-grid">
-          {subscription.map((item) => (
-            <div className="about-card" key={item.name}>
-              <h3>{item.name}</h3>
-              <p>{item.text}</p>
-            </div>
+        <h2>Your year with TUDO</h2>
+        <ol className="year">
+          {year.map(([when, what]) => (
+            <li key={when}>
+              <strong>{when}</strong>
+              <span>{what}</span>
+            </li>
           ))}
-        </div>
-      </section>
-
-      <section>
-        <h2>Refills and more brands</h2>
-        <p className="teachers-text">
-          Refills and replacement pieces keep your kit complete. And as more
-          brands join us, new kits and products will be added.{" "}
-          <Link href="/brands">Are you a brand?</Link>
-        </p>
+        </ol>
       </section>
 
       <section className="teacher-link">
-        <h2>Paying for your kit</h2>
+        <h2>Return, refresh, give</h2>
         <p>
-          For now, register your interest and we will send you a quote and an
-          invoice. Online card payments with Paystack are coming soon. You own
-          your kit, and the subscription is optional.
+          When your child moves on, send the old kit back. We clean and refill
+          it, and sponsors give it to an ECD centre that can&apos;t afford one.{" "}
+          <Link href="/contact">Sponsor a centre</Link>
         </p>
       </section>
 
       <p className="note">
-        Prices are not set yet. Final contents and prices are confirmed in your
-        quote. All kits are for supervised use by children aged 3 and up.
+        Kit contents may change slightly. All kits are for supervised play and
+        follow the age labels on each product.
       </p>
     </main>
   );

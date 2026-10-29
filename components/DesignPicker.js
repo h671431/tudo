@@ -2,64 +2,60 @@
 
 import { useEffect, useState } from "react";
 
-// Temporary design picker (colour, pattern, look). Once the team has decided:
-// delete this file, its use in app/layout.js, and ".design-picker" in app/globals.css.
-const options = {
-  theme: ["orange", "purple"],
-  pattern: ["none", "dots", "checkers", "stripes"],
-  look: ["modern", "whiteboard", "sticker", "soft"],
-};
-const labels = { theme: "Colour", pattern: "Pattern", look: "Look" };
+// Colour palette chooser in the bottom-right corner, shown while the team
+// decides (site.showDesignPicker). "Classic" is the current TUDO purple and
+// orange; the others add the new palette colours that go with it.
+const palettes = [
+  { id: "classic", name: "Classic", colors: ["#4B2A7B", "#F26B21", "#FFC93C"] },
+  { id: "grape", name: "Grape", colors: ["#694873", "#F2A359", "#F5D3C8"] },
+  { id: "sunset", name: "Sunset", colors: ["#4B2A7B", "#F2A359", "#F5D3C8"] },
+  { id: "olive", name: "Olive", colors: ["#694873", "#7B886F", "#F5D3C8"] },
+];
 
 export default function DesignPicker() {
-  const [design, setDesign] = useState({
-    theme: "orange",
-    pattern: "none",
-    look: "modern",
-    closed: true,
-  });
+  const [theme, setTheme] = useState("classic");
+  const [open, setOpen] = useState(false);
 
-  // Load saved choice once on the client.
+  // Load the saved choice once on the client.
   useEffect(() => {
-    let saved = {};
     try {
-      saved = JSON.parse(localStorage.getItem("design-v4")) || {};
+      const saved = localStorage.getItem("tudo-palette");
+      if (palettes.some((p) => p.id === saved)) setTheme(saved);
     } catch (e) {}
-    setDesign((d) => ({ ...d, ...saved, closed: saved.closed ?? window.innerWidth < 700 }));
   }, []);
 
   // Apply to <html> and save.
   useEffect(() => {
-    const root = document.documentElement;
-    for (const key in options) root.dataset[key] = design[key];
+    document.documentElement.dataset.theme = theme;
     try {
-      localStorage.setItem("design-v4", JSON.stringify(design));
+      localStorage.setItem("tudo-palette", theme);
     } catch (e) {}
-  }, [design]);
+  }, [theme]);
 
   return (
-    <div className={`design-picker${design.closed ? " closed" : ""}`}>
-      <button
-        className="picker-toggle"
-        aria-expanded={!design.closed}
-        onClick={() => setDesign((d) => ({ ...d, closed: !d.closed }))}
-      >
-        🎨 Design preview
+    <div className={`design-picker${open ? "" : " closed"}`}>
+      <button className="picker-toggle" aria-expanded={open} onClick={() => setOpen(!open)}>
+        <span className="swatches" aria-hidden="true">
+          {palettes.find((p) => p.id === theme).colors.map((c) => (
+            <i key={c} style={{ background: c }} />
+          ))}
+        </span>
+        Style
       </button>
-      {Object.keys(options).map((key) => (
-        <div className="picker-row" key={key}>
-          <span>{labels[key]}</span>
-          {options[key].map((v) => (
-            <button
-              key={v}
-              aria-pressed={design[key] === v}
-              onClick={() => setDesign((d) => ({ ...d, [key]: v }))}
-            >
-              {v[0].toUpperCase() + v.slice(1)}
+      {open && (
+        <div className="picker-options">
+          {palettes.map((p) => (
+            <button key={p.id} aria-pressed={theme === p.id} onClick={() => setTheme(p.id)}>
+              <span className="swatches" aria-hidden="true">
+                {p.colors.map((c) => (
+                  <i key={c} style={{ background: c }} />
+                ))}
+              </span>
+              {p.name}
             </button>
           ))}
         </div>
-      ))}
+      )}
     </div>
   );
 }
