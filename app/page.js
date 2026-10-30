@@ -24,10 +24,10 @@ export default function Home() {
 
           <div className="hero-content centered">
             <h1 className="hero-logo">
-              <span className="sr-only">tudo – Growing Into More</span>
+              <span className="sr-only">tudo – Play With Purpose</span>
               <Logo />
             </h1>
-            <p className="logo-sub">GROWING INTO MORE</p>
+            <p className="logo-sub">PLAY WITH PURPOSE</p>
             <p className="tagline">{tagline}</p>
             <EnquiryForm
               source="Waitlist"
