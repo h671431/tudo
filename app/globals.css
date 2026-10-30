@@ -984,30 +984,6 @@ footer a { color: var(--accent); }
   --soft-b: #CDB8EA;
 }
 
-/* Colour palettes for the style chooser. "classic" uses the values above. */
-:root[data-look="modern"][data-theme="grape"] {
-  --main: #F2A359; --accent: #F2A359; --support: #694873;
-  --text: #34213B; --page: #FBF3EF; --tint: #F8E7E0;
-  --logo: #694873; --hero-bg: #FCEFEA;
-  --blob-1: #F5D3C8; --blob-2: #F7C79B; --blob-3: #C9B6CC;
-  --panel-a: #8B728E; --panel-b: #694873;
-  --soft-a: #F8E7E0; --soft-b: #E3CFD8;
-}
-:root[data-look="modern"][data-theme="sunset"] {
-  --main: #F2A359; --accent: #F2A359; --support: #4B2A7B;
-  --page: #FBF2EE; --tint: #F7E6E0;
-  --hero-bg: #FCEEE8;
-  --blob-1: #F5D3C8; --blob-2: #F7C79B; --blob-3: #CDB8EA;
-  --soft-a: #F7E6E0; --soft-b: #E6D4EC;
-}
-:root[data-look="modern"][data-theme="olive"] {
-  --main: #7B886F; --accent: #F2A359; --support: #694873;
-  --text: #2F3328; --page: #F3F4EE; --tint: #E9EDE2;
-  --logo: #694873; --hero-bg: #F4F1EA;
-  --blob-1: #DDE3D3; --blob-2: #F5D3C8; --blob-3: #C9B6CC;
-  --panel-a: #8B9B7E; --panel-b: #5F6B55;
-  --soft-a: #E9EDE2; --soft-b: #D3DBC8;
-}
 [data-look="modern"] body {
   background: var(--page);
   font-family: 'Manrope', system-ui, sans-serif;
@@ -1848,34 +1824,34 @@ button.partner-card {
   --soft-a: #FFF6D9;
   --soft-b: #FFE7A3;
 }
-[data-look="modern"][data-theme="classic"] h1,
-[data-look="modern"][data-theme="classic"] h2,
-[data-look="modern"][data-theme="classic"] h3 {
+[data-look="modern"] h1,
+[data-look="modern"] h2,
+[data-look="modern"] h3 {
   font-family: 'Teaching Print', 'Grandstander', 'Manrope', sans-serif;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 /* Yellow as a real brand colour: buttons, the header button and the eyebrows */
-[data-look="modern"][data-theme="classic"] .btn,
-[data-look="modern"][data-theme="classic"] .site-header nav a.header-cta,
-[data-look="modern"][data-theme="classic"] .site-header nav a.header-cta:hover {
+[data-look="modern"] .btn,
+[data-look="modern"] .site-header nav a.header-cta,
+[data-look="modern"] .site-header nav a.header-cta:hover {
   background: var(--accent);
   color: #2B1B47;
 }
-[data-look="modern"][data-theme="classic"] .btn::after { background: var(--main); color: #fff; }
-[data-look="modern"][data-theme="classic"] .btn.secondary { background: #fff; }
-[data-look="modern"][data-theme="classic"] .btn.secondary::after { background: var(--accent); color: #2B1B47; }
-[data-look="modern"][data-theme="classic"] .eyebrow {
+[data-look="modern"] .btn::after { background: var(--main); color: #fff; }
+[data-look="modern"] .btn.secondary { background: #fff; }
+[data-look="modern"] .btn.secondary::after { background: var(--accent); color: #2B1B47; }
+[data-look="modern"] .eyebrow {
   display: inline-block;
   padding: 5px 14px;
   border-radius: 999px;
   background: var(--accent);
   color: #2B1B47;
 }
-[data-look="modern"][data-theme="classic"] .story-problem h2,
-[data-look="modern"][data-theme="classic"] .story-promise h2 span { color: var(--accent); }
-[data-look="modern"][data-theme="classic"] .story-promise h2 span { color: var(--main); }
-[data-look="modern"][data-theme="classic"] .site-header nav a[aria-current="page"] { background: var(--accent-soft); }
+[data-look="modern"] .story-problem h2,
+[data-look="modern"] .story-promise h2 span { color: var(--accent); }
+[data-look="modern"] .story-promise h2 span { color: var(--main); }
+[data-look="modern"] .site-header nav a[aria-current="page"] { background: var(--accent-soft); }
 
 /* T-Kits */
 .tkits-sub {
@@ -1887,7 +1863,7 @@ button.partner-card {
 }
 
 /* ---------- The Five T's: T-shaped pillars climbing up to THRIVE ---------- */
-.five-ts { --H: 300px; --drop: 0.16; --gap: 0px; max-width: 900px; margin: 32px auto 0; }
+.five-ts { --H: 300px; --drop: 0.16; max-width: 900px; margin: 32px auto 0; }
 .five-steps {
   position: relative;
   display: flex;
@@ -1896,13 +1872,12 @@ button.partner-card {
   height: calc(var(--H) + 120px);
   transition: gap 0.35s ease;
 }
-.five-steps.open { --gap: 14px; }
+.five-steps { --gap: 8px; }
+.five-steps.open { --gap: 16px; }
 .pillar {
   --step: calc(var(--H) * (1 - (4 - var(--i)) * var(--drop)));
-  --bar: 64px;
-  --purple:
-    repeating-linear-gradient(90deg, rgba(255,255,255,0.10) 0 6px, transparent 6px 16px),
-    linear-gradient(180deg, var(--panel-a), var(--panel-b));
+  --bar: 52px;
+  --fill: var(--main);
   position: relative;
   flex: 1;
   height: var(--step);
@@ -1920,35 +1895,28 @@ button.partner-card {
 .pillar-bar {
   height: var(--bar);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
-  border-radius: 12px;
-  background: var(--purple);
+  gap: 8px;
+  border-radius: 16px;
+  background: var(--fill);
   transition: background 0.3s;
 }
-/* Stem of the T */
+/* Stem of the T, the same colour so the two read as one shape */
 .pillar-stem {
   flex: 1;
-  width: 40%;
-  margin: 0 auto;
+  width: 34%;
+  margin: -1px auto 0;
   display: flex;
   justify-content: center;
   padding-top: 10px;
-  background: var(--purple);
+  background: var(--fill);
   transition: background 0.3s;
 }
 .stem-name { display: none; }
-.pillar.on { color: #2B1B47; }
-.pillar.on .pillar-bar,
-.pillar.on .pillar-stem {
-  background:
-    repeating-linear-gradient(90deg, rgba(255,255,255,0.25) 0 6px, transparent 6px 16px),
-    linear-gradient(180deg, #FFE08A, var(--accent));
-}
+.pillar.on { --fill: var(--accent); color: #2B1B47; }
 .five-steps.open .pillar.on { transform: translateY(-6px); }
-.pillar-num { font-size: 0.8rem; font-weight: 700; opacity: 0.75; }
+.pillar-num { font-size: 0.75rem; font-weight: 700; opacity: 0.7; }
 .pillar-name {
   font-family: 'Grandstander', sans-serif;
   font-size: clamp(0.75rem, 1.8vw, 1.15rem);
@@ -1985,10 +1953,12 @@ button.partner-card {
 @media (max-width: 600px) {
   .five-ts { --H: 260px; --drop: 0.11; }
   .pillar-num { display: none; }
-  .five-steps.open { --gap: 6px; }
-  .pillar { --bar: 30px; }
+  .five-steps.open { --gap: 8px; }
+  .five-steps { --gap: 5px; }
+  .pillar { --bar: 26px; }
+  .pillar-bar { border-radius: 10px; }
   .pillar-bar .pillar-name { display: none; }
-  .pillar-stem { width: 48%; }
+  .pillar-stem { width: 46%; }
   .stem-name { display: block; writing-mode: vertical-rl; transform: rotate(180deg); font-size: 0.85rem; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -2015,3 +1985,58 @@ button.partner-card {
   color: var(--logo, #6B48A8);
   opacity: 0.85;
 }
+
+/* ---------- Palettes for the style chooser (components/DesignPicker.js) ---------- */
+/* "classic" (Now) is the brand refresh above. */
+
+/* Palette: the team's swatches 856EC5, BCB0E0, FEE05D and a light yellow */
+:root[data-look="modern"][data-theme="palette"] {
+  --main: #856EC5; --support: #856EC5; --highlight: #856EC5; --logo: #856EC5;
+  --accent: #FEE05D; --logo-dots: #FEE05D; --accent-soft: #FFED9B;
+  --main-soft: #EAE5F6; --text: #2E2547;
+  --page: #F6F3FB; --hero-bg: #F8F5FD; --tint: #FFF4C4;
+  --blob-1: #FFED9B; --blob-2: #FEE05D; --blob-3: #BCB0E0;
+  --panel-a: #9A86D0; --panel-b: #856EC5;
+  --soft-a: #FFF8D6; --soft-b: #FFED9B;
+}
+
+/* Crisp: deeper violet, bright yellow, clean white background and stronger contrast */
+:root[data-look="modern"][data-theme="crisp"] {
+  --main: #5B2EC9; --support: #5B2EC9; --highlight: #5B2EC9; --logo: #5B2EC9;
+  --accent: #FFD60A; --logo-dots: #FFD60A; --accent-soft: #FFF3B0;
+  --main-soft: #EDE6FF; --text: #160D2E;
+  --page: #FCFBFF; --hero-bg: #FFFFFF; --tint: #FFF1A6;
+  --blob-1: #FFE45C; --blob-2: #FFD60A; --blob-3: #B9A2FF;
+  --panel-a: #6D3FE0; --panel-b: #4A1FB8;
+  --soft-a: #FFF6C2; --soft-b: #FFE45C;
+}
+
+/* Pastel: soft lavender and butter yellow */
+:root[data-look="modern"][data-theme="pastel"] {
+  --main: #8E7CCB; --support: #8E7CCB; --highlight: #8E7CCB; --logo: #8E7CCB;
+  --accent: #FCE38A; --logo-dots: #FCE38A; --accent-soft: #FFF6D2;
+  --main-soft: #F1EDFB; --text: #3A3150;
+  --page: #FBF9FE; --hero-bg: #FDFBFF; --tint: #FFF6D2;
+  --blob-1: #FFF1B8; --blob-2: #FCE38A; --blob-3: #DCD3F5;
+  --panel-a: #A898DD; --panel-b: #8E7CCB;
+  --soft-a: #FFFAE6; --soft-b: #FFF0B8;
+}
+
+/* Playful: brighter purple and sunny yellow, with sky blue and pink for a more child-friendly feel */
+:root[data-look="modern"][data-theme="playful"] {
+  --main: #7A4FD8; --support: #7A4FD8; --highlight: #7A4FD8; --logo: #7A4FD8;
+  --accent: #FFCB2B; --logo-dots: #FFCB2B; --accent-soft: #FFF0BF;
+  --main-soft: #EFE8FF; --text: #2A1A4A;
+  --page: #FFF9F0; --hero-bg: #FFF8EC; --tint: #FFE9A8;
+  --blob-1: #9ED8F5; --blob-2: #FFCB2B; --blob-3: #FFB3C7;
+  --panel-a: #8C63E6; --panel-b: #7A4FD8;
+  --soft-a: #E3F4FD; --soft-b: #FFE3EB;
+  --radius-xl: 40px;
+}
+/* Playful: each of the Five T's gets its own colour */
+[data-look="modern"][data-theme="playful"] .pillar:nth-of-type(1) { --fill: #7A4FD8; }
+[data-look="modern"][data-theme="playful"] .pillar:nth-of-type(2) { --fill: #FF7A9A; }
+[data-look="modern"][data-theme="playful"] .pillar:nth-of-type(3) { --fill: #3FB6E8; }
+[data-look="modern"][data-theme="playful"] .pillar:nth-of-type(4) { --fill: #4CC38A; }
+[data-look="modern"][data-theme="playful"] .pillar:nth-of-type(5) { --fill: #F28C38; }
+[data-look="modern"][data-theme="playful"] .pillar.on { --fill: var(--accent); }

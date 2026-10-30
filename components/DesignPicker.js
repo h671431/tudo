@@ -3,13 +3,14 @@
 import { useEffect, useState } from "react";
 
 // Colour palette chooser in the bottom-right corner, shown while the team
-// decides (site.showDesignPicker). "Classic" is the current TUDO purple and
-// orange; the others add the new palette colours that go with it.
+// decides (site.showDesignPicker). "Now" is the current purple and yellow; the
+// others are set up in globals.css under "Palettes for the style chooser".
 const palettes = [
-  { id: "classic", name: "Classic", colors: ["#4B2A7B", "#F26B21", "#FFC93C"] },
-  { id: "grape", name: "Grape", colors: ["#694873", "#F2A359", "#F5D3C8"] },
-  { id: "sunset", name: "Sunset", colors: ["#4B2A7B", "#F2A359", "#F5D3C8"] },
-  { id: "olive", name: "Olive", colors: ["#694873", "#7B886F", "#F5D3C8"] },
+  { id: "classic", name: "Now", colors: ["#6B48A8", "#FFC93C", "#F1EAFA"] },
+  { id: "palette", name: "Palette", colors: ["#856EC5", "#BCB0E0", "#FEE05D", "#FFED9B"] },
+  { id: "crisp", name: "Crisp", colors: ["#5B2EC9", "#FFD60A", "#FFFFFF"] },
+  { id: "pastel", name: "Pastel", colors: ["#8E7CCB", "#FCE38A", "#DCD3F5"] },
+  { id: "playful", name: "Playful", colors: ["#7A4FD8", "#FFCB2B", "#3FB6E8", "#FF7A9A"] },
 ];
 
 export default function DesignPicker() {
