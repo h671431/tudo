@@ -1872,7 +1872,7 @@ button.partner-card {
   color: var(--main);
 }
 
-/* ---------- The Five T's: T-shaped pillars climbing up to THRIVE ---------- */
+/* ---------- The Five T's: pedestal steps with a slight T-shaped cap, climbing up to THRIVE ---------- */
 .five-ts { --H: 300px; --drop: 0.16; max-width: 900px; margin: 32px auto 0; }
 .five-steps {
   position: relative;
@@ -1886,7 +1886,7 @@ button.partner-card {
 .five-steps.open { --gap: 16px; }
 .pillar {
   --step: calc(var(--H) * (1 - (4 - var(--i)) * var(--drop)));
-  --bar: 52px;
+  --bar: 44px;
   --fill: var(--main);
   position: relative;
   flex: 1;
@@ -1901,26 +1901,26 @@ button.partner-card {
   cursor: pointer;
   transition: color 0.3s, transform 0.3s;
 }
-/* Crossbar of the T, holding the number and name */
+/* The cap, just a little wider than the block below: a hint of a T */
 .pillar-bar {
   height: var(--bar);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border-radius: 16px;
+  border-radius: 12px;
   background: var(--fill);
   transition: background 0.3s;
 }
-/* Stem of the T, the same colour so the two read as one shape */
+/* The block under the cap, slightly lighter so it reads as a pedestal */
 .pillar-stem {
   flex: 1;
-  width: 34%;
+  width: 80%;
   margin: -1px auto 0;
   display: flex;
   justify-content: center;
   padding-top: 10px;
-  background: var(--fill);
+  background: color-mix(in srgb, var(--fill) 82%, #fff);
   transition: background 0.3s;
 }
 .stem-name { display: none; }
@@ -1968,7 +1968,7 @@ button.partner-card {
   .pillar { --bar: 26px; }
   .pillar-bar { border-radius: 10px; }
   .pillar-bar .pillar-name { display: none; }
-  .pillar-stem { width: 46%; }
+  .pillar-stem { width: 82%; }
   .stem-name { display: block; writing-mode: vertical-rl; transform: rotate(180deg); font-size: 0.85rem; }
 }
 @media (prefers-reduced-motion: reduce) {
