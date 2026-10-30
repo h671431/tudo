@@ -1,7 +1,7 @@
 // The TUDO logo: the letters as pen strokes on writing lines, in one colour
-// (--logo, purple by default), on top of a dotted copy (--logo-dots, yellow) that sits
-// slightly offset so the two overlap. On the home page the dots appear first, then the
-// "draw" strokes trace over them one after another (see .write-anim in globals.css).
+// (--logo, purple by default), on top of a yellow shade (--logo-dots) offset down and to the
+// right. On the home page the shade starts as a dotted "tudo", the "draw" strokes trace over
+// it one after another, and then the dots fill in to become the shade (see .write-anim in globals.css).
 
 // Each stroke in writing order, with when it starts and how long it takes (seconds),
 // roughly in proportion to its length so the pen moves at an even speed.
@@ -26,10 +26,10 @@ export default function Logo({ className }) {
         className="dots"
         fill="none"
         stroke="var(--logo-dots, #FFC93C)"
-        strokeWidth="9"
+        strokeWidth="27"
         strokeLinecap="round"
-        strokeDasharray="0 15"
-        transform="translate(-15 11)"
+        strokeLinejoin="round"
+        transform="translate(7 7)"
       >
         {strokes.map((s) => (
           <path key={s.d} d={s.d} />

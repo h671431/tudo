@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-// The Five T's of TUDO as five connected pillars that step down from THINK to THRIVE.
+// The Five T's of TUDO as five connected pillars that climb from THINK up to THRIVE.
 // Hovering, focusing or tapping a pillar pulls the steps apart, highlights that pillar
 // and shows what it stands for. A figure stands on the active step and grows from a
 // small stick-figure child into a full person by THRIVE.

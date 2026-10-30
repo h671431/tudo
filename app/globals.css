@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Caveat:wght@600;700&family=Oswald:wght@500;600;700&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&family=Patrick+Hand&family=Playpen+Sans:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Caveat:wght@600;700&family=Oswald:wght@500;600;700&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&family=Patrick+Hand&family=Grandstander:wght@600;700;800&display=swap');
 
 /* Fargepalett 1: oransje (standard) */
 :root {
@@ -936,8 +936,18 @@ footer a { color: var(--accent); }
   stroke-dashoffset: 1;
   animation: draw-line var(--dur) linear calc(var(--delay) + 0.7s) both;
 }
-/* The dotted "tudo" appears first, already in place, before the pen traces over it */
-.write-anim .hero-logo .dots { animation: fade-in 0.5s ease-out 0.1s both; }
+/* The dotted "tudo" appears first, the pen traces over it, then the dots fill in to a shade */
+.write-anim .hero-logo .dots {
+  animation: dots-in 0.5s ease-out 0.1s both, dots-to-shade 0.6s ease-in-out 2.6s both;
+}
+@keyframes dots-in {
+  from { opacity: 0; stroke-width: 9; stroke-dasharray: 0 15; }
+  to { opacity: 1; stroke-width: 9; stroke-dasharray: 0 15; }
+}
+@keyframes dots-to-shade {
+  from { stroke-width: 9; stroke-dasharray: 0 15; }
+  to { stroke-width: 27; stroke-dasharray: 15 0; }
+}
 /* Hidden until its turn, so the round pen tip doesn't show as a dot early */
 @keyframes draw-line {
   0% { stroke-dashoffset: 1; opacity: 0; }
@@ -1817,7 +1827,7 @@ button.partner-card {
 .hero-waitlist .note { display: none; }
 
 /* ---------- Brand refresh: lighter purple, more yellow, school-print headings ---------- */
-/* Headings use Playpen Sans (free, open licence) until a licensed version of
+/* Headings use Grandstander (free, open licence) until a licensed version of
    Teaching Print is added. Teaching Print is only free for personal use. */
 :root[data-look="modern"][data-theme="classic"] {
   --main: #6B48A8;
@@ -1841,7 +1851,7 @@ button.partner-card {
 [data-look="modern"][data-theme="classic"] h1,
 [data-look="modern"][data-theme="classic"] h2,
 [data-look="modern"][data-theme="classic"] h3 {
-  font-family: 'Teaching Print', 'Playpen Sans', 'Manrope', sans-serif;
+  font-family: 'Teaching Print', 'Grandstander', 'Manrope', sans-serif;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
@@ -1870,13 +1880,13 @@ button.partner-card {
 /* T-Kits */
 .tkits-sub {
   margin: -8px 0 12px;
-  font-family: 'Playpen Sans', sans-serif;
+  font-family: 'Grandstander', sans-serif;
   font-size: clamp(1.2rem, 2.6vw, 1.6rem);
   font-weight: 600;
   color: var(--main);
 }
 
-/* ---------- The Five T's: connected pillars stepping down to THRIVE ---------- */
+/* ---------- The Five T's: connected pillars climbing up to THRIVE ---------- */
 .five-ts { --H: 300px; --drop: 0.16; --gap: 0px; max-width: 900px; margin: 32px auto 0; }
 .five-steps {
   position: relative;
@@ -1888,7 +1898,7 @@ button.partner-card {
 }
 .five-steps.open { --gap: 14px; }
 .pillar {
-  --step: calc(var(--H) * (1 - var(--i) * var(--drop)));
+  --step: calc(var(--H) * (1 - (4 - var(--i)) * var(--drop)));
   position: relative;
   flex: 1;
   height: var(--step);
@@ -1931,7 +1941,7 @@ button.partner-card {
 .five-steps.open .pillar.on { transform: translateY(-6px); }
 .pillar-num { font-size: 0.8rem; font-weight: 700; opacity: 0.75; }
 .pillar-name {
-  font-family: 'Playpen Sans', sans-serif;
+  font-family: 'Grandstander', sans-serif;
   font-size: clamp(0.75rem, 1.8vw, 1.15rem);
   font-weight: 800;
   letter-spacing: 0.04em;
@@ -1941,7 +1951,7 @@ button.partner-card {
   --w: calc((100% - 4 * var(--gap)) / 5);
   position: absolute;
   left: calc(var(--i) * (var(--w) + var(--gap)) + var(--w) / 2);
-  bottom: calc(var(--H) * (1 - var(--i) * var(--drop)));
+  bottom: calc(var(--H) * (1 - (4 - var(--i)) * var(--drop)));
   width: 60px;
   height: 100px;
   margin-left: -30px;
@@ -1990,18 +2000,8 @@ button.partner-card {
     repeating-linear-gradient(90deg, var(--accent) 0 7px, transparent 7px 12px) left 0.62em / 100% 2px no-repeat,
     linear-gradient(var(--logo), var(--logo)) left 1.02em / 100% 2px no-repeat;
 }
-/* Dotted yellow copy of the name behind it, slightly offset, like the logo */
-.name-dots {
-  position: absolute;
-  inset: 2px auto auto 6px;
-  transform: translate(-4px, 4px);
-  color: transparent;
-  background: radial-gradient(circle, var(--accent) 1.6px, transparent 2px) 0 0 / 5px 5px;
-  -webkit-background-clip: text;
-  background-clip: text;
-  z-index: -1;
-}
-.member-name { isolation: isolate; }
+/* Yellow shade behind the name, like the logo */
+.member-name { text-shadow: 3px 3px 0 var(--accent); }
 .member-name::after { background: var(--accent); }
 .member-study {
   font-size: 0.66rem;
