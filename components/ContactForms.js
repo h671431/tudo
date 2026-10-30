@@ -20,6 +20,13 @@ const choices = [
     heading: "Put your products in TUDO kits",
     source: "Brand",
   },
+  {
+    id: "other",
+    name: "Other questions",
+    text: "A general question, or a request to see, change or delete the details you've sent us.",
+    heading: "Send us a message",
+    source: "Other / privacy",
+  },
 ];
 
 const consent = (
@@ -77,10 +84,29 @@ function BrandFields() {
   );
 }
 
+function OtherFields() {
+  return (
+    <>
+      <label>
+        Your name <input name="name" type="text" required />
+      </label>
+      <label>
+        Email <input name="email" type="email" required />
+      </label>
+      <label>
+        Message <textarea name="message" rows={4} required></textarea>
+      </label>
+    </>
+  );
+}
+
+const fields = { sponsors: SponsorFields, brands: BrandFields, other: OtherFields };
+
 export default function ContactForms() {
   const [active, setActive] = useState(null);
   const formRef = useRef(null);
   const choice = choices.find((c) => c.id === active);
+  const Fields = choice && fields[choice.id];
 
   function pick(id) {
     setActive(id);
@@ -110,7 +136,7 @@ export default function ContactForms() {
         <section className="contact-form" ref={formRef} key={choice.id}>
           <h2>{choice.heading}</h2>
           <EnquiryForm source={choice.source}>
-            {choice.id === "sponsors" ? <SponsorFields /> : <BrandFields />}
+            <Fields />
             {consent}
             <button className="btn" type="submit">
               Send

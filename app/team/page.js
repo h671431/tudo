@@ -1,4 +1,5 @@
 import Link from "next/link";
+import FlipCard from "../../components/FlipCard";
 
 export const metadata = { title: "Meet the Team" };
 
@@ -61,22 +62,24 @@ export default function Team() {
         <section className="team-cards">
           {team.map((person) => (
             <div className="member" key={person.name}>
-              <div className="flip-card" tabIndex={0}>
-                <div className="flip-inner">
-                  <div className="flip-front">
-                    {person.photo ? (
-                      <img src={person.photo} alt={person.name} />
-                    ) : (
-                      <div className="flip-placeholder">Photo coming soon</div>
-                    )}
-                  </div>
-                  <div className="flip-back">
-                    <h3>{person.name}</h3>
-                    <p className="flip-study">{person.study}</p>
-                    <p>{person.bio || `More about ${person.name} coming soon.`}</p>
-                  </div>
-                </div>
-              </div>
+              <FlipCard
+                front={
+                  person.photo ? (
+                    <img src={person.photo} alt="" />
+                  ) : (
+                    <span className="flip-placeholder">Photo coming soon</span>
+                  )
+                }
+                back={
+                  <>
+                    <span className="flip-name">{person.name}</span>
+                    <span className="flip-study">{person.study}</span>
+                    <span className="flip-bio">
+                      {person.bio || `More about ${person.name} coming soon.`}
+                    </span>
+                  </>
+                }
+              />
               <p className="member-name">
                 {person.name}
               </p>

@@ -18,10 +18,9 @@ npm run dev     # http://localhost:3000
 
 ## Before launch
 
-- The forms email enquiries through FormSubmit (`components/EnquiryForm.js`) to
-  `formEmail` in `lib/site.js`. The first submission sends an activation email to that
-  address; click the link in it, and later submissions arrive in the inbox.
-- Remove the design picker when the team has decided: delete `components/DesignPicker.js`, its use in `app/layout.js` and `.design-picker` in `app/globals.css`.
+- The forms email enquiries through Web3Forms (`components/EnquiryForm.js`) using
+  `web3formsKey` in `lib/site.js`. The inbox they go to is set in the Web3Forms account.
+- Hide the design picker when the team has decided: set `showDesignPicker: false` in `lib/site.js`.
 - Privacy & Terms text is a placeholder and needs legal review.
 
 ## Deploy (Vercel)

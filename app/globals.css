@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Caveat:wght@600;700&family=Oswald:wght@500;600;700&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&family=Patrick+Hand&family=Grandstander:wght@600;700;800&display=swap');
+/* Fonts are loaded in app/layout.js with next/font and exposed as --font-* variables. */
 
 /* Fargepalett 1: oransje (standard) */
 :root {
@@ -26,14 +26,14 @@
 
 body {
   margin: 0;
-  font-family: 'Nunito', system-ui, sans-serif;
+  font-family: var(--font-manrope), system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
 }
 
 h1, h2, h3 {
-  font-family: 'Fredoka', 'Nunito', sans-serif;
+  font-family: var(--font-fredoka), var(--font-manrope), sans-serif;
   font-weight: 700;
   line-height: 1.1;
   color: var(--text);
@@ -75,7 +75,7 @@ select:focus-visible, textarea:focus-visible {
 }
 .logo img { height: 56px; width: auto; }
 .logo-tag {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-manrope), sans-serif;
   font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.3em;
@@ -173,7 +173,7 @@ main {
 .hero-logo svg { display: block; width: min(560px, 100%); height: auto; }
 .logo-fill { stroke: var(--logo-fill, #FFF8EE); }
 .hero p.tagline {
-  font-family: 'Caveat', cursive;
+  font-family: var(--font-caveat), cursive;
   font-weight: 700;
   font-size: clamp(1.9rem, 4.5vw, 2.8rem);
   line-height: 1.15;
@@ -185,7 +185,7 @@ main {
 .hero-content.centered { text-align: center; }
 .centered .hero-logo svg { width: min(440px, 90%); margin: 0 auto; }
 .hero p.logo-sub {
-  font-family: 'Oswald', sans-serif;
+  font-family: var(--font-manrope), sans-serif;
   font-weight: 600;
   font-size: clamp(1rem, 2.6vw, 1.35rem);
   letter-spacing: 0.35em;
@@ -275,7 +275,7 @@ main {
   border-radius: 16px;
   background: var(--main);
   color: #fff;
-  font-family: 'Fredoka', sans-serif;
+  font-family: var(--font-fredoka), sans-serif;
   font-size: 1.6rem;
   font-weight: 700;
 }
@@ -297,7 +297,7 @@ main {
   box-shadow: 5px 5px 0 var(--text);
   text-decoration: none;
   color: #fff;
-  font-family: 'Fredoka', sans-serif;
+  font-family: var(--font-fredoka), sans-serif;
   font-size: 1.6rem;
   font-weight: 700;
   position: relative;
@@ -377,7 +377,7 @@ main {
   border-radius: 99px;
   background: var(--support);
   color: #fff;
-  font-family: 'Fredoka', sans-serif;
+  font-family: var(--font-fredoka), sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
 }
@@ -407,9 +407,6 @@ main {
 .form-error { color: #B42318; font-weight: 700; }
 
 /* For Teachers */
-.teachers section { margin-bottom: 56px; }
-.teachers-text { max-width: 60ch; }
-.teachers .about-card h3 { margin-top: 12px; }
 
 /* Lenke fra Playkits til lærerstøtte */
 .teacher-link {
@@ -479,7 +476,7 @@ main.legal h2 { font-size: 1.4rem; margin: 36px 0 8px; }
   margin: 32px 0 0;
   padding: 8px 0 8px 24px;
   border-left: 6px solid var(--main);
-  font-family: 'Fredoka', sans-serif;
+  font-family: var(--font-fredoka), sans-serif;
   font-size: clamp(1.4rem, 3vw, 1.9rem);
   font-weight: 600;
 }
@@ -629,7 +626,7 @@ footer {
   font-size: 0.9rem;
 }
 footer p:first-child {
-  font-family: 'Fredoka', sans-serif;
+  font-family: var(--font-fredoka), sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--accent);
@@ -754,17 +751,17 @@ footer a { color: var(--accent); }
 }
 [data-look="whiteboard"] body {
   background: var(--board);
-  font-family: 'Patrick Hand', 'Nunito', sans-serif;
+  font-family: var(--font-caveat), var(--font-manrope), sans-serif;
   font-size: 1.15rem;
 }
 [data-look="whiteboard"][data-pattern] body,
 [data-look="whiteboard"][data-pattern] .band,
 [data-look="whiteboard"][data-pattern] .club,
 [data-look="whiteboard"][data-pattern] .vision-teaser { background-image: none; }
-[data-look="whiteboard"] h1 { font-family: 'Caveat', cursive; }
+[data-look="whiteboard"] h1 { font-family: var(--font-caveat), cursive; }
 [data-look="whiteboard"] h2,
 [data-look="whiteboard"] h3 {
-  font-family: 'Oswald', sans-serif;
+  font-family: var(--font-manrope), sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -840,7 +837,7 @@ footer a { color: var(--accent); }
   border-radius: 2px;
   box-shadow: 2px 6px 12px rgba(0, 0, 0, 0.12);
   color: var(--text);
-  font-family: 'Patrick Hand', sans-serif;
+  font-family: var(--font-caveat), sans-serif;
   font-weight: 400;
   font-size: 1.7rem;
 }
@@ -908,7 +905,7 @@ footer a { color: var(--accent); }
   color: var(--text);
   border-top: 8px solid #CFCFCA;
 }
-[data-look="whiteboard"] footer p:first-child { font-family: 'Caveat', cursive; font-size: 1.9rem; color: var(--main); }
+[data-look="whiteboard"] footer p:first-child { font-family: var(--font-caveat), cursive; font-size: 1.9rem; color: var(--main); }
 [data-look="whiteboard"] footer a { color: var(--main); }
 [data-look="whiteboard"] footer::before { display: none; }
 
@@ -986,14 +983,14 @@ footer a { color: var(--accent); }
 
 [data-look="modern"] body {
   background: var(--page);
-  font-family: 'Manrope', system-ui, sans-serif;
+  font-family: var(--font-manrope), system-ui, sans-serif;
 }
 [data-look="modern"][data-pattern] body,
 [data-look="modern"][data-pattern] .hero { background-image: none; }
 [data-look="modern"] h1,
 [data-look="modern"] h2,
 [data-look="modern"] h3 {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-manrope), sans-serif;
   font-weight: 500;
   letter-spacing: -0.03em;
 }
@@ -1024,8 +1021,8 @@ footer a { color: var(--accent); }
 [data-look="modern"] .site-header nav a[aria-current="page"] { background: var(--tint); color: var(--text); }
 .header-cta { display: none; }
 [data-look="modern"] .header-cta { display: inline-flex; margin: 0 0 0 8px; }
-[data-look="modern"] .site-header nav a.header-cta,
-[data-look="modern"] .site-header nav a.header-cta:hover {
+[data-look="modern"] .site-header a.header-cta,
+[data-look="modern"] .site-header a.header-cta:hover {
   background: var(--text);
   color: #fff;
   padding: 5px 5px 5px 18px;
@@ -1048,16 +1045,16 @@ footer a { color: var(--accent); }
 [data-look="modern"] .blob.one { background: var(--blob-1); width: 460px; height: 460px; left: -120px; right: auto; top: -80px; }
 [data-look="modern"] .blob.two { background: var(--blob-2); width: 360px; height: 360px; right: -60px; bottom: -80px; }
 [data-look="modern"] .blob.three { display: block; border: none; background: var(--blob-3); width: 420px; height: 420px; right: 10%; top: -60px; }
-[data-look="modern"] .hero p.logo-sub { font-family: 'Manrope', sans-serif; font-weight: 600; letter-spacing: 0.4em; font-size: clamp(0.85rem, 2vw, 1.05rem); }
+[data-look="modern"] .hero p.logo-sub { font-family: var(--font-manrope), sans-serif; font-weight: 600; letter-spacing: 0.4em; font-size: clamp(0.85rem, 2vw, 1.05rem); }
 [data-look="modern"] .hero p.tagline {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-manrope), sans-serif;
   font-weight: 500;
   letter-spacing: -0.03em;
   font-size: clamp(1.8rem, 4.2vw, 3.2rem);
   line-height: 1.1;
 }
 [data-look="modern"] .hero p { font-weight: 500; }
-[data-look="modern"] .hero h1 span { color: var(--support); font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+[data-look="modern"] .hero h1 span { color: var(--support); font-family: var(--font-serif), serif; font-style: italic; font-weight: 400; }
 [data-look="modern"] .hero .note,
 [data-look="modern"] .note {
   background: rgba(255, 255, 255, 0.6);
@@ -1129,7 +1126,7 @@ footer a { color: var(--accent); }
 }
 [data-look="modern"] .card:hover { transform: translateY(-4px); }
 [data-look="modern"] .phase { border-top: none; }
-[data-look="modern"] .phase-label { font-family: 'Instrument Serif', serif; font-style: italic; text-transform: none; letter-spacing: 0; font-size: 1.3rem; font-weight: 400; }
+[data-look="modern"] .phase-label { font-family: var(--font-serif), serif; font-style: italic; text-transform: none; letter-spacing: 0; font-size: 1.3rem; font-weight: 400; }
 [data-look="modern"] .step-num,
 [data-look="modern"] .card:nth-child(n) .step-num {
   width: auto;
@@ -1137,7 +1134,7 @@ footer a { color: var(--accent); }
   display: block;
   background: none;
   color: var(--support);
-  font-family: 'Instrument Serif', serif;
+  font-family: var(--font-serif), serif;
   font-weight: 400;
   font-size: 3.2rem;
   line-height: 1;
@@ -1149,7 +1146,7 @@ footer a { color: var(--accent); }
   box-shadow: none;
   border-radius: 28px;
   color: var(--text);
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-manrope), sans-serif;
   font-weight: 500;
   letter-spacing: -0.02em;
   font-size: 1.6rem;
@@ -1218,7 +1215,7 @@ footer a { color: var(--accent); }
   background: var(--text);
 }
 [data-look="modern"] footer p:first-child {
-  font-family: 'Instrument Serif', serif;
+  font-family: var(--font-serif), serif;
   font-style: italic;
   font-weight: 400;
   font-size: 2rem;
@@ -1229,7 +1226,6 @@ footer a { color: var(--accent); }
 
 @media (max-width: 700px) {
   [data-look="modern"] .site-header { border-radius: 24px; padding: 10px 14px; }
-  [data-look="modern"] .header-cta { display: none; }
   [data-look="modern"] .section { padding: 56px 20px; }
   [data-look="modern"] main:not(.home main) { padding: 40px 20px; }
   [data-look="modern"] .blob.one { width: 280px; height: 280px; }
@@ -1247,7 +1243,7 @@ footer a { color: var(--accent); }
   flex-direction: column-reverse;
   align-items: flex-end;
   gap: 8px;
-  font-family: 'Manrope', system-ui, sans-serif;
+  font-family: var(--font-manrope), system-ui, sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
 }
@@ -1277,14 +1273,8 @@ footer a { color: var(--accent); }
 }
 .swatches i:first-child { margin-left: 0; }
 
-/* Mobil: menyen kan sveipes sidelengs, formene dempes */
+/* Mobil: formene dempes */
 @media (max-width: 700px) {
-  .site-header nav {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    width: 100%;
-  }
-  .site-header nav a { white-space: nowrap; }
   .blob.one { width: 200px; height: 200px; right: -120px; top: 6%; }
   .blob.two { width: 150px; height: 150px; right: -40px; bottom: -70px; }
   .blob.three { display: none; }
@@ -1390,7 +1380,7 @@ footer a { color: var(--accent); }
 .story-text { max-width: 52ch; margin: 0 auto; font-size: 1.15rem; }
 .source { margin-top: 16px; font-size: 0.8rem; opacity: 0.6; }
 .story-problem h2 { font-size: clamp(2rem, 4.6vw, 3.4rem); }
-.story-promise h2 span { color: var(--support); font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+.story-promise h2 span { color: var(--support); font-family: var(--font-serif), serif; font-style: italic; font-weight: 400; }
 
 /* How it works: four steps in a loop */
 .cycle {
@@ -1508,7 +1498,7 @@ footer a { color: var(--accent); }
 .soon-page .badge { margin-bottom: 8px; }
 .soon-page .about-grid, .contact .about-grid { margin: 32px 0; }
 .soon-page section, .contact section { margin-bottom: 48px; }
-.partner-grid { grid-template-columns: repeat(2, 1fr); }
+.partner-grid { grid-template-columns: repeat(3, 1fr); }
 .partner-card { text-decoration: none; color: inherit; transition: transform 0.2s; }
 .partner-card:hover { transform: translateY(-4px); }
 .partner-link { display: inline-block; margin-top: 12px; font-weight: 700; color: var(--support); }
@@ -1597,7 +1587,7 @@ button.partner-card {
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
-.team-lead em { font-family: 'Instrument Serif', serif; font-weight: 400; color: var(--support); }
+.team-lead em { font-family: var(--font-serif), serif; font-weight: 400; color: var(--support); }
 .team-why { max-width: 56ch; margin: 0 0 8px; font-size: 1.05rem; opacity: 0.85; }
 
 /* Tall staggered cards that flip over to show a short bio */
@@ -1610,11 +1600,21 @@ button.partner-card {
   padding: 0 0 90px;
 }
 .flip-card {
+  display: block;
+  width: 100%;
   aspect-ratio: 4 / 5;
+  padding: 0;
+  border: none;
+  border-radius: 24px;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
   perspective: 1200px;
-  outline: none;
   transition: opacity 0.3s, transform 0.3s;
 }
+.flip-inner, .flip-front, .flip-back { display: block; }
 .member { transition: opacity 0.3s; }
 .member:nth-child(even) { transform: translateY(40px); }
 /* Dim the others only while a card itself is hovered, not the gaps between */
@@ -1626,7 +1626,10 @@ button.partner-card {
   transform-style: preserve-3d;
 }
 .flip-card:hover .flip-inner,
-.flip-card:focus-visible .flip-inner { transform: rotateY(180deg); }
+.flip-card:focus-visible .flip-inner,
+.flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+/* Tapped open on a touch screen: tapping again flips it back */
+@media (hover: none) { .flip-card:not(.flipped):hover .flip-inner { transform: none; } }
 .flip-front,
 .flip-back {
   position: absolute;
@@ -1672,13 +1675,18 @@ button.partner-card {
   padding: 24px 20px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   color: #fff;
   background: linear-gradient(160deg, var(--panel-a), var(--panel-b));
 }
-.flip-back h3 { margin: 0; color: #fff; font-size: 1.6rem; }
-.flip-back .flip-study { margin: 2px 0 12px; font-weight: 700; color: var(--accent); }
-.flip-back p { margin: 0; font-size: 0.95rem; line-height: 1.45; }
+.flip-name { font-weight: 700; font-size: 1.5rem; line-height: 1.1; }
+.flip-back .flip-study { margin: 2px 0 10px; font-weight: 700; color: var(--accent); }
+.flip-bio { font-size: 0.92rem; line-height: 1.4; }
+@media (max-width: 1100px) {
+  .flip-back { padding: 18px 14px; }
+  .flip-name { font-size: 1.25rem; }
+  .flip-bio { font-size: 0.82rem; }
+}
 @media (max-width: 900px) {
   .team-cards { grid-template-columns: repeat(3, 1fr); }
   .member:nth-child(even) { transform: translateY(40px); }
@@ -1713,6 +1721,8 @@ button.partner-card {
   color: var(--text);
 }
 .hero-waitlist input:focus { outline: none; }
+/* The input has no outline of its own, so the whole pill shows keyboard focus */
+.hero-waitlist:has(input:focus-visible) { outline: 3px solid var(--main); outline-offset: 3px; }
 .hero-waitlist .btn { padding-top: 6px; padding-bottom: 6px; }
 .hero-waitlist .note,
 .hero-waitlist .form-error { flex-basis: 100%; margin: 6px 12px; font-size: 0.85rem; }
@@ -1772,7 +1782,7 @@ button.partner-card {
   align-items: flex-start;
   gap: 4px;
   margin: 0;
-  font-family: 'Caveat', cursive;
+  font-family: var(--font-caveat), cursive;
   font-size: 1.9rem;
   font-weight: 700;
   color: var(--support);
@@ -1827,14 +1837,14 @@ button.partner-card {
 [data-look="modern"] h1,
 [data-look="modern"] h2,
 [data-look="modern"] h3 {
-  font-family: 'Teaching Print', 'Grandstander', 'Manrope', sans-serif;
+  font-family: 'Teaching Print', var(--font-grandstander), var(--font-manrope), sans-serif;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 /* Yellow as a real brand colour: buttons, the header button and the eyebrows */
 [data-look="modern"] .btn,
-[data-look="modern"] .site-header nav a.header-cta,
-[data-look="modern"] .site-header nav a.header-cta:hover {
+[data-look="modern"] .site-header a.header-cta,
+[data-look="modern"] .site-header a.header-cta:hover {
   background: var(--accent);
   color: #2B1B47;
 }
@@ -1856,7 +1866,7 @@ button.partner-card {
 /* T-Kits */
 .tkits-sub {
   margin: -8px 0 12px;
-  font-family: 'Grandstander', sans-serif;
+  font-family: var(--font-grandstander), sans-serif;
   font-size: clamp(1.2rem, 2.6vw, 1.6rem);
   font-weight: 600;
   color: var(--main);
@@ -1918,7 +1928,7 @@ button.partner-card {
 .five-steps.open .pillar.on { transform: translateY(-6px); }
 .pillar-num { font-size: 0.75rem; font-weight: 700; opacity: 0.7; }
 .pillar-name {
-  font-family: 'Grandstander', sans-serif;
+  font-family: var(--font-grandstander), sans-serif;
   font-size: clamp(0.75rem, 1.8vw, 1.15rem);
   font-weight: 800;
   letter-spacing: 0.04em;
@@ -1969,7 +1979,7 @@ button.partner-card {
 /* ---------- Team names styled like the TUDO wordmark ---------- */
 /* Bold rounded lowercase in the logo purple, with the same yellow shade offset down and right */
 .member-name {
-  font-family: 'Fredoka', sans-serif;
+  font-family: var(--font-fredoka), sans-serif;
   font-size: 2.1rem;
   font-weight: 700;
   text-transform: lowercase;
@@ -2040,3 +2050,62 @@ button.partner-card {
 [data-look="modern"][data-theme="playful"] .pillar:nth-of-type(4) { --fill: #4CC38A; }
 [data-look="modern"][data-theme="playful"] .pillar:nth-of-type(5) { --fill: #F28C38; }
 [data-look="modern"][data-theme="playful"] .pillar.on { --fill: var(--accent); }
+
+/* ---------- Phone menu: links fold away behind a button ---------- */
+.site-header nav { margin-left: auto; }
+.menu-toggle { display: none; }
+@media (max-width: 700px) {
+  [data-look="modern"] .site-header { border-radius: 28px; flex-wrap: wrap; }
+  /* Logo, waiting list button and menu button share one row */
+  [data-look="modern"] .site-header { gap: 8px; padding: 8px 8px 8px 16px; }
+  [data-look="modern"] .logo svg { height: 34px; }
+  .logo-tag { font-size: 0.5rem; letter-spacing: 0.14em; }
+  [data-look="modern"] .header-cta {
+    margin-left: auto;
+    font-size: 0.82rem;
+    gap: 8px;
+  }
+  [data-look="modern"] .site-header a.header-cta { padding: 4px 4px 4px 14px; }
+  [data-look="modern"] .header-cta::after { width: 28px; height: 28px; }
+  .menu-toggle {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: var(--tint);
+    cursor: pointer;
+  }
+  /* Three lines that turn into a cross when open */
+  .menu-icon,
+  .menu-icon::before,
+  .menu-icon::after {
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--text);
+    transition: transform 0.25s, background 0.25s;
+  }
+  .menu-icon { position: relative; }
+  .menu-icon::before,
+  .menu-icon::after { content: ""; position: absolute; left: 0; }
+  .menu-icon::before { top: -6px; }
+  .menu-icon::after { top: 6px; }
+  .menu-open .menu-icon { background: transparent; }
+  .menu-open .menu-icon::before { transform: translateY(6px) rotate(45deg); }
+  .menu-open .menu-icon::after { transform: translateY(-6px) rotate(-45deg); }
+
+  /* The links open as a list under the bar */
+  .site-header nav {
+    display: none;
+    order: 10;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 6px 0 4px;
+  }
+  .menu-open nav { display: flex; }
+  [data-look="modern"] .site-header nav a { padding: 10px 14px; font-size: 1rem; }
+}

@@ -35,7 +35,7 @@ export default function Privacy() {
 
       <h2>Services we use</h2>
       <p>
-        Our forms are delivered to our email through FormSubmit, and the website
+        Our forms are delivered to our email through Web3Forms, and the website
         is hosted by Vercel. These services process data on our behalf so the
         website and forms can work.
       </p>
@@ -58,7 +58,7 @@ export default function Privacy() {
         You can ask to see, correct or delete the details we hold about you at
         any time, in line with South Africa&apos;s Protection of Personal
         Information Act (POPIA) and, where it applies, the GDPR. Just send us a
-        message through the contact form.
+        message through the contact form (choose &quot;Other questions&quot;).
       </p>
 
       <h2>Terms of use</h2>

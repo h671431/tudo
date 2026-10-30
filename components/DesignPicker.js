@@ -14,19 +14,24 @@ const palettes = [
 ];
 
 export default function DesignPicker() {
-  const [theme, setTheme] = useState("classic");
+  // null until the saved choice is read, so the first render doesn't reset the
+  // palette the early script in app/layout.js already applied.
+  const [theme, setTheme] = useState(null);
   const [open, setOpen] = useState(false);
 
   // Load the saved choice once on the client.
   useEffect(() => {
     try {
       const saved = localStorage.getItem("tudo-palette");
-      if (palettes.some((p) => p.id === saved)) setTheme(saved);
-    } catch (e) {}
+      setTheme(palettes.some((p) => p.id === saved) ? saved : "classic");
+    } catch (e) {
+      setTheme("classic");
+    }
   }, []);
 
   // Apply to <html> and save.
   useEffect(() => {
+    if (!theme) return;
     document.documentElement.dataset.theme = theme;
     try {
       localStorage.setItem("tudo-palette", theme);
@@ -37,7 +42,7 @@ export default function DesignPicker() {
     <div className={`design-picker${open ? "" : " closed"}`}>
       <button className="picker-toggle" aria-expanded={open} onClick={() => setOpen(!open)}>
         <span className="swatches" aria-hidden="true">
-          {palettes.find((p) => p.id === theme).colors.map((c) => (
+          {palettes.find((p) => p.id === (theme || "classic")).colors.map((c) => (
             <i key={c} style={{ background: c }} />
           ))}
         </span>

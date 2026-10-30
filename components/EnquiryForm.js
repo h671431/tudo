@@ -3,14 +3,8 @@
 import { useState } from "react";
 import { site } from "../lib/site";
 
-// Sends the form by email to site.formEmail.
-// With site.web3formsKey set, it goes through Web3Forms (get a free key at
-// web3forms.com with that email address). Without a key it falls back to
-// FormSubmit, which needs a one-time activation from the inbox.
-const useWeb3Forms = Boolean(site.web3formsKey);
-const endpoint = useWeb3Forms
-  ? "https://api.web3forms.com/submit"
-  : `https://formsubmit.co/ajax/${site.formEmail}`;
+// Sends the form by email through Web3Forms, using site.web3formsKey.
+const endpoint = "https://api.web3forms.com/submit";
 
 // Give up after this long, so the form never hangs on "Sending…".
 const timeoutMs = 15000;
@@ -26,14 +20,9 @@ export default function EnquiryForm({ source, className, sentText, children }) {
 
     const data = Object.fromEntries(new FormData(e.currentTarget));
     data.source = source;
-    if (useWeb3Forms) {
-      data.access_key = site.web3formsKey;
-      data.subject = `New ${source} enquiry – Tudo`;
-      data.from_name = "Tudo website";
-    } else {
-      data._subject = `New ${source} enquiry – Tudo`;
-      data._template = "table";
-    }
+    data.access_key = site.web3formsKey;
+    data.subject = `New ${source} enquiry – Tudo`;
+    data.from_name = "Tudo website";
 
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
