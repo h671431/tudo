@@ -1886,7 +1886,7 @@ button.partner-card {
   color: var(--main);
 }
 
-/* ---------- The Five T's: connected pillars climbing up to THRIVE ---------- */
+/* ---------- The Five T's: T-shaped pillars climbing up to THRIVE ---------- */
 .five-ts { --H: 300px; --drop: 0.16; --gap: 0px; max-width: 900px; margin: 32px auto 0; }
 .five-steps {
   position: relative;
@@ -1899,41 +1899,50 @@ button.partner-card {
 .five-steps.open { --gap: 14px; }
 .pillar {
   --step: calc(var(--H) * (1 - (4 - var(--i)) * var(--drop)));
+  --bar: 64px;
+  --purple:
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.10) 0 6px, transparent 6px 16px),
+    linear-gradient(180deg, var(--panel-a), var(--panel-b));
   position: relative;
   flex: 1;
   height: var(--step);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  padding: 26px 6px 12px;
+  padding: 0;
   border: none;
-  border-radius: 0;
+  background: none;
   font: inherit;
   color: #fff;
   cursor: pointer;
-  /* Fluted column: soft vertical grooves over the purple */
-  background:
-    repeating-linear-gradient(90deg, rgba(255,255,255,0.10) 0 6px, transparent 6px 16px),
-    linear-gradient(180deg, var(--panel-a), var(--panel-b));
-  transition: background 0.3s, color 0.3s, border-radius 0.35s, transform 0.3s;
+  transition: color 0.3s, transform 0.3s;
 }
-/* The capital on top of each column */
-.pillar::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -3px;
-  right: -3px;
-  height: 14px;
-  background: rgba(255, 255, 255, 0.28);
-  border-bottom: 2px solid rgba(43, 27, 71, 0.15);
+/* Crossbar of the T, holding the number and name */
+.pillar-bar {
+  height: var(--bar);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  border-radius: 12px;
+  background: var(--purple);
+  transition: background 0.3s;
 }
-.pillar:first-of-type { border-top-left-radius: 14px; }
-.pillar:last-of-type { border-top-right-radius: 14px; }
-.five-steps.open .pillar { border-radius: 14px 14px 0 0; }
-.pillar.on {
-  color: #2B1B47;
+/* Stem of the T */
+.pillar-stem {
+  flex: 1;
+  width: 40%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  background: var(--purple);
+  transition: background 0.3s;
+}
+.stem-name { display: none; }
+.pillar.on { color: #2B1B47; }
+.pillar.on .pillar-bar,
+.pillar.on .pillar-stem {
   background:
     repeating-linear-gradient(90deg, rgba(255,255,255,0.25) 0 6px, transparent 6px 16px),
     linear-gradient(180deg, #FFE08A, var(--accent));
@@ -1977,8 +1986,10 @@ button.partner-card {
   .five-ts { --H: 260px; --drop: 0.11; }
   .pillar-num { display: none; }
   .five-steps.open { --gap: 6px; }
-  .pillar { padding-top: 22px; }
-  .pillar-name { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 0.85rem; }
+  .pillar { --bar: 30px; }
+  .pillar-bar .pillar-name { display: none; }
+  .pillar-stem { width: 48%; }
+  .stem-name { display: block; writing-mode: vertical-rl; transform: rotate(180deg); font-size: 0.85rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .five-hop { animation: none; }

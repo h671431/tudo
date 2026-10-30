@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 // The Five T's of TUDO as five connected pillars that climb from THINK up to THRIVE.
+// Each pillar is shaped as a T: a crossbar with the name, on a stem.
 // Hovering, focusing or tapping a pillar pulls the steps apart, highlights that pillar
 // and shows what it stands for. A figure stands on the active step and grows from a
 // small stick-figure child into a full person by THRIVE.
@@ -71,8 +72,15 @@ export default function FiveTs() {
             onFocus={() => pick(i)}
             onClick={() => pick(i)}
           >
-            <span className="pillar-num">0{i + 1}</span>
-            <span className="pillar-name">{p.name}</span>
+            <span className="pillar-bar">
+              <span className="pillar-num">0{i + 1}</span>
+              <span className="pillar-name">{p.name}</span>
+            </span>
+            <span className="pillar-stem">
+              <span className="pillar-name stem-name" aria-hidden="true">
+                {p.name}
+              </span>
+            </span>
           </button>
         ))}
       </div>
