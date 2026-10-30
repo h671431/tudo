@@ -1873,13 +1873,15 @@ button.partner-card {
 }
 
 /* ---------- The Five T's: T-shaped steps climbing up to THRIVE ---------- */
-.five-ts { --H: 300px; --drop: 0.16; max-width: 900px; margin: 32px auto 0; }
+.five-ts { --H: 260px; --drop: 0.16; max-width: 900px; margin: 4px auto 0; }
+[data-look="modern"] .home .five-section { padding-top: 40px; padding-bottom: 40px; }
+.five-section .five-info { margin-top: 16px; }
 .five-steps {
   position: relative;
   display: flex;
   align-items: flex-end;
   gap: var(--gap);
-  height: calc(var(--H) + 120px);
+  height: calc(var(--H) + 104px);
   transition: gap 0.35s ease;
 }
 .five-steps { --gap: 8px; }
