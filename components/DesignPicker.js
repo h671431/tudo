@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { site } from "../lib/site";
 
 // Colour palette chooser in the bottom-right corner, shown while the team
 // decides (site.showDesignPicker). "Now" is the current purple and yellow; the
@@ -23,9 +24,9 @@ export default function DesignPicker() {
   useEffect(() => {
     try {
       const saved = localStorage.getItem("tudo-palette");
-      setTheme(palettes.some((p) => p.id === saved) ? saved : "classic");
+      setTheme(palettes.some((p) => p.id === saved) ? saved : site.theme);
     } catch (e) {
-      setTheme("classic");
+      setTheme(site.theme);
     }
   }, []);
 
@@ -42,7 +43,7 @@ export default function DesignPicker() {
     <div className={`design-picker${open ? "" : " closed"}`}>
       <button className="picker-toggle" aria-expanded={open} onClick={() => setOpen(!open)}>
         <span className="swatches" aria-hidden="true">
-          {palettes.find((p) => p.id === (theme || "classic")).colors.map((c) => (
+          {palettes.find((p) => p.id === (theme || site.theme)).colors.map((c) => (
             <i key={c} style={{ background: c }} />
           ))}
         </span>

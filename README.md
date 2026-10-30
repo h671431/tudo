@@ -20,7 +20,8 @@ npm run dev     # http://localhost:3000
 
 - The forms email enquiries through Web3Forms (`components/EnquiryForm.js`) using
   `web3formsKey` in `lib/site.js`. The inbox they go to is set in the Web3Forms account.
-- Hide the design picker when the team has decided: set `showDesignPicker: false` in `lib/site.js`.
+- The colour palette is `theme` in `lib/site.js` (now `"playful"`; `"classic"` is the earlier purple and yellow).
+  Set `showDesignPicker: true` to show the palette chooser again.
 - Privacy & Terms text is a placeholder and needs legal review.
 
 ## Deploy (Vercel)

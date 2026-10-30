@@ -34,7 +34,7 @@ const earlyScript = `
 (function () {
   var d = document.documentElement;
   d.classList.add('js');
-  d.dataset.theme = 'classic'; d.dataset.pattern = 'none'; d.dataset.look = 'modern';
+  d.dataset.theme = '${site.theme}'; d.dataset.pattern = 'none'; d.dataset.look = 'modern';
   if (${site.showDesignPicker}) try {
     var t = localStorage.getItem('tudo-palette');
     if (/^(classic|palette|crisp|pastel|playful)$/.test(t)) d.dataset.theme = t; // ids from DesignPicker.js
