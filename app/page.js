@@ -27,7 +27,7 @@ export default function Home() {
               <span className="sr-only">tudo – Growing Into More</span>
               <Logo />
             </h1>
-            <p className="logo-sub">GROWING INTO MORE.</p>
+            <p className="logo-sub">GROWING INTO MORE</p>
             <p className="tagline">{tagline}</p>
             <EnquiryForm
               source="Waitlist"

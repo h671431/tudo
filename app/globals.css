@@ -1986,22 +1986,17 @@ button.partner-card {
 }
 
 /* ---------- Team names styled like the TUDO wordmark ---------- */
+/* Bold rounded lowercase in the logo purple, with the same yellow shade offset down and right */
 .member-name {
   font-family: 'Fredoka', sans-serif;
   font-size: 2.1rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: lowercase;
   color: var(--logo, #6B48A8);
   letter-spacing: 0;
-  padding: 2px 6px 0;
-  /* Writing lines, as in the logo: solid top and bottom, dashed yellow middle */
-  background:
-    linear-gradient(var(--logo), var(--logo)) left 0.12em / 100% 2px no-repeat,
-    repeating-linear-gradient(90deg, var(--accent) 0 7px, transparent 7px 12px) left 0.62em / 100% 2px no-repeat,
-    linear-gradient(var(--logo), var(--logo)) left 1.02em / 100% 2px no-repeat;
+  padding: 0;
+  text-shadow: 0.07em 0.07em 0 var(--accent);
 }
-/* Yellow shade behind the name, like the logo */
-.member-name { text-shadow: 3px 3px 0 var(--accent); }
 .member-name::after { background: var(--accent); }
 .member-study {
   font-size: 0.66rem;
