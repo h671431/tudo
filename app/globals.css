@@ -1511,7 +1511,24 @@ footer a { color: var(--accent); }
 @media (max-width: 480px) {
   .cycle, .year { grid-template-columns: 1fr; }
 }
-.kit-grid.two .kit-photo { aspect-ratio: 16 / 7; }
+/* T-Kits page: one kit per row, photo on the left and the contents on the right */
+.kit-grid.two { grid-template-columns: 1fr; gap: 32px; }
+.kit-grid.two .kit-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 32px;
+  align-items: stretch;
+  padding: 24px;
+}
+.kit-grid.two .kit-photo { aspect-ratio: auto; min-height: 320px; height: 100%; margin: 0; }
+.kit-info { display: flex; flex-direction: column; }
+.kit-info .badge { align-self: flex-start; }
+.kit-grid.two .kit-card h2 { margin: 10px 0 8px; }
+.kit-grid.two .kit-items li { padding: 6px 0; }
+@media (max-width: 800px) {
+  .kit-grid.two .kit-card { grid-template-columns: 1fr; gap: 16px; padding: 20px; }
+  .kit-grid.two .kit-photo { min-height: 0; aspect-ratio: 16 / 9; }
+}
 
 /* ---------- Moving colour background behind every page ---------- */
 .bg-orbs {

@@ -52,22 +52,24 @@ export default function Playkits() {
         {kits.map((kit) => (
           <div className="kit-card" key={kit.name}>
             <div className="placeholder-img kit-photo">Photo coming soon</div>
-            <span className="badge">{kit.age}</span>
-            <h2>{kit.name}</h2>
-            <ul className="kit-items">
-              {kit.items.map(([area, item]) => (
-                <li key={area}>
-                  <strong>{area}</strong>
-                  <span>{item}</span>
+            <div className="kit-info">
+              <span className="badge">{kit.age}</span>
+              <h2>{kit.name}</h2>
+              <ul className="kit-items">
+                {kit.items.map(([area, item]) => (
+                  <li key={area}>
+                    <strong>{area}</strong>
+                    <span>{item}</span>
+                  </li>
+                ))}
+                <li>
+                  <strong>Guide</strong>
+                  <span>Activity cards, DIY ideas and short videos</span>
                 </li>
-              ))}
-              <li>
-                <strong>Guide</strong>
-                <span>Activity cards, DIY ideas and short videos</span>
-              </li>
-            </ul>
-            <div className="kit-actions">
-              <OrderButton kit={kit.name} />
+              </ul>
+              <div className="kit-actions">
+                <OrderButton kit={kit.name} />
+              </div>
             </div>
           </div>
         ))}
