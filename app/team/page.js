@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = { title: "Meet the Team" };
 
 // The team behind Tudo. The front of each card shows the photo, with the name
-// underneath; the back shows what we study and a short bio. Add a photo to public/team/ and set
+// underneath styled like the TUDO wordmark and the study (and `role`, once set) as its tagline; the back shows what we study and a short bio. Add a photo to public/team/ and set
 // `photo` to show it. Leave `bio` out until the person has written their own.
 const team = [
   {
@@ -77,8 +77,16 @@ export default function Team() {
                   </div>
                 </div>
               </div>
-              <p className="member-name">{person.name}</p>
-              <p className="member-study">{person.study}</p>
+              <p className="member-name">
+                <span className="name-dots" aria-hidden="true">
+                  {person.name}
+                </span>
+                {person.name}
+              </p>
+              <p className="member-study">
+                {person.study}
+                {person.role && ` · ${person.role}`}
+              </p>
             </div>
           ))}
         </section>

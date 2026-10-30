@@ -11,7 +11,7 @@ export default function Header() {
     <header className="site-header">
       <Link className="logo" href="/" aria-label="tudo – home">
         <Logo />
-        <span className="logo-tag">PLAY WITH PURPOSE</span>
+        <span className="logo-tag">GROWING INTO MORE</span>
       </Link>
       <nav>
         {nav.map((item) => (

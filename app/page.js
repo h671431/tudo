@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Logo from "../components/Logo";
 import EnquiryForm from "../components/EnquiryForm";
+import FiveTs from "../components/FiveTs";
 
 const tagline = "Make learning fun, accessible and affordable.";
 
@@ -23,10 +24,10 @@ export default function Home() {
 
           <div className="hero-content centered">
             <h1 className="hero-logo">
-              <span className="sr-only">tudo – Play With Purpose</span>
+              <span className="sr-only">tudo – Growing Into More</span>
               <Logo />
             </h1>
-            <p className="logo-sub">PLAY WITH PURPOSE</p>
+            <p className="logo-sub">GROWING INTO MORE.</p>
             <p className="tagline">{tagline}</p>
             <EnquiryForm
               source="Waitlist"
@@ -47,6 +48,12 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="section five-section reveal">
+          <p className="eyebrow">The Five T&apos;s of TUDO</p>
+          <h2>Five steps to growing into more</h2>
+          <FiveTs />
+        </section>
+
         <section className="section story-problem reveal">
           <p className="eyebrow">The problem</p>
           <h2>
@@ -62,7 +69,7 @@ export default function Home() {
         </section>
 
         <section className="section story-promise reveal">
-          <p className="eyebrow">Educational playkits</p>
+          <p className="eyebrow">T-Kits · Tools for growing into more</p>
           <h2>
             You don&apos;t have to figure out what your child needs.{" "}
             <span>We&apos;ve already done it.</span>
@@ -92,12 +99,12 @@ export default function Home() {
         <section className="section story-price reveal">
           <div>
             <p className="eyebrow">Two kits at launch</p>
-            <h2>TUDO 2–3 and TUDO 3–4</h2>
+            <h2>T-Kit 2–3 and T-Kit 3–4</h2>
             <p className="story-text">
               Learning, movement, creativity, health and feelings in one box.
             </p>
             <Link className="btn secondary" href="/playkits">
-              See the playkits
+              See the T-Kits
             </Link>
           </div>
           <div className="price-card">

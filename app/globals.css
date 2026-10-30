@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Caveat:wght@600;700&family=Oswald:wght@500;600;700&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Caveat:wght@600;700&family=Oswald:wght@500;600;700&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&family=Patrick+Hand&family=Playpen+Sans:wght@500;600;700;800&display=swap');
 
 /* Fargepalett 1: oransje (standard) */
 :root {
@@ -919,7 +919,7 @@ footer a { color: var(--accent); }
   display: inline-block;
   opacity: 0;
   animation: write-char 0.2s ease-out forwards;
-  animation-delay: calc(var(--i) * 40ms + 2400ms);
+  animation-delay: calc(var(--i) * 40ms + 3100ms);
 }
 @keyframes write-char {
   from { opacity: 0; transform: translateY(4px) scale(0.85); }
@@ -934,8 +934,10 @@ footer a { color: var(--accent); }
 .write-anim .hero-logo .draw {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: draw-line var(--dur) linear var(--delay) both;
+  animation: draw-line var(--dur) linear calc(var(--delay) + 0.7s) both;
 }
+/* The dotted "tudo" appears first, already in place, before the pen traces over it */
+.write-anim .hero-logo .dots { animation: fade-in 0.5s ease-out 0.1s both; }
 /* Hidden until its turn, so the round pen tip doesn't show as a dot early */
 @keyframes draw-line {
   0% { stroke-dashoffset: 1; opacity: 0; }
@@ -945,13 +947,13 @@ footer a { color: var(--accent); }
 .write-anim .hero-logo .pop,
 .write-anim .hero .btn,
 .write-anim .hero .note { animation: fade-in 0.5s ease-out both; }
-.write-anim .hero-logo .pop { animation-delay: 1.9s; }
-/* The rest appears together once "tudo" is written (about 1.8s) */
+.write-anim .hero-logo .pop { animation-delay: 2.6s; }
+/* The rest appears together once "tudo" is written (about 2.5s) */
 .write-anim .hero .logo-sub,
-.write-anim .hero .tagline { animation: fade-in 0.4s ease-out 1.8s both; }
+.write-anim .hero .tagline { animation: fade-in 0.4s ease-out 2.5s both; }
 .write-anim .hero .btn,
-.write-anim .hero .note { animation-delay: 1.9s; animation-duration: 0.4s; }
-.write-anim .hero .hero-waitlist { animation: fade-in 0.4s ease-out 1.9s both; }
+.write-anim .hero .note { animation-delay: 2.6s; animation-duration: 0.4s; }
+.write-anim .hero .hero-waitlist { animation: fade-in 0.4s ease-out 2.6s both; }
 @keyframes fade-in { from { opacity: 0; transform: translateY(6px); } }
 
 /* Uttrykk «Modern»: rolig og redaksjonelt, myk gradient, hvite paneler og pilleknapper */
@@ -1813,3 +1815,197 @@ button.partner-card {
 .team-page .hover-hint { top: -22px; }
 /* The hero waiting list stays one line while sending */
 .hero-waitlist .note { display: none; }
+
+/* ---------- Brand refresh: lighter purple, more yellow, school-print headings ---------- */
+/* Headings use Playpen Sans (free, open licence) until a licensed version of
+   Teaching Print is added. Teaching Print is only free for personal use. */
+:root[data-look="modern"][data-theme="classic"] {
+  --main: #6B48A8;
+  --support: #6B48A8;
+  --highlight: #6B48A8;
+  --accent: #FFC93C;
+  --accent-soft: #FFF3CF;
+  --main-soft: #F1EAFA;
+  --logo: #6B48A8;
+  --logo-dots: #FFC93C;
+  --hero-bg: #FBF5FF;
+  --tint: #FFF1C7;
+  --blob-1: #FFE08A;
+  --blob-2: #FFD45C;
+  --blob-3: #D9C8F2;
+  --panel-a: #8A68C4;
+  --panel-b: #6B48A8;
+  --soft-a: #FFF6D9;
+  --soft-b: #FFE7A3;
+}
+[data-look="modern"][data-theme="classic"] h1,
+[data-look="modern"][data-theme="classic"] h2,
+[data-look="modern"][data-theme="classic"] h3 {
+  font-family: 'Teaching Print', 'Playpen Sans', 'Manrope', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+/* Yellow as a real brand colour: buttons, the header button and the eyebrows */
+[data-look="modern"][data-theme="classic"] .btn,
+[data-look="modern"][data-theme="classic"] .site-header nav a.header-cta,
+[data-look="modern"][data-theme="classic"] .site-header nav a.header-cta:hover {
+  background: var(--accent);
+  color: #2B1B47;
+}
+[data-look="modern"][data-theme="classic"] .btn::after { background: var(--main); color: #fff; }
+[data-look="modern"][data-theme="classic"] .btn.secondary { background: #fff; }
+[data-look="modern"][data-theme="classic"] .btn.secondary::after { background: var(--accent); color: #2B1B47; }
+[data-look="modern"][data-theme="classic"] .eyebrow {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #2B1B47;
+}
+[data-look="modern"][data-theme="classic"] .story-problem h2,
+[data-look="modern"][data-theme="classic"] .story-promise h2 span { color: var(--accent); }
+[data-look="modern"][data-theme="classic"] .story-promise h2 span { color: var(--main); }
+[data-look="modern"][data-theme="classic"] .site-header nav a[aria-current="page"] { background: var(--accent-soft); }
+
+/* T-Kits */
+.tkits-sub {
+  margin: -8px 0 12px;
+  font-family: 'Playpen Sans', sans-serif;
+  font-size: clamp(1.2rem, 2.6vw, 1.6rem);
+  font-weight: 600;
+  color: var(--main);
+}
+
+/* ---------- The Five T's: connected pillars stepping down to THRIVE ---------- */
+.five-ts { --H: 300px; --drop: 0.16; --gap: 0px; max-width: 900px; margin: 32px auto 0; }
+.five-steps {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: var(--gap);
+  height: calc(var(--H) + 120px);
+  transition: gap 0.35s ease;
+}
+.five-steps.open { --gap: 14px; }
+.pillar {
+  --step: calc(var(--H) * (1 - var(--i) * var(--drop)));
+  position: relative;
+  flex: 1;
+  height: var(--step);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 26px 6px 12px;
+  border: none;
+  border-radius: 0;
+  font: inherit;
+  color: #fff;
+  cursor: pointer;
+  /* Fluted column: soft vertical grooves over the purple */
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.10) 0 6px, transparent 6px 16px),
+    linear-gradient(180deg, var(--panel-a), var(--panel-b));
+  transition: background 0.3s, color 0.3s, border-radius 0.35s, transform 0.3s;
+}
+/* The capital on top of each column */
+.pillar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -3px;
+  right: -3px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.28);
+  border-bottom: 2px solid rgba(43, 27, 71, 0.15);
+}
+.pillar:first-of-type { border-top-left-radius: 14px; }
+.pillar:last-of-type { border-top-right-radius: 14px; }
+.five-steps.open .pillar { border-radius: 14px 14px 0 0; }
+.pillar.on {
+  color: #2B1B47;
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.25) 0 6px, transparent 6px 16px),
+    linear-gradient(180deg, #FFE08A, var(--accent));
+}
+.five-steps.open .pillar.on { transform: translateY(-6px); }
+.pillar-num { font-size: 0.8rem; font-weight: 700; opacity: 0.75; }
+.pillar-name {
+  font-family: 'Playpen Sans', sans-serif;
+  font-size: clamp(0.75rem, 1.8vw, 1.15rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+/* The figure stands on the active step and grows a little at each one */
+.five-figure {
+  --w: calc((100% - 4 * var(--gap)) / 5);
+  position: absolute;
+  left: calc(var(--i) * (var(--w) + var(--gap)) + var(--w) / 2);
+  bottom: calc(var(--H) * (1 - var(--i) * var(--drop)));
+  width: 60px;
+  height: 100px;
+  margin-left: -30px;
+  pointer-events: none;
+  transform-origin: bottom center;
+  transform: scale(calc(0.5 + var(--i) * 0.125));
+  transition: left 0.6s ease, bottom 0.6s ease, transform 0.6s ease, gap 0.35s ease;
+}
+.five-hop { width: 100%; height: 100%; animation: hop 0.6s ease; }
+@keyframes hop { 40% { transform: translateY(-18px); } }
+.five-figure svg { width: 100%; height: 100%; overflow: visible; }
+.five-figure .stick { stroke: var(--logo); opacity: calc(1 - var(--i) * 0.34); transition: opacity 0.6s; }
+.five-figure .solid { fill: var(--logo); stroke: var(--logo); opacity: calc((var(--i) - 1) * 0.34); transition: opacity 0.6s; }
+.five-info {
+  max-width: 520px;
+  margin: 24px auto 0;
+  min-height: 150px;
+}
+.five-info h3 { margin: 0; font-size: 2rem; color: var(--main); }
+.five-num { margin: 0; font-weight: 700; color: var(--main); opacity: 0.6; }
+.five-line { margin: 4px 0; font-weight: 700; font-size: 1.15rem; }
+@media (max-width: 600px) {
+  .five-ts { --H: 260px; --drop: 0.11; }
+  .pillar-num { display: none; }
+  .five-steps.open { --gap: 6px; }
+  .pillar { padding-top: 22px; }
+  .pillar-name { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 0.85rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .five-hop { animation: none; }
+  .five-figure, .pillar, .five-steps { transition: none; }
+}
+
+/* ---------- Team names styled like the TUDO wordmark ---------- */
+.member-name {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 2.1rem;
+  font-weight: 600;
+  text-transform: lowercase;
+  color: var(--logo, #6B48A8);
+  letter-spacing: 0;
+  padding: 2px 6px 0;
+  /* Writing lines, as in the logo: solid top and bottom, dashed yellow middle */
+  background:
+    linear-gradient(var(--logo), var(--logo)) left 0.12em / 100% 2px no-repeat,
+    repeating-linear-gradient(90deg, var(--accent) 0 7px, transparent 7px 12px) left 0.62em / 100% 2px no-repeat,
+    linear-gradient(var(--logo), var(--logo)) left 1.02em / 100% 2px no-repeat;
+}
+/* Dotted yellow copy of the name behind it, slightly offset, like the logo */
+.name-dots {
+  position: absolute;
+  inset: 2px auto auto 6px;
+  transform: translate(-4px, 4px);
+  color: transparent;
+  background: radial-gradient(circle, var(--accent) 1.6px, transparent 2px) 0 0 / 5px 5px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  z-index: -1;
+}
+.member-name { isolation: isolate; }
+.member-name::after { background: var(--accent); }
+.member-study {
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  color: var(--logo, #6B48A8);
+  opacity: 0.85;
+}

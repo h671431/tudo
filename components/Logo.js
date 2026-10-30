@@ -1,6 +1,7 @@
 // The TUDO logo: the letters as pen strokes on writing lines, in one colour
-// (--logo, purple by default). On the home page the "rule" and "draw" classes
-// animate it as handwriting, one stroke after another (see .write-anim in globals.css).
+// (--logo, purple by default), on top of a dotted copy (--logo-dots, yellow) that sits
+// slightly offset so the two overlap. On the home page the dots appear first, then the
+// "draw" strokes trace over them one after another (see .write-anim in globals.css).
 
 // Each stroke in writing order, with when it starts and how long it takes (seconds),
 // roughly in proportion to its length so the pen moves at an even speed.
@@ -20,6 +21,19 @@ export default function Logo({ className }) {
         <line className="rule" x1="4" y1="40" x2="336" y2="40" />
         <line className="rule" x1="4" y1="90" x2="336" y2="90" strokeDasharray="9 7" opacity="0.5" />
         <line className="rule" x1="4" y1="140" x2="336" y2="140" />
+      </g>
+      <g
+        className="dots"
+        fill="none"
+        stroke="var(--logo-dots, #FFC93C)"
+        strokeWidth="9"
+        strokeLinecap="round"
+        strokeDasharray="0 15"
+        transform="translate(-15 11)"
+      >
+        {strokes.map((s) => (
+          <path key={s.d} d={s.d} />
+        ))}
       </g>
       <g fill="none" stroke="var(--logo)" strokeWidth="27" strokeLinecap="round" strokeLinejoin="round">
         {strokes.map((s) => (

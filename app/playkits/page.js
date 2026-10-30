@@ -1,12 +1,12 @@
 import Link from "next/link";
 import OrderButton from "../../components/OrderButton";
 
-export const metadata = { title: "Playkits" };
+export const metadata = { title: "T-Kits" };
 
 // The two launch kits. Each has one item for each learning area, plus the guide.
 const kits = [
   {
-    name: "TUDO 2–3",
+    name: "T-Kit 2–3",
     age: "For 2 to 3 years",
     items: [
       ["Learning", "A chunky puzzle with shapes and animals"],
@@ -17,7 +17,7 @@ const kits = [
     ],
   },
   {
-    name: "TUDO 3–4",
+    name: "T-Kit 3–4",
     age: "For 3 to 4 years",
     items: [
       ["Learning", "Counting and matching game"],
@@ -40,10 +40,12 @@ const year = [
 export default function Playkits() {
   return (
     <main className="playkits">
-      <h1>Playkits</h1>
+      <h1>T-Kits</h1>
+      <p className="tkits-sub">Tools for growing into more.</p>
       <p className="lead">
-        One box for every stage. We choose the toys, you play and learn
-        together.
+        Developmental play experiences designed around children&apos;s
+        evolving needs. One box for every stage: we choose the toys, you play
+        and learn together.
       </p>
 
       <section className="kit-grid two">
