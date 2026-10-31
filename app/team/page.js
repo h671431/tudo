@@ -20,6 +20,7 @@ const team = [
   },
   {
     name: "Anele",
+    photo: "/team/anele.jpg",
     study: "Social Work",
     bio: "Bringing social work into our workshops, so every family and teacher feels supported.",
   },
