@@ -15,6 +15,7 @@ const team = [
   },
   {
     name: "Rhonda",
+    photo: "/team/rhonda.jpg",
     study: "Statistics",
     bio: "Here to help turn the statistics around, and to help NPOs get the support ECD needs.",
   },
