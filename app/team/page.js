@@ -9,6 +9,7 @@ export const metadata = { title: "Meet the Team" };
 const team = [
   {
     name: "Zweli",
+    photo: "/team/zweli.jpg",
     study: "Medicine",
     bio: "Bringing medicine into TUDO, so every kit supports how a young child's brain develops.",
   },
